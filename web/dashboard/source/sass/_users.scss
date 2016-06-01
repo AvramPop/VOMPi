@@ -1,0 +1,23 @@
+.users {
+  .counter-panel {
+    strong {
+      font-weight: 800;
+    }
+  }
+  .user-types {
+    padding: $card-padding;
+    p {
+      margin: $row-margin;
+    }
+    ul {
+      li {
+        font-weight: 400;
+        margin: $row-margin;
+      }
+    }
+  }
+
+  #editUser {
+    max-height: 75%;
+  }
+}

@@ -1,0 +1,31 @@
+.accent {
+  background-color: $accent-color;
+}
+
+.primary-color {
+  background-color: $primary-color !important;
+
+  &.dark {
+    background-color: $primary-color-dark !important;
+  }
+
+  &.light {
+    background-color: $primary-color-light !important;
+  }
+}
+
+.text-color {
+  color: $text-icons;
+
+  &.dark {
+    color: $primary-text-color;
+  }
+
+  &.light {
+    color: $secondary-text-color;
+  }
+}
+
+.divider {
+  color: $divider-color;
+}

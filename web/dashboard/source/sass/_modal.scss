@@ -1,0 +1,23 @@
+/**
+ *
+ * Modals
+ *
+ */
+
+ .modal {
+   max-height: 100%;
+   width: 1015px;
+   z-index: 1000;
+
+   .modal-header {
+     padding: 35px;
+
+     h4 {
+       margin: 0;
+     }
+   }
+
+   .modal-content {
+     padding: 0;
+   }
+ }

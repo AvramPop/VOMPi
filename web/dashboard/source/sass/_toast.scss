@@ -1,0 +1,49 @@
+/* ==========================================================================
+   TOAST MESSAGES
+   ========================================================================== */
+/**
+ * Message Container
+ */
+#toast-container {
+  position: fixed;
+  z-index: 10000;
+  display: block;
+
+  @include media('>desktop') {
+    top: 10%;
+    right: 7%;
+    max-width: 86%;
+  }
+
+  @include media('>mobile', '<=desktop') {
+    bottom: 7%;
+    left: 5%;
+    max-width: 90%;
+  }
+
+  @include media('<=mobile') {
+    bottom: 0;
+    min-width: 100%;
+  }
+
+  /**
+   * Message Types
+   */
+  .toast {
+    &.success {
+      background: $success;
+    }
+
+    &.error {
+      background: $error;
+    }
+
+    &.warning {
+      background: $warning;
+    }
+
+    &.info {
+      background: $info;
+    }
+  }
+}

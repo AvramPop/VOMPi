@@ -1,0 +1,106 @@
+/**
+ *
+ * Tour Edit Style
+ *
+ */
+ .tours-edit {
+
+   /*----------- Tour Edit Header -----------*/
+
+   .edit-tour-header {
+
+   }
+
+   /*----------- Tour Edit Content -----------*/
+
+   .edit-tour-content {
+
+     .row {
+       margin-bottom: 0;
+
+       /*----------- Day -----------*/
+
+       .day {
+
+         /*----------- Day Itinerary -----------*/
+
+         .itinerary {
+           padding: $card-padding;
+           border-top: 1px solid $divider-color;
+
+           /*----------- Itinerary Header -----------*/
+
+           .itinerary-header {
+             margin-bottom: 0;
+
+             .itinerary-title,
+             .itinerary-overview {
+               height: 38px;
+               padding: 0;
+             }
+
+             .itinerary-title {
+               display: inline-block;
+
+               h5 {
+                 &.uppercase {
+                   font-size: 1rem;
+                   display: inline-block;
+                 }
+               }
+             }
+
+             .itinerary-overview {
+               display: inline-block;
+
+               i.tooltip {
+                 margin-top: 7px;
+               }
+
+               .progress {
+                 background-color: $divider-color;
+                 top: 9px;
+                 width: 35%;
+
+                 .determinate {
+                   width: 70%;
+                   background-color: $accent-color;
+                 }
+               }
+             }
+           }
+
+           /*----------- Itinerary Content -----------*/
+
+           .itinerary-content {
+             display: block;
+             position: relative;
+             overflow: hidden;
+             width: 100%;
+
+             ul {
+               // width: calc(205px * 5);
+               &.itinerary-points {
+                 border: 0;
+                 display: inline-block;
+                 white-space: nowrap;
+
+                 li {
+                   // float: left;
+                   display: inline-block;
+                   min-height: 63px;
+                   text-overflow: ellipsis;
+                   vertical-align: top;
+                 }
+               }
+             }
+
+             .mCSB_scrollTools_horizontal {
+               margin: 0;
+             }
+           }
+         }
+       }
+     }
+   }
+ }

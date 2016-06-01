@@ -1,0 +1,24 @@
+.account {
+  .card-content {
+    padding: $col-padding;
+    .account-field {
+      margin: 20px 0;
+
+      .username {
+        &.input-field {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .password {
+      label {
+        display: block;
+      }
+    }
+  }
+
+  .btn {
+    background-color: #8BC34A;
+  }
+}

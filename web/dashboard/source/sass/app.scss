@@ -1,0 +1,47 @@
+/*=============================================>>>>>
+= MAIN SCSS FILE =
+===============================================>>>>>*/
+
+/*----------- HELPERS -----------*/
+
+@import '_include-media';
+@import '_web-fonts';
+@import '_variables';
+@import '_mixing';
+@import '_base-color';
+@import '_fonts';
+@import '_icons';
+@import '_toast';
+
+/*----------- BASE ELEMNTS -----------*/
+
+@import '_base';
+@import '_map-view';
+
+/*----------- MODAL ELEMENT -----------*/
+
+@import '_modal';
+
+/*----------- MATERIAL CARDS -----------*/
+
+@import '_cards';
+
+/*----------- TAB ELEMENT -----------*/
+
+@import '_tabs';
+
+/*----------- LOGIN PAGE -----------*/
+
+@import '_login';
+
+/*----------- LAYOUT TOPBAR -----------*/
+
+@import '_topbar';
+
+/*----------- LAYOUT SIDEBAR -----------*/
+
+@import '_sidebar';
+
+/*----------- LAYOUT MAIN CONTENT -----------*/
+
+@import '_dashboard';

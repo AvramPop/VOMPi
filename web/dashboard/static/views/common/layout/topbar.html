@@ -1,0 +1,48 @@
+<div class="navbar-fixed dash-topbar">
+    <nav class="primary-color dark">
+        <div class="nav-wrapper">
+            <div class="left">
+                <!--
+                    Icon Menu (workaround)
+                    It's included in sidebar.html template
+                    will avoid slide-out sidebar malfunction
+                -->
+                <form>
+                    <div class="input-field">
+                        <i class="material-icons prefix">search</i>
+                        <input id="search" type="text">
+                        <label for="search"></label>
+                    </div>
+                </form>
+            </div>
+            <ul id="nav-mobile" class="right">
+                <li>
+                    <a class="settings drop-down" data-alignment="right"
+                        data-activates='dropdown1'>
+                        <i class="material-icons">settings</i>
+                    </a>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a data-ui-sref="#">My profile</a></li>
+                        <li class="divider"></li>
+                        <li><a data-ui-sref="#">Language</a></li>
+                        <li class="divider"></li>
+                        <li><a data-ui-sref="#">Security</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="notifications drop-down" data-alignment="right"
+                        data-activates='dropdown2'>
+                        <i class="material-icons">notifications</i>
+                    </a>
+                    <ul id='dropdown2' class='dropdown-content'>
+                        <li><a data-ui-sref="#">1 notification</a></li>
+                        <li class="divider"></li>
+                        <li><a data-ui-sref="#">2nd notification</a></li>
+                        <li class="divider"></li>
+                        <li><a data-ui-sref="#">3rd notification</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,71 @@
+<nav class="row">
+    <div class="top-bar nav-wrapper blue medium col s12 center-align">
+        <div class="brand-logo left">
+            <div class="valign-wrapper">
+                <a data-ui-sref="web.home">
+                    <!-- <img class="responsive-img left"
+                        data-ng-src="assets/images/favicon.png"/> -->
+                    <span class="valign ubuntu bold white-text">
+                        {{homeVM.config.siteName}}
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="search-wrapper hide-on-med-and-down">
+            <form name="searchForm">
+                <div class="input-field">
+                    <input id="search" type="search" placeholder="Type here to search...">
+                    <label for="search"><i class="material-icons">search</i></label>
+                </div>
+            </form>
+        </div>
+        <ul class="right">
+            <li class="waves-effect waves-light">
+                <a><i class="material-icons">notifications</i></a>
+            </li>
+            <li class="waves-effect waves-light">
+                <a><i class="material-icons">settings</i></a>
+            </li>
+            <li class="waves-effect waves-light dropdown-button" data-activates="user-settings"
+                data-align="left" data-constrain-width="false">
+                <a class="user-avatar">
+                    <img data-ng-src="assets/images/avatar.jpg" class="responsive-img right">
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <ul id="user-settings" class="dropdown-content">
+                    <li class="center-align waves-effect">
+                        <a>
+                            <i class="material-icons small">account_circle</i>
+                            Profile
+                        </a>
+                    </li>
+                    <li class="center-align waves-effect">
+                        <a>
+                            <i class="material-icons small">airplanemode_active</i>
+                            My Trips
+                        </a>
+                    </li>
+                    <li class="center-align waves-effect">
+                        <a>
+                            <i class="material-icons small">help</i>
+                            Help
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="center-align waves-effect">
+                        <a>
+                            <i class="material-icons small">lock</i>
+                            Lock
+                        </a>
+                    </li>
+                    <li class="center-align waves-effect">
+                        <a>
+                            <i class="material-icons small">directions_run</i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

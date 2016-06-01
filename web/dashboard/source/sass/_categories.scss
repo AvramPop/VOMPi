@@ -1,0 +1,19 @@
+.categories {
+  .counter-panel {
+    strong {
+      font-weight: 800;
+    }
+  }
+  .top-categories {
+    padding: $card-padding;
+    p {
+      margin: $row-margin;
+    }
+    ul {
+      li {
+        font-weight: 400;
+        margin: $row-margin;
+      }
+    }
+  }
+}

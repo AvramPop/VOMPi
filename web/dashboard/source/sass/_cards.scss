@@ -1,0 +1,103 @@
+.card-panel {
+  /**
+   *
+   * Card With Header
+   *
+   */
+  &.with-header {
+    padding: 0;
+
+    /*----------- Header -----------*/
+
+    .card-header {
+      padding: $padding-medium $padding-medium 0;
+
+      .row {
+
+        /*----------- Header Title -----------*/
+
+        .card-title {
+          height: $topbar-default-height;
+
+          @include media('<=mobile') {
+            height: $topbar-mini-height;
+          }
+
+          /*----------- Back Arrow -----------*/
+
+          i {
+            float: left;
+            margin-right: $col-margin * 2;
+          }
+
+          /*----------- Title -----------*/
+
+          h4 {
+            display: inline-block;
+          }
+        }
+
+        /*----------- Header Icon Actions -----------*/
+
+        .card-actions {
+          height: $topbar-default-height;
+
+          @include media('<=mobile') {
+            height: $topbar-mini-height;
+          }
+
+          /*----------- Icons -----------*/
+
+          a {
+            margin-left: $col-margin;
+          }
+        }
+      }
+    }
+
+    /*----------- Content -----------*/
+
+    .card-content {
+      .row {
+        .col.s12 {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &.collection-list {
+    padding: 0;
+
+    li {
+      &.collection-header {
+
+        i {
+          font-size: 26px;
+          font-weight: 600;
+        }
+      }
+
+      &.collection-item {
+        &.avatar {
+          min-height: 0;
+
+          img {
+            &.circle {
+              width: 35px;
+              height: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.counter-panel {
+    font-size: 22px;
+    line-height: 35px;
+
+    i {
+      font-size: 35px;
+    }
+  }
+}

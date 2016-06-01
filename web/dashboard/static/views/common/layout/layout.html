@@ -1,0 +1,36 @@
+<!--=============================================>>>>>
+= HEADER =
+===============================================>>>>-->
+
+<header data-ng-include="'views/common/layout/topbar.html'"></header>
+
+<!--=============================================>>>>>
+= ASIDE =
+===============================================>>>>-->
+
+<aside data-ng-include="'views/common/layout/sidebar.html'"></aside>
+
+<!--=============================================>>>>>
+= WRAPPER =
+===============================================>>>>-->
+
+<main class="wrapper">
+    <!-- BreadCrumbs -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="breadcrumbs">
+               <a data-ui-sref="#" class="breadcrumb">Home</a>
+               <a data-ui-sref="#" class="breadcrumb">Level 1</a>
+               <a data-ui-sref="#" class="breadcrumb">Current</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="main" ui-view></div>
+</main>
+
+<!--=============================================>>>>>
+= FOOTER =
+===============================================>>>>-->
+
+<!-- <footer class="page-footer"></footer> -->

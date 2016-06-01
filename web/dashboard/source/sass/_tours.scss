@@ -1,0 +1,47 @@
+.tours {
+  .featured-tour {
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .counter-panel {
+    strong {
+      font-weight: 800;
+    }
+  }
+
+  .top-tours {
+    padding: $card-padding;
+
+    p {
+      margin: $row-margin;
+    }
+
+    ul {
+      li {
+        font-weight: 400;
+        margin: $row-margin;
+      }
+    }
+  }
+
+  #featuredTour {
+    width: 25%;
+
+      .modal-content {
+
+      img {
+        max-width: 40%;
+      }
+
+      .input-field {
+        i {
+          &.active {
+            color: $accent-color;
+          }
+        }
+      }
+    }
+  }
+}

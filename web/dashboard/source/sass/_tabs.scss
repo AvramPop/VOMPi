@@ -1,0 +1,17 @@
+.tabs {
+  &.edit-tab {
+
+    .indicator {
+      background-color: $accent-color;
+    }
+
+    li {
+      a, a:hover {
+        color: $divider-color;
+        &.active {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

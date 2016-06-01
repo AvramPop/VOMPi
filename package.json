@@ -1,0 +1,88 @@
+{
+  "name": "voting-app",
+  "version": "1.0.0",
+  "description": "A voting application for Romania",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "gulp start",
+    "apidoc": "./node_modules/apidoc/bin/apidoc -i ./server/handlers",
+    "postinstall": "postinstall.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kovacssupki/Voting-Platform.git"
+  },
+  "authors": [
+    "Alexandru-Robert Kovacs<alexandruk@fortech.ro>"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kovacssupki/Voting-Platform.git/issues"
+  },
+  "homepage": "https://github.com/kovacssupki/Voting-Platform.git#readme",
+  "apidoc": {
+    "title": "apiDoc for voting api",
+    "url": "http://localhost:8000/api/v1"
+  },
+  "dependencies": {
+    "apidoc": "^0.16.1",
+    "bluebird": "^3.3.5",
+    "bonafide": "0.0.3",
+    "cli-color": "^1.1.0",
+    "co": "^4.6.0",
+    "co-wait": "0.0.0",
+    "cron": "^1.1.0",
+    "crypto-js": "^3.1.6",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.4.1",
+    "electrolyte": "^0.2.3",
+    "grant": "^3.6.2",
+    "gulp-shell": "^0.5.2",
+    "install": "^0.7.3",
+    "jsonwebtoken": "^6.2.0",
+    "kcors": "^1.2.1",
+    "koa": "^1.2.0",
+    "koa-body": "^1.4.0",
+    "koa-mount": "^1.3.0",
+    "koa-passport": "^1.3.1",
+    "koa-route": "^2.4.2",
+    "koa-send": "^3.2.0",
+    "koa-session": "^3.3.1",
+    "koa-static-folder": "^0.1.6",
+    "koa-unless": "1.0.0",
+    "lodash": "^4.12.0",
+    "methods": "^1.1.2",
+    "mongoose": "^4.4.17",
+    "mongoose-double": "0.0.1",
+    "mongoose-timestamp": "^0.5.0",
+    "passport-local": "^1.0.0",
+    "purest": "^2.0.1",
+    "q": "^1.4.1",
+    "request": "^2.72.0",
+    "request-promise": "^3.0.0",
+    "sendgrid": "^2.0.0",
+    "thunkify": "^2.1.2",
+    "unirest": "^0.5.0"
+  },
+  "config": {
+    "unsafe-perm": true
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.1",
+    "gulp-linker": "^0.1.7",
+    "gulp-livereload": "^3.8.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-uglify": "^1.5.3",
+    "run-sequence": "^1.2.0",
+    "yargs": "^4.7.1"
+  }
+}

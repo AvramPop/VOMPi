@@ -1,0 +1,68 @@
+<ul id="dash-nav-mobile" class="side-nav fixed collection with-header dash-nav ">
+    <li class="collection-header collection-item avatar dash-nav-user">
+      <img data-ng-src="{{layoutVM.user.avatar}}" class="circle">
+      <p class="title text-color dark">{{layoutVM.user.name}}</p>
+      <p class="description text-color dark">{{layoutVM.user.role.type}}</p>
+    </li>
+    <li class="dash-nav-menu custom-scrollbar" custom-scrollbar-axis="y"
+        custom-scrollbar-theme="minimal-dark" custom-scrollbar-list="dash-nav-menu-list">
+        <ul class="dash-nav-menu-list">
+            <li ui-sref-active="active">
+                <a data-ui-sref="home">
+                    <i class="material-icons nav-icon">home</i>
+                    <span class="nav-icon">Home</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a data-ui-sref="pois">
+                    <i class="material-icons nav-icon">place</i>
+                    <span class="nav-icon">POIs</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a data-ui-sref="tours">
+                    <i class="material-icons nav-icon">map</i>
+                    <span class="nav-icon">Tours</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a data-ui-sref="layout.categories">
+                    <i class="material-icons nav-icon">label_outline</i>
+                    <span class="nav-icon">Categories</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a data-ui-sref="account">
+                    <i class="material-icons nav-icon">person</i>
+                    <span class="nav-icon">Account</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a data-ui-sref="#">
+                    <i class="material-icons nav-icon">attachment</i>
+                    <span class="nav-icon">Static pages</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a data-ui-sref="users">
+                    <i class="material-icons nav-icon">people</i>
+                    <span class="nav-icon">Users</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a data-ui-sref="#">
+                    <i class="material-icons nav-icon">dashboard</i>
+                    <span class="nav-icon">Application</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<a class="menu-collapse hide-on-large-only"
+    data-activates="dash-nav-mobile" data-egde="right" data-close-on-click="false">
+    <i class="material-icons menu-icon">menu</i>
+</a>
+<a class="menu-nano hide-on-med-and-down"
+    data-side-menu="dash-nav-mobile">
+    <i class="material-icons menu-icon">menu</i>
+</a>

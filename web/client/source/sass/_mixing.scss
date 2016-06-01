@@ -1,0 +1,71 @@
+@mixin font($family, $weight: 400, $style: normal) {
+  font-family: $family, sans-serif;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin background-size($value) {
+  -webkit-background-size: $value;
+  -moz-background-size: $value;
+  -o-background-size: $value;
+  background-size: $value;
+}
+
+@mixin property-transition($property) {
+  transition: $property .25s;
+}
+
+@mixin background-mask($color, $transition, $image) {
+  &:before {
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+    @if $image {
+      background: $color url($image);
+    }
+
+    @else {
+      background-color: $color;
+    }
+
+    @if $transition {
+      @include property-transition(background-color);
+    }
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+}
+
+@mixin input-focus($background, $color, $placeholder) {
+  &:focus {
+    color: $color;
+    background: $background;
+    @include box-shadow;
+    @include placeholder-color($placeholder);
+  }
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+  }
+}
