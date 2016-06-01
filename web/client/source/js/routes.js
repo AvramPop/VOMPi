@@ -2,24 +2,24 @@
 // APP ROUTER / SET PAGE ROUTES
 // =============================================================================
 
-( function () {
+(function() {
     'use strict';
 
     angular
-        .module( 'app' )
-        .config( Routes );
+        .module('app')
+        .config(Routes);
 
-    Routes.$inject = [ '$stateProvider', '$urlRouterProvider', ];
+    Routes.$inject = ['$stateProvider', '$urlRouterProvider',];
 
     /* @ngInject */
-    function Routes( $stateProvider, $urlRouterProvider ) {
+    function Routes($stateProvider, $urlRouterProvider) {
         // For any unmatched url, redirect to /home
-        $urlRouterProvider.otherwise( '/home' );
+        $urlRouterProvider.otherwise('/home');
 
         $stateProvider
-            .state( '404', {
+            .state('404', {
                 url: '/404',
                 templateUrl: 'views/error/404.html'
-            } );
+            });
     }
-} )();
+})();

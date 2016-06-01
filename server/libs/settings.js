@@ -3,7 +3,8 @@
 var p = require( '../../package.json' ),
     loadEnv = require( 'dotenv' ),
     version = p.version.split( '.' ).shift(),
-    apiVers = ( version > 0 ? '/v' + version : '' );
+    apiVers = ( version > 0 ? '/v' + version : '' ),
+    rootData = 'content';
 
 exports = module.exports = () => {
 
@@ -47,6 +48,8 @@ exports = module.exports = () => {
             limit: '20mb'
         },
         PATH: {
+            media: rootData,
+            avatar: rootData + '/avatar',
             tmp: 'tmp/'
         },
         TIMEOUT: 2000

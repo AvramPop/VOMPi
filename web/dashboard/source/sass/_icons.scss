@@ -1,0 +1,18 @@
+.icon {
+  color: $secondary-text-color;
+  float: left;
+}
+
+.n-icon {
+  @extend .icon;
+  line-height: $nav-icon;
+}
+
+.nav-icon {
+  @extend .n-icon;
+  margin-right: $col-margin;
+}
+
+.more-icon {
+  line-height: 30px;
+}

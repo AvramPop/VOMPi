@@ -6,16 +6,20 @@ let
     send = require( 'koa-send' ),
     mount = require( 'koa-mount' ),
     koa_body = require( 'koa-body' ),
+    Grant = require( 'grant' ).koa(),
     session = require( 'koa-session' ),
     serve = require( 'koa-static-folder' );
 
 // Custom validators
 require( '../validators' );
 
-exports = module.exports = ( routes, router, ACL, validate, logging, response, settings ) => {
-    let app = response( koa() );
+exports = module.exports = ( routes, router, ACL, validate, logging, response, AuthClient, settings, FileSystem ) => {
+    let app = response( koa() ),
+        grant = new Grant( require( './oauth' ) );
 
-    // app.keys = [ settings.SESSION.secret ];
+    /* Set APP keys */
+
+    app.keys = [ settings.SESSION.secret ];
 
     routes.forEach( ( r ) => {
         let handler = r.handler,
@@ -30,11 +34,21 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, s
         router[ r.method ]( r.path, handler, r.handlerName, access );
     } );
 
+    /* Create static content folder */
+
+    FileSystem.createPath( settings.PATH.media );
+
+    /* Create static avatar folder */
+
+    FileSystem.createPath( settings.PATH.avatar );
+
     app
+        .use( serve( './docs/api' ) )
         .use( serve( './web/common' ) )
         .use( serve( './web/client/public' ) )
-        .use( serve( './web/client/public/views' ) )
         .use( serve( './web/dashboard/static' ) )
+        .use( serve( './web/dashboard/static/views' ) )
+        .use( serve( './' + settings.PATH.media ) )
         .use( cors() )
         .use( function* ( next ) {
             // STATIC WEB PATH
@@ -44,6 +58,9 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, s
             } else if ( this.path === '/dashboard' || this.path === '/dashboard/' ) {
                 // DASHBOARD
                 yield send( this, 'web/dashboard/static/index.html' );
+            } else if ( this.path === '/docs/api' || this.path === '/docs/api/' ) {
+                // DASHBOARD
+                yield send( this, 'docs/api/index.html' );
             } else if ( this.path.indexOf( '/connect' ) !== -1 ) {
                 // EXCEPTION (for Facebook and Google routes connections)
                 yield next;
@@ -60,7 +77,7 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, s
             }
         } )
         .use( logging )
-        // .use( AuthClient )
+        .use( AuthClient )
         .use( session( app ) )
         .use( koa_body( {
             jsonLimit: settings.JSON.limit,
@@ -70,6 +87,7 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, s
                 multiples: true
             }
         } ) )
+        .use( mount( grant ) )
         // Verify Access Level
         .use( ACL( router.routes ) )
         .use( router.demux );
@@ -85,5 +103,7 @@ exports[ '@require' ] = [
     'middleware/validate',
     'middleware/logging',
     'middleware/response',
-    'libs/settings'
+    'middleware/authClient',
+    'libs/settings',
+    'libs/file-system'
 ];

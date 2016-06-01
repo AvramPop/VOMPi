@@ -1,0 +1,73 @@
+/**
+ *
+ * Main Wrapper Container
+ *
+ */
+.wrapper {
+  margin-left: inherit;
+  padding: 0 $padding-medium;
+  width: 100%;
+
+  @include media('>desktop') {
+    margin-left: $aside-width;
+    padding: 0 calc(#{$padding-medium} + #{$padding-small});
+    width: calc(100% - #{$aside-width});
+  };
+
+  /*----------- BREADCRUMBS -----------*/
+
+  nav {
+    box-shadow: none;
+    background-color: transparent;
+
+    .breadcrumbs {
+      a {
+        &.breadcrumb {
+          color: $secondary-text-color;
+        }
+      }
+    }
+  }
+
+  /*----------- MAIN VIEW -----------*/
+
+  .main {
+    // padding: 0 20px;
+
+    /**
+     *
+     * POIS Module
+     *
+     */
+    @import '_pois';
+
+    /**
+     *
+     * TOURS Module
+     *
+     */
+    @import '_tours';
+    @import '_tours-edit';
+
+    /**
+     *
+     * CATEGORIES Module
+     *
+     */
+    @import '_categories';
+
+    /**
+     *
+     * ACCOUNT Module
+     *
+     */
+    @import '_account';
+
+    /**
+     *
+     * USERS Module
+     *
+     */
+    @import '_users';
+  }
+}

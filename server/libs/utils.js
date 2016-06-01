@@ -13,6 +13,7 @@ exports = module.exports = ( Settings ) => {
             postData: postData,
             postFormData: postFormData,
             dateToString: dateToString,
+            isValidURL: isValidURL,
             getDateArrayString: getDateArrayString
         };
 
@@ -91,6 +92,17 @@ exports = module.exports = ( Settings ) => {
             ( date.getMonth() + 1 ), // getMonth() is zero-based
             dd = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
         return ''.concat( dd ).concat( '/' ).concat( mm ).concat( '/' ).concat( yyyy );
+    }
+
+    function isValidURL( x ) {
+        var pattern = new RegExp( '^(https?:\\/\\/)?' + // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$', 'i' ); // fragment locator
+
+        return !!pattern.test( x ); // jshint ignore:line
     }
 };
 

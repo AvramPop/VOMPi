@@ -1,0 +1,31 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc",
+      "closure"
+    ]
+  },
+  "source": {
+    "include": [
+      "./api",
+      "./validators",
+      "./libs",
+      "./middleware",
+      "./models",
+      "./handlers"
+    ],
+    "exclude": [
+      "./node_modules",
+      "./test",
+      "./doc",
+      "./configs"
+    ],
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "./docs/app",
+    "recurse": true
+  }
+}

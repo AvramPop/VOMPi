@@ -1,38 +1,50 @@
 // =============================================================================
 // SPACING
 // =============================================================================
-/*
+
+/**
  * Col-Margin
  */
 $col-margin: 15px;
 $row-margin: 5px 0;
-/*
+/**
  * Padding
  */
 $col-padding: .75rem;
+$padding-small: 10px;
+$padding-medium: 20px;
 $card-padding: 10px 20px;
 
 // =============================================================================
 // COLORS
 // =============================================================================
 
-/*
+/**
  * Template
  */
-$accent: #8BC34A;
-$primary: #607D8B;
-$primary-dark: #455A64;
-$primary-light: #CFD8DC;
+$accent-color: #8BC34A;
+$primary-color: #607D8B;
+$primary-color-dark: #455A64;
+$primary-color-light: #CFD8DC;
 
-/*
+/**
  * Font
  */
-$primary-text: #212121;
-$secondary-text: #727272;
-$text-icons: #FFFFFF;
-$dividers: #B6B6B6;
+$text-icons: #fff;
+$primary-text-color: #212121;
+$secondary-text-color: #727272;
 
-/*
+/**
+ * Dividers
+ */
+$divider-color: #b6b6b6;
+
+/**
+ * Block Comment
+ */
+$border-color: #e0e0e0;
+
+/**
  * Notifications
  */
 $success: #388e3c;

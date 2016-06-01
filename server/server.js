@@ -8,10 +8,10 @@ IoC.use( IoC.dir( './server' ) );
 
 // IoC create neccesary modules
 let app = IoC.create( 'app/app' ),
-    // database = IoC.create( 'libs/database' ),
+    database = IoC.create( 'libs/database' ),
     settings = IoC.create( 'libs/settings' ),
     echo = IoC.create( 'libs/echo' ),
-    // email = IoC.create( 'libs/email' ),
+    email = IoC.create( 'libs/email' ),
     // cron = IoC.create( 'cron/cron' ),
     server = http.createServer( app.callback() );
 

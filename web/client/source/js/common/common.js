@@ -2,9 +2,9 @@
 // MAPPLE COMMON MODULE
 // =============================================================================
 
-( function() {
+(function() {
     'use strict';
 
     angular
-        .module( 'app.common', [] );
-} )();
+        .module('app.common', []);
+})();

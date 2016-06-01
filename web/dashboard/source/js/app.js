@@ -2,7 +2,7 @@
 // APP / SET ANGULAR APPLICATION
 // =============================================================================
 
-( function() {
+( function () {
     'use strict';
 
     angular
@@ -10,17 +10,13 @@
             'ngAnimate',
             'ngResource',
             'ngCookies', // Angular Cookies
+            'ngMaterialize',
             'ui.router', // Angular UI Route
             'restangular', // Rest Angular services
-            'app.home',
-            'app.festival', // APP FESTIVAL Module
-            'app.program', // APP PROGRAM Module
-            'app.accommodation', // APP ACCOMMODATION Module
-            'app.tickets', // APP TICKETS Module
-            'app.news', // APP NEWS Module
-            'app.media', // APP MEDIA Module
-            'app.info', // APP INFO Module
+            'LocalStorageModule', // Angular Local Storage
             'app.common', // APP COMMON
-            'app.layout' // APP LAYOUT
+            'app.layout', // APP LAYOUT
+            'app.dashboard', // APP HOME Module
+            'app.account', // APP ACCOUNT Module
         ] );
 } )();

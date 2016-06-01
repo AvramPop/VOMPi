@@ -1,14 +1,36 @@
-<!-- TOP BAR -->
-<header class="" data-ng-include="'views/common/layout/topbar.html'"></header>
+<!--=============================================>>>>>
+= HEADER =
+===============================================>>>>-->
 
-<!-- SIDE BAR -->
-<aside class="" data-ng-include="'views/common/layout/sidebar.html'"></aside>
+<header data-ng-include="'views/common/layout/topbar.html'"></header>
 
-<!-- CONTENT -->
+<!--=============================================>>>>>
+= ASIDE =
+===============================================>>>>-->
+
+<aside data-ng-include="'views/common/layout/sidebar.html'"></aside>
+
+<!--=============================================>>>>>
+= WRAPPER =
+===============================================>>>>-->
+
 <main class="wrapper">
+    <!-- BreadCrumbs -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="breadcrumbs">
+               <a data-ui-sref="#" class="breadcrumb">Home</a>
+               <a data-ui-sref="#" class="breadcrumb">Level 1</a>
+               <a data-ui-sref="#" class="breadcrumb">Current</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
     <div class="main" ui-view></div>
 </main>
 
-<!-- FOOTER -->
-<div class="" data-ng-include="'views/common/layout/sponsors.html'"></div>
-<footer class="" data-ng-include="'views/common/layout/footer.html'"></footer>
+<!--=============================================>>>>>
+= FOOTER =
+===============================================>>>>-->
+
+<!-- <footer class="page-footer"></footer> -->

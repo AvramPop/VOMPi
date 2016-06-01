@@ -2,22 +2,31 @@
 // APP CONFIG / SET PAGE ROUTES
 // =============================================================================
 
-(function() {
+( function () {
     'use strict';
 
     angular
-        .module('app')
-        .config(Config);
+        .module( 'app' )
+        .config( Config );
 
-    Config.$inject = ['$httpProvider', '$logProvider', 'RestangularProvider', 'ENV'];
+    Config.$inject = [ '$httpProvider', '$logProvider',
+        'RestangularProvider', 'localStorageServiceProvider', 'ENV'
+    ];
 
     /* @ngInject */
-    function Config($httpProvider, $logProvider, RestangularProvider, ENV) {
-        console.info('Running CONFIG...');
+    function Config( $httpProvider, $logProvider,
+        RestangularProvider, localStorageServiceProvider, ENV ) {
+        console.info( 'Running CONFIG...' );
 
-        $logProvider.debugEnabled(false);
-        RestangularProvider.setBaseUrl(ENV.apiEndPoint);
-        // $httpProvider.interceptors.push('errorInterceptor');
-        // $httpProvider.interceptors.push('resourceInterceptor');
+        $logProvider.debugEnabled( false );
+        $httpProvider.interceptors.push( 'HTTPInterceptor' );
+
+        // API Base URL
+        RestangularProvider
+            .setBaseUrl( ENV.API.url );
+
+        localStorageServiceProvider
+            .setPrefix( ENV.APP.key )
+            .setStorageType( 'localStorage' );
     }
-})();
+} )();

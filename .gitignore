@@ -3,8 +3,11 @@ web/client/public/js
 web/dashboard/static/css
 web/dashboard/static/js
 web/common/vendors
+content/**
+doc/**
+docs/**
+out/**
 /node_modules
-/bower_components
 /npm-debug.log
 /logs
 /.*

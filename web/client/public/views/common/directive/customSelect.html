@@ -1,0 +1,7 @@
+<input class="dropdown-button" type="text" data-ng-model="filterColor" data-activates="selectResult"/>
+<ul id="selectResult" class="dropdown-content">
+    <li data-ng-repeat="color in colors  | filter: filterColor"
+        data-ng-click="selectColor(color.name)">
+        <a href="#!">{{color.name}}</a>
+    </li>
+</ul>

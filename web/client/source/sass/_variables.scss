@@ -1,77 +1,52 @@
 // =============================================================================
-// SPACING
+// FONTS
 // =============================================================================
-/*
- * Col-Margin
- */
-$col-margin: 15px;
-$row-margin: 5px 0;
-/*
- * Padding
- */
-$col-padding: .75rem;
-$card-padding: 10px 20px;
-
+$h2-size: 2.5rem;
+$h3-size: 2rem;
+$h4-size: 1.7rem;
 // =============================================================================
 // COLORS
 // =============================================================================
-
-/*
- * Template
- */
-$accent: #8BC34A;
-$primary: #607D8B;
-$primary-dark: #455A64;
-$primary-light: #CFD8DC;
-
-/*
- * Font
- */
-$primary-text: #212121;
-$secondary-text: #727272;
-$text-icons: #FFFFFF;
-$dividers: #B6B6B6;
-
-/*
- * Notifications
- */
-$success: #388e3c;
-$error: #c62828;
-$warning: #f9a825;
-$info: #1565c0;
-
-// =============================================================================
-// WIDTH
-// =============================================================================
-
-/*
- * Aside
- */
-$aside-width: 240px;
-
+$dark-blue-color: #1a237e;
+$medium-blue-color: #0d47a1;
+$light-blue-color: #01579b;
+$dark-red-color: #d50000;
+$medium-red-color: #b71c1c;
+$light-red-color: #e53935;
+//
 // =============================================================================
 // HEIGHT
 // =============================================================================
-
-/*
- * Nav-Icon
- */
-$nav-icon: 63px;
-
-/*
- * Topbar
- */
+//
+// Dropdown
+$dropdwon-height: 32px;
+$dropdown-item-height: 48px;
+//
+// Topbar
 $topbar-mini-height: 56px;
 $topbar-default-height: 64px;
-
+//
+// Collapsible
+$collapsible-mini-height: 42px;
+$collapsible-default-height: 45px;
+//
+// Trip info
+$info-container-height: 200px;
+//
+// =============================================================================
+// WIDTH
+// =============================================================================
+//
+// Aside
+$aside-width: 240px;
+//
+// =============================================================================
+// SPACING
+// =============================================================================
+//
+// Padding
+$col-padding: .75rem;
 // =============================================================================
 // RERSPONSIVE BREAK POINTs
 // =============================================================================
-$breakpoints: (
-  'phone': 320px,
-  'mobile': 600px,
-  'tablet': 768px,
-  'desktop': 992px,
-  'laptop': 1366px,
-  'ultrabook': 1600px
-) !default;
+$breakpoints: ( 'phone': 320px, 'mobile': 600px, 'tablet': 768px, 'desktop': 992px, 'laptop': 1366px, 'ultrabook': 1600px ) !default;

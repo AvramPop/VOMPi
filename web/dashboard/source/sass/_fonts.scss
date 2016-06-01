@@ -13,3 +13,28 @@
     @include font('Ubuntu', 700, normal);
   }
 }
+
+.title {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.description {
+  @extend .uppercase;
+  font-size: 12px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.list-header {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 1.2rem 0 0.912rem 1rem;
+}
+
+.label-size {
+  font-size: 1rem;
+  display: block;
+}

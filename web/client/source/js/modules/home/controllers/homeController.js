@@ -1,8 +1,8 @@
 // =============================================================================
-// HOME CONTROLLER
+// DASHBOARD CONTROLLER
 // =============================================================================
 
-( function() {
+( function () {
     'use strict';
 
     angular
@@ -16,6 +16,30 @@
         /* jshint validthis: true */
         var homeVM = this;
 
-        console.log( 'Loading Home Controller...' );
+        homeVM.config = {
+            state: $state.current.name,
+            siteName: ENV.appName,
+            copyRight: moment().format( 'YYYY' )
+        };
+
+        homeVM.colors = [ {
+            value: 1,
+            name: 'yellow'
+        }, {
+            value: 2,
+            name: 'red'
+        }, {
+            value: 3,
+            name: 'black'
+        }, {
+            value: 4,
+            name: 'blue'
+        } ];
+
+        activate();
+
+        function activate() {
+            console.log( homeVM );
+        }
     }
 } )();
