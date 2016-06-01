@@ -1,4 +1,4 @@
-# romania360
+# Voting application
 
 
 Voting application
