@@ -1,0 +1,15 @@
+@import url(web-fonts-url(('Ubuntu': ('700', '400', '300'))));
+
+.ubuntu {
+  &.light {
+    @include font('Ubuntu', 300, normal);
+  }
+
+  &.normal {
+    @include font('Ubuntu', 400, normal);
+  }
+
+  &.bold {
+    @include font('Ubuntu', 700, normal);
+  }
+}

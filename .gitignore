@@ -1,0 +1,15 @@
+web/client/public/css
+web/client/public/js
+web/dashboard/static/css
+web/dashboard/static/js
+web/common/vendors
+/node_modules
+/bower_components
+/npm-debug.log
+/logs
+/.*
+!.env
+!.bowerrc
+!.gitignore
+!.jsbeautifyrc
+!.jshintrc

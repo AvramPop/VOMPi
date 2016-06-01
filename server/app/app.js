@@ -1,0 +1,89 @@
+'use strict';
+
+let
+    koa = require( 'koa' ),
+    cors = require( 'kcors' ),
+    send = require( 'koa-send' ),
+    mount = require( 'koa-mount' ),
+    koa_body = require( 'koa-body' ),
+    session = require( 'koa-session' ),
+    serve = require( 'koa-static-folder' );
+
+// Custom validators
+require( '../validators' );
+
+exports = module.exports = ( routes, router, ACL, validate, logging, response, settings ) => {
+    let app = response( koa() );
+
+    // app.keys = [ settings.SESSION.secret ];
+
+    routes.forEach( ( r ) => {
+        let handler = r.handler,
+            access = ( r.access && r.access instanceof Array ) ? r.access : null,
+            needsValidation = r.validate instanceof Array && r.validate.length;
+
+        if ( needsValidation ) {
+            // let strict = r.strict === undefined ? true : r.strict;
+            handler = validate( r.validate, handler );
+        }
+
+        router[ r.method ]( r.path, handler, r.handlerName, access );
+    } );
+
+    app
+        .use( serve( './web/common' ) )
+        .use( serve( './web/client/public' ) )
+        .use( serve( './web/client/public/views' ) )
+        .use( serve( './web/dashboard/static' ) )
+        .use( cors() )
+        .use( function* ( next ) {
+            // STATIC WEB PATH
+            if ( this.path === '/' ) {
+                // WEB CLIENT
+                yield send( this, 'web/client/public/index.html' );
+            } else if ( this.path === '/dashboard' || this.path === '/dashboard/' ) {
+                // DASHBOARD
+                yield send( this, 'web/dashboard/static/index.html' );
+            } else if ( this.path.indexOf( '/connect' ) !== -1 ) {
+                // EXCEPTION (for Facebook and Google routes connections)
+                yield next;
+            } else {
+                // API PATH
+                if ( this.path.indexOf( settings.API.root + settings.API.version ) !== -1 ) {
+                    this.path = this.path.replace( settings.API.root + settings.API.version, '' );
+                    yield next;
+                } else {
+                    // Force redirect to web client
+                    // if URL it's not one of the above
+                    this.redirect( '/' );
+                }
+            }
+        } )
+        .use( logging )
+        // .use( AuthClient )
+        .use( session( app ) )
+        .use( koa_body( {
+            jsonLimit: settings.JSON.limit,
+            multipart: true,
+            formidable: {
+                uploadDir: settings.PATH.tmp,
+                multiples: true
+            }
+        } ) )
+        // Verify Access Level
+        .use( ACL( router.routes ) )
+        .use( router.demux );
+
+    return app;
+};
+
+exports[ '@singleton' ] = true;
+exports[ '@require' ] = [
+    'app/routes',
+    'middleware/router',
+    'middleware/access',
+    'middleware/validate',
+    'middleware/logging',
+    'middleware/response',
+    'libs/settings'
+];

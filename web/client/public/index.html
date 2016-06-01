@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+    <head>
+        <base href="/web/client/public/"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <title>Voting</title>
+        <!-- FAVICON -->
+		<!-- <link rel="icon" type="image/png" href="assets/images/favicon.png"/> -->
+        <!-- JQUERY UI -->
+        <link href="../../../common/vendors/jquery-ui/themes/base/all.css" rel="stylesheet"/>
+        <!-- ANIMATE -->
+        <link href="../../common/vendors/animate.css/animate.min.css" rel="stylesheet"/>
+		<!-- MATERIAL GOOGLE ICON FONT -->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- FONT-AWESOME -->
+		<link href="../../common/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+        <!-- MATERILIZE CORE CSS-->
+		<link href="../../common/vendors/Materialize/dist/css/materialize.css" rel="stylesheet"/>
+		<!-- MAIN STYLE -->
+		<link href="css/app.css" rel="stylesheet"/>
+		<!-- END MAIN STYLE -->
+
+        <style>
+            .row {
+              margin-bottom: 0;
+            }
+
+            section {
+              min-height: 776px;
+            }
+        </style>
+    </head>
+    <body class="">
+
+        <section ui-view></section>
+
+        <!-- jQuery -->
+    <script src="../../common/vendors/jquery/dist/jquery.min.js"></script>
+		<script src="../../common/vendors/jquery-ui/jquery-ui.min.js"></script>
+
+		<!-- Materialize Core Script -->
+		<script src="../../common/vendors/Materialize/dist/js/materialize.js"></script>
+
+        <!-- Angular -->
+		<script src="../../common/vendors/angular/angular.js"></script>
+		<script src="../../common/vendors/angular-animate/angular-animate.min.js"></script>
+        <script src="../../common/vendors/angular-cookies/angular-cookies.js"></script>
+		<script src="../../common/vendors/angular-filter/dist/angular-filter.min.js"></script>
+        <script src="../../common/vendors/angular-resource/angular-resource.js"></script>
+		<script src="../../common/vendors/angular-ui-router/release/angular-ui-router.js"></script>
+
+        <!-- RestAngular Core Script -->
+        <script src="../../common/vendors/restangular/dist/restangular.min.js"></script>
+
+		<!-- Third Party Libraries -->
+		<script src="../../common/vendors/lodash/dist/lodash.min.js"></script>
+		<script src="../../common/vendors/moment/moment.js"></script>
+
+        <!-- APP -->
+        <script src="js/app.min.js"></script>
+        <!-- END APP -->
+    </body>
+</html>

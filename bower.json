@@ -1,0 +1,38 @@
+{
+  "name": "vote-forever",
+  "homepage": "https://github.com/kovacssupki/Voting-Platform.git",
+  "authors": [
+      "Alexandru-Robert Kovacs<alexandruk@fortech.ro>"
+  ],
+  "description": "",
+  "main": "server.js",
+  "moduleType": [],
+  "license": "GPL-3.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "client/public/vendors/"
+  ],
+  "dependencies": {
+    "angular": "~1.5",
+    "angular-animate": "~1.5.5",
+    "angular-cookies": "~1.5.5",
+    "angular-filter": "~0.5.8",
+    "angular-resource": "~1.5.5",
+    "angular-ui-router": "~0.2",
+    "animate.css": "~3.5.1",
+    "font-awesome": "fontawesome#~4.4.0",
+    "jquery": "2.2.3",
+    "jquery-mousewheel": "~3.1.13",
+    "jquery-ui": "~1.11.4",
+    "lodash": "^4.11.2",
+    "Materialize": "materialize#~0.97.5",
+    "moment": "~2.13.0",
+    "restangular": "^1.5.2"
+  },
+  "resolutions": {
+    "angular": "~1.5",
+    "jquery": "2.2.3"
+  }
+}
