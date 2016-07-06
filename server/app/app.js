@@ -15,7 +15,7 @@ require( '../validators' );
 
 exports = module.exports = ( routes, router, validate, logging, response, settings, FileSystem ) => {
     let app = response( koa() );
-        // grant = new Grant( require( './oauth' ) );
+    // grant = new Grant( require( './oauth' ) );
 
     /* Set APP keys */
 
