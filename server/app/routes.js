@@ -72,14 +72,14 @@ exports = module.exports = () => {
         }
     } );
 
-    routes.push( {
-        method: 'get',
-        path: '/capabilities',
-        handler: apiMapping( routeMap ),
-        requireAccount: false,
-        validate: [],
-        handlerName: '/capabilities'
-    } );
+    // routes.push( {
+    //     method: 'get',
+    //     path: '/capabilities',
+    //     handler: apiMapping( routeMap ),
+    //     requireAccount: false,
+    //     validate: [],
+    //     handlerName: '/capabilities'
+    // } );
 
     return routes;
 };

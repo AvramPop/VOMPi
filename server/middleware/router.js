@@ -5,14 +5,14 @@ let methods = require( 'methods' );
 exports = module.exports = () => {
     let router = {
         routes: {},
-        register: ( method, path, handler, handlerName, ACL ) => {
+        register: ( method, path, handler, handlerName ) => {
             let tokens = path.split( '/' ),
                 params = [];
             router.routes[ method ].push( {
                 path: path,
                 handler: handler,
                 handlerName: handlerName,
-                access: ACL,
+                // access: ACL,
                 tokens: tokens,
                 params: params
             } );

@@ -1,27 +1,33 @@
+'use strict';
+
 exports = module.exports = ( mongoose ) => {
     let Schema = mongoose.Schema,
         personSchema = new Schema( {
-            Name: {
+            name: {
                 type: String,
+                required: true
             },
-            Surname: {
+            lastName: {
                 type: String,
+                required: true
             },
-            canVote: {
-                type: boolean,
-            },
+            // canVote: {
+            //     type: Boolean,
+            //     required: true
+            // },
             uniqueIdentifier: {
                 type: String,
+                required: true
             },
-            gender: {
-                type: String,
-            },
-            dateOfBirth: {
-                type: Date,
-            },
-            livingArea: {
-                type: String,
-            }
+            // gender: {
+            //     type: String,
+            // },
+            // dateOfBirth: {
+            //     type: Date,
+            // },
+            // livingArea: {
+            //     type: String,
+            // }
 
         } );
 
