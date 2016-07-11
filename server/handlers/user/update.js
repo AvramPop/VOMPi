@@ -76,18 +76,20 @@
 let jwt = require( 'jsonwebtoken' );
 
 exports = module.exports = ( userModel ) => {
-    return function *( id ){
+    return function* ( id ) {
 
         let h = this.request.header,
             b = this.request.body,
             token = jwt.decode( h[ 'x-user-token' ] ),
             rec;
 
-        if ( ( id === token._id ) || (token.role.type === 'Administrator' ) || ( token.role.type === 'Editor' ) ){
+        if ( ( id === token._id ) || ( token.role.type === 'Administrator' ) || ( token.role.type === 'Editor' ) ) {
 
-            rec = yield userModel.findByIdAndUpdate( id, b , { new: true}).exec();
+            rec = yield userModel.findByIdAndUpdate( id, b, {
+                new: true
+            } ).exec();
 
-            if( !rec ) {
+            if ( !rec ) {
                 throw ( {
                     code: 422,
                     message: 'User update failed'
@@ -100,11 +102,12 @@ exports = module.exports = ( userModel ) => {
             } );
         }
 
-        this.success({ user: rec })
+        this.success( {
+            user: rec
+        } );
     };
 };
 exports[ 'singleton' ] = true;
 exports[ '@require' ] = [
     'model/userModel'
 ];
-

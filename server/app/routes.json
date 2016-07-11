@@ -43,5 +43,73 @@
         "isString"
       ]
     }]
+  },
+  {
+    "method": "get",
+    "path": "/admin/list",
+    "handler": "handlers/admin/list.js"
+  },
+  {
+    "method": "post",
+    "path": "/admin/create",
+    "handler": "handlers/admin/create.js",
+    "validate": [ {
+      "param": "email",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "password",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "get",
+    "path": "/livingarea/list",
+    "handler": "handlers/livingarea/list.js"
+  },
+  {
+    "method": "post",
+    "path": "/livingarea/create",
+    "handler": "handlers/livingarea/create.js",
+    "validate": [ {
+      "param": "country",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "region",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "town",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "street",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
   }
 ]
