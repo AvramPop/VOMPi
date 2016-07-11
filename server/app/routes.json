@@ -3,66 +3,45 @@
     "method": "get",
     "path": "/",
     "handler": "handlers/index.js"
-  }, {
+  },
+  {
+    "method": "get",
+    "path": "/user/list",
+    "handler": "handlers/list.js"
+  },
+  {
     "method": "post",
-    "path": "/import/user",
-    "handler": "handlers/user/list.js",
+    "path": "/user/create",
+    "handler": "handlers/create.js",
     "validate": [ {
-      "param": "passenger",
+      "param": "password",
       "type": "body",
       "validators": [
         "notEmpty",
-        "isObject"
-      ]
-    },{
-      "param": "bookingId",
-      "type": "body",
-      "validators": [
-        "notEmpty"
+        "isString"
       ]
     },
     {
-      "param": "passenger.email",
+      "param": "email",
       "type": "body",
       "validators": [
         "notEmpty",
         "isEmail"
       ]
     }, {
-      "param": "passenger.name",
+      "param": "name",
       "type": "body",
       "validators": [
         "notEmpty",
         "isString"
       ]
     }, {
-      "param": "passenger.lastName",
+      "param": "lastName",
       "type": "body",
       "validators": [
         "notEmpty",
         "isString"
       ]
-    }, {
-      "param": "hotels",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isHotelArray"
-      ]
-    }, {
-      "param": "startDate",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isDate"
-      ]
-    }, {
-      "param": "endDate",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isDate"
-      ]
-    } ]
+    }]
   }
 ]

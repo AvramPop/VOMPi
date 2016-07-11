@@ -6,16 +6,16 @@ let
     send = require( 'koa-send' ),
     mount = require( 'koa-mount' ),
     koa_body = require( 'koa-body' ),
-    Grant = require( 'grant' ).koa(),
+    // Grant = require( 'grant' ).koa(),
     session = require( 'koa-session' ),
     serve = require( 'koa-static-folder' );
 
 // Custom validators
 require( '../validators' );
 
-exports = module.exports = ( routes, router, ACL, validate, logging, response, AuthClient, settings, FileSystem ) => {
-    let app = response( koa() ),
-        grant = new Grant( require( './oauth' ) );
+exports = module.exports = ( routes, router, validate, logging, response, settings, FileSystem ) => {
+    let app = response( koa() );
+    // grant = new Grant( require( './oauth' ) );
 
     /* Set APP keys */
 
@@ -23,7 +23,7 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, A
 
     routes.forEach( ( r ) => {
         let handler = r.handler,
-            access = ( r.access && r.access instanceof Array ) ? r.access : null,
+            // access = ( r.access && r.access instanceof Array ) ? r.access : null,
             needsValidation = r.validate instanceof Array && r.validate.length;
 
         if ( needsValidation ) {
@@ -31,7 +31,7 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, A
             handler = validate( r.validate, handler );
         }
 
-        router[ r.method ]( r.path, handler, r.handlerName, access );
+        router[ r.method ]( r.path, handler, r.handlerName );
     } );
 
     /* Create static content folder */
@@ -61,9 +61,6 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, A
             } else if ( this.path === '/docs/api' || this.path === '/docs/api/' ) {
                 // DASHBOARD
                 yield send( this, 'docs/api/index.html' );
-            } else if ( this.path.indexOf( '/connect' ) !== -1 ) {
-                // EXCEPTION (for Facebook and Google routes connections)
-                yield next;
             } else {
                 // API PATH
                 if ( this.path.indexOf( settings.API.root + settings.API.version ) !== -1 ) {
@@ -77,7 +74,7 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, A
             }
         } )
         .use( logging )
-        .use( AuthClient )
+        // .use( AuthClient )
         .use( session( app ) )
         .use( koa_body( {
             jsonLimit: settings.JSON.limit,
@@ -87,9 +84,9 @@ exports = module.exports = ( routes, router, ACL, validate, logging, response, A
                 multiples: true
             }
         } ) )
-        .use( mount( grant ) )
+        // .use( mount( grant ) )
         // Verify Access Level
-        .use( ACL( router.routes ) )
+        // .use( ACL( router.routes ) )
         .use( router.demux );
 
     return app;
@@ -99,11 +96,11 @@ exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
     'app/routes',
     'middleware/router',
-    'middleware/access',
+    // 'middleware/access',
     'middleware/validate',
     'middleware/logging',
     'middleware/response',
-    'middleware/authClient',
+    // 'middleware/authClient',
     'libs/settings',
     'libs/file-system'
 ];
