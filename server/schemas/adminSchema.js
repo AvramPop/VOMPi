@@ -10,6 +10,11 @@ exports = module.exports = ( mongoose ) => {
             password: {
                 type: String,
                 required: true
+            },
+            isAlive: {
+                type: Boolean,
+                required: true,
+                default: 'false'
             }
         } );
 
