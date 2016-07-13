@@ -111,5 +111,19 @@
         "isString"
       ]
     }]
+  },
+  {
+    "method": "post",
+    "path": "/admin/changepassword",
+    "handler": "handlers/admin/changepassword.js",
+    "validate": [ {
+      "param": "email",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString",
+        "isEmail"
+      ]
+    }]
   }
 ]
