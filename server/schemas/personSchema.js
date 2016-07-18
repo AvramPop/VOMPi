@@ -3,7 +3,7 @@
 exports = module.exports = ( mongoose ) => {
     let Schema = mongoose.Schema,
         personSchema = new Schema( {
-            name: {
+            firstName: {
                 type: String,
                 required: true
             },
@@ -11,23 +11,27 @@ exports = module.exports = ( mongoose ) => {
                 type: String,
                 required: true
             },
-            // canVote: {
-            //     type: Boolean,
-            //     required: true
-            // },
+            email: {
+                 type: String,
+                 required: true
+            },
             uniqueIdentifier: {
                 type: String,
                 required: true
             },
-            // gender: {
-            //     type: String,
-            // },
-            // dateOfBirth: {
-            //     type: Date,
-            // },
-            // livingArea: {
-            //     type: String,
-            // }
+            gender: {
+                 type: String,
+            },
+            dateOfBirth: {
+                 type: Date,
+            },
+            livingArea: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'Living Area',
+            },
+            telephone: {
+              type: String
+            }
 
         } );
 

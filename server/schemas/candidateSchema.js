@@ -1,9 +1,23 @@
 exports = module.exports = ( mongoose ) => {
     let Schema = mongoose.Schema,
         candidateSchema = new Schema( {
-            numberOfVotes: {
-                type: Number,
+            type: {
+                type: String,
                 required: true
+            },
+            personId: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref:'Person',
+              required: true
+            },
+            optionals: {
+              type: Mixed,
+              required: false
+            },
+            numberOfVotes: {
+              type: Number,
+              required: true,
+              default: 0
             }
 
         } );
