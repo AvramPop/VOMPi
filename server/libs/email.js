@@ -60,6 +60,120 @@ exports = module.exports = ( echo, settings ) => {
                 sendEmail( email, name, subject, data, 'user-registration' );
 
                 return true;
+            },
+
+            sendAdminForgottenPasswordEmail: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'user-registration' );
+
+                return true;
+            },
+
+            sendAdminRegistrationEmail/*signUp*/: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'user-registration' );
+
+                return true;
+            },
+
+            sendAdminDeletedAccountEmail: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'user-registration' );
+
+                return true;
+            },
+
+            sendPersonRegistrationEmail: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'user-registration' );
+
+                return true;
+            },
+
+            sendPersonForgottenPasswordEmail: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'user-registration' );
+
+                return true;
+            },
+
+            sendPersonDeletedAccountEmail: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'user-registration' );
+
+                return true;
             }
         };
 

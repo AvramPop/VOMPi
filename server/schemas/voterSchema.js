@@ -1,16 +1,22 @@
 exports = module.exports = ( mongoose ) => {
     let Schema = mongoose.Schema,
         voterSchema = new Schema( {
-            voterHasVoted: {
-                type: Boolean,
-                required: true
+            personId: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref:'Person',
+              required: true
             },
-            voterIsValid: {
-                type: Boolean,
-                required: true
+            campaigns: {
+              type: Array,
+              required: true,
+              any: [/*
+                hasVoted
+                dateVoted
+                campaignId
+                criteriaId
+                */]
             }
-        }
-      );
+        } );
 
     return voterSchema;
 };
