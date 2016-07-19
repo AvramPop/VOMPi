@@ -6,7 +6,7 @@ exports = module.exports = ( LivingAreaModel ) => {
             b = this.request.body,
             rec = yield LivingAreaModel.find( {} ).exec();
         this.success( {
-            livingArea: rec
+            livingAreas: rec
         } );
         // this.success({ user: 'ceva' });
     };

@@ -125,5 +125,221 @@
         "isEmail"
       ]
     }]
+  },
+  {
+    "method": "get",
+    "path": "/campaign/list",
+    "handler": "handlers/campaign/list.js"
+  },
+  {
+    "method": "post",
+    "path": "/campaign/create",
+    "handler": "handlers/campaign/create.js",
+    "validate": [ {
+      "param": "name",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "startDate",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isDate"
+      ]
+    },
+    {
+      "param": "duration",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isNumber"
+      ]
+    },
+    {
+      "param": "candidate",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isArray"
+      ]
+    },
+    {
+      "param": "numberOfAllowedVoters",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isNumber"
+      ]
+    },
+    {
+      "param": "isCreating",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isBoolean"
+      ]
+    },
+    {
+      "param": "isAlive",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isBoolean"
+      ]
+    }]
+  },
+  {
+    "method": "get",
+    "path": "/candidate/list",
+    "handler": "handlers/candidate/list.js"
+  },
+  {
+    "method": "post",
+    "path": "/candidate/create",
+    "handler": "handlers/candidate/create.js",
+    "validate": [ {
+      "param": "type",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "personId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "optionals",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isOptional"
+      ]
+    },
+    {
+      "param": "numberOfVotes",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isNumber"
+      ] }]
+  },
+  {
+    "method": "get",
+    "path": "/criteria/list",
+    "handler": "handlers/criteria/list.js"
+  },
+  {
+    "method": "post",
+    "path": "/criteria/create",
+    "handler": "handlers/criteria/create.js",
+    "validate": [ {
+      "param": "campaignId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isId"
+      ]
+    }]
+  },
+  {
+    "method": "get",
+    "path": "/person/list",
+    "handler": "handlers/person/list.js"
+  },
+  {
+    "method": "post",
+    "path": "/person/create",
+    "handler": "handlers/person/create.js",
+    "validate": [ {
+      "param": "firstName",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "lastName",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "email",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "uniqueIdentifier",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ] },
+      {
+        "param": "gender",
+        "type": "body",
+        "validators": [
+          "notEmpty",
+          "isString"
+        ]
+      },
+      {
+        "param": "dateOfBirth",
+        "type": "body",
+        "validators": [
+          "notEmpty",
+          "isDate"
+        ]
+      },
+      {
+        "param": "livingarea",
+        "type": "body",
+        "validators": [
+          "notEmpty",
+          "isId"
+        ]
+      },
+      {
+        "param": "telephone",
+        "type": "body",
+        "validators": [
+          "notEmpty",
+          "isString"
+        ]
+      }]
+  },
+  {
+    "method": "get",
+    "path": "/voter/list",
+    "handler": "handlers/voter/list.js"
+  },
+  {
+    "method": "post",
+    "path": "/voter/create",
+    "handler": "handlers/voter/create.js",
+    "validate": [ {
+      "param": "personId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isId"
+      ]
+    }]
   }
 ]
