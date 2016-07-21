@@ -26,11 +26,13 @@ exports = module.exports = ( mongoose ) => {
             },
             isCreating: {
               type: Boolean,
-              required: true
+              required: true,
+              default: 'false'
             },
             isAlive: {
               type: Boolean,
-              required: true
+              required: true,
+              default: 'false'
             }
         } );
 
