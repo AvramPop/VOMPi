@@ -13,6 +13,7 @@ exports = module.exports = ( CampaignModel ) => {
             let newCampaign = new CampaignModel( {
                 name: b.name,
                 startDate: b.startDate,
+                isCreating: true,
                 duration: b.duration,
                 candidates: b.candidates,
                 numberOfAllowedVoters: b.numberOfAllowedVoters,

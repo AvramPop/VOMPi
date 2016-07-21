@@ -341,5 +341,96 @@
         "isId"
       ]
     }]
+  },
+  {
+    "method": "delete",
+    "path": "/admin/delete/:id",
+    "handler": "handlers/admin/delete.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "delete",
+    "path": "/campaign/delete/:id",
+    "handler": "handlers/campaign/delete.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "delete",
+    "path": "/candidate/delete/:id",
+    "handler": "handlers/candidate/delete.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "delete",
+    "path": "/criteria/delete/:id",
+    "handler": "handlers/criteria/delete.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "delete",
+    "path": "/livingarea/delete/:id",
+    "handler": "handlers/livingarea/delete.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "delete",
+    "path": "/person/delete/:id",
+    "handler": "handlers/person/delete.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "delete",
+    "path": "/voter/delete/:id",
+    "handler": "handlers/voter/delete.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
   }
 ]

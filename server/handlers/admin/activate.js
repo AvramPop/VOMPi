@@ -4,7 +4,7 @@ exports = module.exports = ( AdminModel ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield AdminModel.find( {
+            rec = yield AdminModel.findOne( {
                 email: b.email
             } ).exec();
         rec.isAlive = true;
