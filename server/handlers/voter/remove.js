@@ -8,7 +8,7 @@ exports = module.exports = ( VoterModel ) => {
               _id: id
             } ).remove().exec();
         this.success( {
-            persons: rec
+            voters: rec
         } );
         // this.success({ user: 'ceva' });
     };

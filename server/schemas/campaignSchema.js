@@ -27,12 +27,12 @@ exports = module.exports = ( mongoose ) => {
             isCreating: {
               type: Boolean,
               required: true,
-              default: 'false'
+              default: false
             },
             isAlive: {
               type: Boolean,
               required: true,
-              default: 'false'
+              default: false
             }
         } );
 

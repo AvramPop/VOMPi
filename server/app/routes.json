@@ -432,5 +432,68 @@
         "isString"
       ]
     }]
+  },
+  {
+    "method": "post",
+    "path": "/voter/vote/:id",
+    "handler": "handlers/voter/vote.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "campaignId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "candidate",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "post",
+    "path": "/candidate/assigntocampaign/:id",
+    "handler": "handlers/candidate/assigntocampaign.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "campaignId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "get",
+    "path": "/campaign/generateresults/:id",
+    "handler": "handlers/campaign/generateresults.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
   }
 ]
