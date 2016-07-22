@@ -1,0 +1,98 @@
+<div class="regions-edit">
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel with-header">
+                <div class="card-header region-header">
+                    <div class="row">
+                        <div class="left valign-wrapper card-title">
+                            <a data-ng-click="vm.goBack()">
+                                <i class="material-icons">arrow_back</i>
+                            </a>
+                            <h4 class="text-color dark">Edit {{vm.region.name[vm.language.selected.value]}} Region</h4>
+                        </div>
+                        <div class="right valign-wrapper card-actions">
+                            <div class="btn-language">
+                                <a class="dropdown-button btn drop-down" data-alignment="right"
+                                    data-activates="drop-down-languages" data-constrain="true">
+                                    <img class="lang-icon" data-ng-src="{{vm.language.selected.icon}}"/>
+                                    {{vm.language.selected.label}}
+                                </a>
+                                <ul id="drop-down-languages" class="dropdown-content">
+                                    <li data-ng-repeat="lang in vm.language.availables">
+                                        <a data-ng-click="vm.setLang(lang.value)">
+                                            <img class="lang-icon" data-ng-src="{{lang.icon}}"/>
+                                            {{lang.label}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="" data-ng-click="vm.save(vm.region)" class="divider-color">
+                                <i class="material-icons">save</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content region-content">
+                    <div class="row">
+                        <div class="col s12 m7 overview-holder">
+                            <div class="overview-img" data-ng-if="vm.region.gallery.overview"
+                                data-ng-style="{ 'background-image': 'url('+ vm.path.gallery.regions + vm.region._id + '/'+ vm.region.gallery.overview +')' }"></div>
+                            <div class="overview-img" data-ng-if="!vm.region.gallery.overview"
+                                data-ng-style="{'background-image': 'url('+ vm.path.default +')' }"></div>
+                        </div>
+                        <map-region id="map-region" class="col s12 m5 map-region"
+                            data-ng-if="vm.map"
+                            data-map-center="vm.map.center"
+                            data-map-options="vm.map.options"
+                            data-map-counties="vm.map.counties"></map-region>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m7">
+                            <div class="input-field no-border col s12 region-name">
+                                <i class="material-icons prefix">terrain</i>
+                                <input id="region-name" type="text" class="rtl-toogle" data-lang="{{vm.language.selected.value}}"
+                                    data-ng-model="vm.region.name[vm.language.selected.value]">
+                                <label for="region-name" data-ng-if="!vm.region.name[vm.language.selected.value]">Name</label>
+                            </div>
+                            <div class="input-field no-border col s12 region-wikipedia">
+                                <i class="fa fa-wikipedia-w prefix" aria-hidden="true"></i>
+                                <input id="poi-website" type="text" class="rtl-toogle" data-lang="{{vm.language.selected.value}}"
+                                    data-ng-model="vm.region.links.wikipedia[vm.language.selected.value]">
+                                <label for="poi-website" data-ng-if="!vm.region.links.wikipedia[vm.language.selected.value]">Wikipedia</label>
+                            </div>
+                            <div class="input-field no-border col s12 region-description">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="region-description" class="materialize-textarea rtl-toogle" data-lang="{{vm.language.selected.value}}"
+                                data-ng-model="vm.region.description[vm.language.selected.value]"></textarea>
+                                <label for="region-description" data-ng-if="!vm.region.description[vm.language.selected.value]">Description</label>
+                            </div>
+                        </div>
+                        <div class="col s12 m5">
+                            <div class="input-field no-border col s12 region-counties">
+                                <h6>
+                                    <i class="material-icons">map</i>
+                                    Counties:
+                                </h6>
+                                <div class="list">
+                                    <div class="chip" data-ng-repeat="county in vm.region.countyList">
+                                        {{county.name[vm.language.selected.value] || county.name.en}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m5">
+                            <div class="input-field no-border col s12 region-gallery">
+                                <h6>
+                                    <i class="material-icons">collections</i>
+                                    Gallery:
+                                </h6>
+                                <image-upload data-path="{{vm.path.gallery.regions + vm.region._id}}" data-gallery="vm.region.gallery.list"
+                                    data-remove-img="vm.deleteImg( image )" data-upload-img="vm.uploadImg( image )" data-set-overview="vm.setOverview( image )"></image-upload>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

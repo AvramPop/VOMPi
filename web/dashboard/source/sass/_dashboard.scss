@@ -39,7 +39,14 @@
      * POIS Module
      *
      */
+    @import '_regions';
+    @import '_regions-edit';
     @import '_pois';
+    @import '_pois-edit';
+    @import '_tab-information';
+    @import '_tab-location';
+    @import '_tab-categories';
+    @import '_tab-gallery';
 
     /**
      *
@@ -69,5 +76,11 @@
      *
      */
     @import '_users';
+  }
+
+  &.rtl {
+    margin-left: inherit;
+    margin-right: $aside-width;
+    // text-align: right;
   }
 }

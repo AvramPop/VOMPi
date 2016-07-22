@@ -79,18 +79,55 @@
              width: 100%;
 
              ul {
-               // width: calc(205px * 5);
                &.itinerary-points {
                  border: 0;
                  display: inline-block;
+                 overflow: initial;
                  white-space: nowrap;
 
                  li {
-                   // float: left;
                    display: inline-block;
-                   min-height: 63px;
-                   text-overflow: ellipsis;
-                   vertical-align: top;
+                   div {
+                     display: inline-block;
+                     text-overflow: ellipsis;
+                     vertical-align: middle;
+
+                     &.item-poi {
+                       min-height: 63px;
+
+                       .title {
+                         font-size: 14px;
+                         font-weight: 500;
+                       }
+
+                       p {
+                         font-size: 12px;
+                        margin-top: -5px;
+                       }
+                     }
+
+                     &.item-route {
+                       position: relative;
+                       white-space: normal;
+
+                       i.icon {
+                         background-color: $text-icons;
+                         border-radius: 50%;
+                         display: block;
+                         height: 30px;
+                         line-height: 30px;
+                         margin: 0 $col-margin;
+                         text-align: center;
+                         width: 30px;
+                       }
+
+                       p.time {
+                         display: block;
+                         font-size: 10px;
+                         margin: 35px 0 0;
+                       }
+                     }
+                   }
                  }
                }
              }

@@ -1,0 +1,132 @@
+.input-field {
+
+  /**
+   * Cutom Input Field
+   * (without border)
+   */
+  &.no-border {
+
+    /*----------- Icon -----------*/
+
+    i {
+      &.prefix {
+        font-size: 1.5rem;
+        top: 11px;
+
+        &.active {
+          color: $accent-color;
+        }
+      }
+    }
+
+    /*----------- Input, TextArea -----------*/
+
+    input,
+    textarea {
+      border-bottom: none;
+      font-size: .9rem;
+
+      &.valid,
+      &.focus.valid,
+      &:focus:not([readonly]) {
+        border-bottom: none;
+        box-shadow: 0 1px 0 0 $accent-color;
+      }
+
+      &:focus:not([readonly]) + label {
+        color: $accent-color;
+      }
+
+      &.rtl {
+        direction: rtl;
+        unicode-bidi: embed;
+      }
+    }
+
+    /*----------- Label -----------*/
+
+    label {
+      left: 0;
+    }
+  }
+}
+
+.file-field {
+  display: inline-block;
+  padding-top: 20px;
+
+    input,
+    .btn {
+      height: 7rem;
+      width: 7rem;
+    }
+
+    .btn {
+      border: 1px dashed;
+      box-shadow: none;
+
+      &:hover {
+        border: 1px dashed;
+        box-shadow: none;
+      }
+
+      &.upload-images {
+        text-transform: none;
+        padding: 24px 0;
+        color: $divider-color;
+        font-size: small;
+        background-color: transparent;
+        line-height: 2rem;
+
+        i {
+          display: block;
+          font-size: 2.3rem;
+        }
+      }
+    }
+  }
+
+.search-wrapper {
+  display: inline-block;
+  left: 58px;
+  padding: 0 0.75rem;
+  position: absolute;
+  width: calc(100% - 320px);
+
+  .input-field {
+    padding: 3px 0;
+
+    @include media('>mobile') {
+      padding: 7px 0;
+    };
+
+    input[type=search] {
+      border-radius: 2px;
+      height: auto;
+      line-height: 50px;
+      margin-bottom: 0;
+
+      &:focus {
+        @extend input[type=search];
+      }
+    }
+  }
+
+  &.rtl {
+    left: inherit;
+    right: 58px;
+
+    .input-field {
+      input {
+        padding-left: inherit;
+        padding-right: 4rem;
+        text-align: right;
+      }
+
+      label {
+        left: inherit;
+        right: 1rem;
+      }
+    }
+  }
+}

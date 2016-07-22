@@ -6,3 +6,50 @@
 .map-view {
   min-height: 500px;
 }
+
+.map-region {
+  min-height: 300px;
+}
+
+.leaflet-container {
+  @extend .map-view;
+  width: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 1px;
+    text-align: left;
+    border-radius: 2px;
+}
+
+.leaflet-popup-content {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+
+  i {
+    display: inline-block;
+    line-height: normal;
+  }
+
+  span {
+    display: block;
+    line-height: normal;
+  }
+}
+
+.leaflet-overlay-pane{
+  svg {
+    g {
+      path {
+        &.leaflet-clickable {
+          fill-opacity: 0.7 !important;
+        }
+      }
+    }
+  }
+}
+
+.leaflet-top, .leaflet-bottom {
+  z-index: 997;
+}

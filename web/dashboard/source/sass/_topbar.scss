@@ -1,30 +1,58 @@
 header {
   .dash-topbar {
     nav {
-      form {
-        display: inline-block;
-        margin-left: 68px; // Value of the menu icon width
+      .nav-wrapper {
+        i {
+          outline: none;
+          color: $text-icons;
+        }
 
-        .input-field {
-          i {
-            &.active {
-              color: $accent-color;
-            }
-            &.active~#search {
-              border-color: $text-icons;
+        ul {
+          float: right !important;
+          line-height: 38px;
+
+          @include media('>mobile') {
+            line-height: 44px;
+          };
+
+          &.left {
+            margin-left: 68px; // Value of the menu icon width
+          }
+
+          &.settings {
+            min-width: 148px;
+
+            li {
+              &.divider {
+                background-color: rgba(224, 224, 224, 1);
+              }
+
+              &:not(.divider) {
+                display: block;
+
+                a {
+                  color: $secondary-text-color;
+
+                  i {
+                    color: $secondary-text-color;
+                    float: left;
+                    margin-right: $col-padding;
+                  }
+                }
+              }
             }
           }
         }
 
-        input#search {
-          padding: 0;
-          border-bottom: 1px solid transparent;
-        }
-      }
+        &.rtl {
+          .top-options {
+            float: left !important;
 
-      i {
-        outline: none;
-        color: $text-icons;
+            li {
+              float: right;
+            }
+          }
+        }
       }
     }
   }

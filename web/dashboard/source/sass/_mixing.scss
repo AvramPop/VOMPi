@@ -41,8 +41,35 @@
     }
 
     @if $transition {
-      @include property-transition(background-color);
+      @include transition(background-color);
     }
+  }
+}
+
+@mixin before-after-shadow($color-light, $color-dark, $height) {
+  &::before,
+  &::after {
+    background: -webkit-linear-gradient( top,$color-light, $color-dark );
+    background: linear-gradient( to bottom,$color-light, $color-dark );
+    bottom: 0;
+    content: '';
+    height: $height;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+
+  &::before {
+    background: -webkit-linear-gradient( bottom, $color-light, $color-dark );
+    background: linear-gradient( to top, $color-light, $color-dark );
+    bottom: auto;
+    top: 0;
+  }
+
+  &::before {
+    bottom: auto;
+    top: 0;
   }
 }
 

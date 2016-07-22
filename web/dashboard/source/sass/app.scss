@@ -12,11 +12,13 @@
 @import '_fonts';
 @import '_icons';
 @import '_toast';
+@import '_loader';
 
 /*----------- BASE ELEMNTS -----------*/
 
 @import '_base';
 @import '_map-view';
+@import '_gallery';
 
 /*----------- MODAL ELEMENT -----------*/
 
@@ -29,6 +31,10 @@
 /*----------- TAB ELEMENT -----------*/
 
 @import '_tabs';
+
+/*----------- PAGINATION ELEMENT -----------*/
+
+@import '_pagination';
 
 /*----------- LOGIN PAGE -----------*/
 

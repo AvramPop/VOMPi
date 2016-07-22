@@ -2,19 +2,19 @@
 // APP / SET ANGULAR APPLICATION
 // =============================================================================
 
-(function() {
+( function () {
     'use strict';
 
     angular
-        .module('app', [
+        .module( 'app', [
             'ngAnimate',
             'ngResource',
-            'ngCookies',            // Angular Cookies
-            'ui.router',            // Angular UI Route
-            'restangular',          // Rest Angular services
-            'leaflet-directive',    // Leaflet Angular Directive
-            'app.models',           // APP MODELS
-            'app.common',           // APP COMMON
-            'app.home'              // APP HOME Module
-        ]);
-})();
+            'ngCookies', // Angular Cookies
+            'ui.router', // Angular UI Route
+            'restangular', // Rest Angular services
+            'ngMaterialize',
+            'app.models', // APP MODELS
+            'app.common', // APP COMMON
+            'app.home' // APP HOME Module
+        ] );
+} )();

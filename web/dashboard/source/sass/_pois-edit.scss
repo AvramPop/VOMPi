@@ -1,0 +1,104 @@
+.pois-edit {
+  .poi-header {
+    h4 {
+      display: inline-block;
+    }
+
+    .valign-wrapper {
+      &.right {
+        i {
+          margin-top: 0.4rem;
+        }
+      }
+    }
+  }
+
+  .poi-content {
+
+    [ui-view] {
+      .poi-info {
+        margin: 0;
+
+        .poi-details-holder {
+          display: block;
+          height: 500px;
+          overflow: auto;
+
+          .poi-details {
+            position: relative;
+
+            .detail-img-holder {
+              height: $poi-overview-height;
+              margin-bottom: $padding-medium;
+              overflow: hidden;
+              position: relative;
+              text-align: center;
+              z-index: 1;
+
+              @include before-after-shadow(rgba(25,25,25,0), rgba(25,25,25,.6), 30px);
+
+              .detail-img {
+                background-size: cover;
+                background-position: 50%;
+                height: $poi-overview-height;
+                width: 100%;
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+
+            .detail-info {
+              padding: 0 $padding-medium;
+              position: relative;
+              text-align: left;
+              transform: translateZ(0);
+              -webkit-transform: translateZ(0);
+              z-index: 1;
+
+              .detail-program {
+                textarea {
+                  padding-bottom: 0;
+                }
+              }
+
+              .detail-contact {
+                margin-bottom: 0;
+
+                .input-field {
+                  margin-top: 0;
+                }
+              }
+
+              .detail-coordinate {
+                margin-top: 0
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .poi-gallery {
+      line-height: 0;
+
+      -webkit-column-count: 3;
+      -webkit-column-gap: 0px;
+      -moz-column-count: 3;
+      -moz-column-gap: 0px;
+      column-count: 3;
+      column-gap: 0px;
+
+      .img-container {
+        width: 100%;
+
+        img {
+          /* Just in case there are inline attributes */
+          width: 100% !important;
+          height: auto !important;
+        }
+      }
+    }
+  }
+}

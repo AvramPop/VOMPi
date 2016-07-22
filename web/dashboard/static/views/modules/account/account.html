@@ -1,0 +1,88 @@
+<div class="account">
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel collection with-header collection-list">
+                <div class="collection-header clearfix">
+                    <h4 class="left list-header">Account</h4>
+                    <div class="right">
+                        <a href="">
+                            <i class="material-icons nav-icon">save</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="account-field">
+                                <label for="username" class="label-size">Username</label>
+                                <div class="input-field username">
+                                    <input id="username" type="text" class="validate input-focus">
+                                </div>
+                            </div>
+                            <div class="password account-field">
+                                <label class="label-size">Password</label>
+                                <a href="#changePassword" class="waves-effect btn uppercase modal-trigger">change password</a>
+                            </div>
+                            <div class="account-field">
+                                <label class="label-size">Cover image</label>
+                                <img src="assets/image/cover-image.jpg" class="responsive-img">
+                            </div>
+                            <div>
+                                <label class="label-size">Avatar image</label>
+                                <img src="assets/image/user-default.jpg" class="responsive-img">
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="backup account-field">
+                                <label class="label-size">Performing backup</label>
+                                <p>In the tumultuous business of cutting in and attending to a whale, there is much running backwards and forwards among the crew. Now hands are wanted here,and then again hands are wanted there. There is no staying in any one place; for at one and the same time everything has to be done everywhere. It is much the same with him who endeavors the description of the scene.</p>
+                                <a class="waves-effect btn uppercase">backup</a>
+                            </div>
+                            <div class="restore">
+                                <label class="label-size">Performing restore</label>
+                                <p>In the tumultuous business of cutting in and attending to a whale, there is much running backwards and forwards among the crew. Now hands are wanted here,and then again hands are wanted there. There is no staying in any one place; for at one and the same time everything has to be done everywhere. It is much the same with him who endeavors the description of the scene. </p>
+                                <a class="waves-effect btn uppercase">restore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Change Password Modal -->
+    <div id="changePassword" class="modal">
+        <div class="modal-header primary-color light">
+            <h4 class="text-color dark">Change password</h4>
+        </div>
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s12">
+                    <label for="oldPassword" class="label-size">Old password</label>
+                    <div class="input-field">
+                        <input id="oldPassword" type="text" class="validate input-focus">
+                    </div>
+                </div>
+                <div class="col s12">
+                    <label for="newPassword" class="label-size">New password</label>
+                    <div class="input-field col s12">
+                        <input id="newPassword" type="text" class="validate input-focus">
+                    </div>
+                </div>
+                <div class="col s12">
+                    <label for="confirmPassword" class="label-size">Confirm new password</label>
+                    <div class="input-field col s12">
+                        <input id="confirmPassword" type="text" class="validate input-focus">
+                    </div>
+                </div>
+                <div class="col s12">
+                    <label class="label-size">Forgot password?</label>
+                    <a class="waves-effect btn uppercase">reset password</a>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="" class=" modal-action modal-close btn-flat uppercase">confirm</a>
+            <a href="" class=" modal-action modal-close btn-flat uppercase">cancel</a>
+        </div>
+    </div>
+</div>

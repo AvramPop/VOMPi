@@ -1,0 +1,21 @@
+<div class="regions">
+    <div class="row">
+        <ul class="card-panel collection with-header collection-list region-list">
+            <li class="collection-header">
+                <i class="material-icons menu-icon left nav-icon">menu</i>
+                <h4 class="left list-header">Regions of România</h4>
+            </li>
+            <li class="collection-item avatar region-item" data-ng-repeat="region in vm.regions">
+                <img alt="" class="circle"
+                    data-ng-src="{{region.gallery.overview ? vm.path.gallery.regions + region._id + '/' + region.gallery.overview : vm.path.default}}">
+                <span class="title">{{region.name[vm.lang] || region.name.en}}</span>
+                <p>
+                    <span class="description truncate">{{region.description[vm.lang] || region.description.en}}</span>
+                </p>
+                <a href="" data-ng-click="vm.editRegion(region._id)" class="secondary-content">
+                    <i class="material-icons icon more-icon">more_vert</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

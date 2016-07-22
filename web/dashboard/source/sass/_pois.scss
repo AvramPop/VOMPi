@@ -1,11 +1,24 @@
 .pois {
-  .star-rating {
-    display: inline-block;
-    vertical-align: text-top;
+  .pois-list {
+    .poi-item {
+      p {
+        font-size: 11px;
+        color: #d4d4d4;
 
-    i {
-      font-size: 15px;
-      color: $accent-color;
+        .description {
+          color: #9E9E9E;
+        }
+      }
+
+      .star-rating {
+        display: inline-block;
+        vertical-align: text-top;
+
+        i {
+          font-size: 15px;
+          color: $accent-color;
+        }
+      }
     }
   }
 
@@ -29,127 +42,4 @@
       }
     }
   }
-
-  #editPoi {
-    max-height: 78%;
-
-    .modal-header {
-      background-color: white;
-
-      h4 {
-        display: inline-block;
-      }
-
-      span {
-        &.language {
-          display: inline-block;
-          vertical-align: super;
-          padding-right: 7px;
-        }
-      }
-    }
-    .modal-content {
-      padding: 0;
-
-      #information {
-        padding: 24px;
-
-        .input-field {
-          margin-top: 0;
-        }
-
-        textarea {
-          &.materialize-textarea {
-            padding: 0;
-          }
-        }
-
-        [type="checkbox"].filled-in:checked + label:after {
-          border: 2px solid $accent-color;
-          background-color: $accent-color;
-        }
-
-        [type="checkbox"].filled-in:not(:checked) + label:after {
-          border: 2px solid $divider-color;
-        }
-
-        .select-wrapper input.select-dropdown {
-          width: 50px;
-        }
-
-        span {
-          &.interval {
-            display: inline-block;
-            float: right;
-          }
-        }
-      }
-
-      #location {
-        height: 400px;
-        background: url('../assets/image/location.jpg') center center no-repeat;
-      }
-
-      #categories {
-        padding-top: 20px;
-
-        .input-field {
-          margin-top: 0;
-        }
-
-        .chip {
-          margin: 2px 0;
-        }
-      }
-
-      #gallery {
-        form {
-          &.upload-image {
-            display: inline-block;
-            padding-top: 20px;
-
-              .btn, input {
-                height: 7rem;
-                width: 7rem;
-              }
-
-              .btn {
-                text-transform: none;
-                padding: 24px 0;
-                color: $divider-color;
-                font-size: small;
-                background-color: transparent;
-                line-height: 2rem;
-
-                i {
-                  display: block;
-                  font-size: 2.3rem;
-                }
-              }
-
-              .btn, .btn:hover {
-                border: 1px dashed;
-                box-shadow: none;
-              }
-            }
-          }
-
-          .img-container {
-            position: relative;
-            z-index: 1;
-
-            .manage-img {
-              position: absolute;
-              z-index: 10;
-              top: 5px;
-              right: 5px;
-
-              i {
-                color: $divider-color;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+}

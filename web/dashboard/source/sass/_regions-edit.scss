@@ -1,0 +1,76 @@
+.regions-edit {
+  .region-header {
+
+  }
+
+  .region-content {
+
+    .row {
+      &:last-child {
+        .col:not(.input-field) {
+          padding: 0 $padding-medium;
+        }
+      }
+
+      .overview-holder {
+        height: 300px;
+        margin-bottom: $padding-medium;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+
+        @include before-after-shadow(rgba(25,25,25,0), rgba(25,25,25,.6), 30px);
+
+        .overview-img {
+          background-size: cover;
+          background-position: center 40%;
+          height: 300px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .region-counties {
+        margin-bottom: 30px;
+
+        h6 {
+          align-items: center;
+          display: flex;
+          margin-bottom: 15px;
+
+          i {
+            width: 3rem;
+          }
+        }
+
+        .list {
+          margin-left: 3rem;
+
+          .chip {
+            margin: 0 5px 5px 0;
+          }
+        }
+      }
+
+      .gallery-holder {
+        li {
+          &.thumbnail {
+            height: 150px;
+          }
+        }
+      }
+
+      .region-description {
+        textarea {
+          min-height: 12rem;
+        }
+      }
+
+      .map-holder {
+        height: 300px;
+      }
+    }
+  }
+}

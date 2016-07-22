@@ -18,8 +18,13 @@ aside {
         &.dash-nav-menu {
           display: block;
           overflow: auto;
+          padding: 0;
           position: relative;
           height: calc(100% - 128px);
+
+          &:hover {
+            background-color: inherit;
+          }
 
           ul {
             &.dash-nav-menu-list {
@@ -36,6 +41,43 @@ aside {
                   background-color: $accent-color;
                   i, span {
                     color: $text-icons;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.rtl {
+        left: inherit;
+        right: 0;
+
+        @include media('<=desktop') {
+          transform: translateX(100%);
+        };
+
+        li {
+          &.dash-nav-user {
+            text-align: right;
+            padding: 20px 72px 20px 10px !important;
+
+            img {
+              left: inherit !important;
+              right: $col-margin;
+            }
+          }
+
+          &.dash-nav-menu {
+            ul {
+              &.dash-nav-menu-list {
+                li {
+                  a {
+                    i,span {
+                      float: right;
+                      margin-right: inherit;
+                      margin-left: $col-margin;
+                    }
                   }
                 }
               }
@@ -73,6 +115,11 @@ aside {
         height: $topbar-default-height;
         line-height: 80px;
       };
+    }
+
+    &.rtl {
+      left: inherit;
+      right: 0;
     }
   }
 }

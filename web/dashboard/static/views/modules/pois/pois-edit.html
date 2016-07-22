@@ -1,0 +1,42 @@
+<div class="pois-edit">
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel with-header">
+                <div class="card-header poi-header">
+                    <div class="row">
+                        <div class="left valign-wrapper card-title">
+                            <a data-ng-click="vm.goBack()">
+                                <i class="material-icons">arrow_back</i>
+                            </a>
+                            <h4 class="text-color dark">Edit {{vm.PoiInfo.name.en}}</h4>
+                        </div>
+                        <div class="right valign-wrapper card-actions">
+                            <span class="uppercase divider-color">english</span>
+                            <a href="" class="divider-color">
+                                <i class="material-icons">language</i>
+                            </a>
+                            <a href="" class="divider-color">
+                                <i class="material-icons">save</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content poi-content">
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs edit-tab">
+                                <li class="tab">
+                                    <a data-ng-click="vm.goToPoiDetails()">Details</a>
+                                </li>
+                                <li class="tab">
+                                    <a data-ng-click="vm.goToPoiGallery()">Gallery</a>
+                                </li>
+                            </ul>
+                            <div ui-view></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

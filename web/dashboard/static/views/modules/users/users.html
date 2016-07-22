@@ -1,0 +1,89 @@
+<div class="users">
+    <div class="row">
+        <div class="col s9">
+            <ul class="card-panel collection with-header collection-list">
+                <li class="collection-header clearfix">
+                    <i class="material-icons menu-icon left nav-icon">menu</i>
+                    <h4 class="left list-header">Users</h4>
+                    <div class="right">
+                        <i class="material-icons nav-icon">search</i>
+                        <a href="#addUser" class="secondary-content modal-trigger"
+                            data-ng-click="addUser()">
+                            <i class="material-icons n-icon">add</i>
+                        </a>
+                    </div>
+                </li>
+                <li class="collection-item avatar" data-ng-repeat="user in usersVM.list">
+                    <img data-ng-src="assets/image/user-default.jpg" alt="" class="circle">
+                    <span class="title">{{user.name}} {{user.lastName}}</span>
+                    <p class="description">{{user.roleId.type}}</p>
+                    <a href="#editUser" class="secondary-content modal-trigger"
+                        data-ng-click="setActiveUser($index)">
+                        <i class="material-icons icon more-icon">more_vert</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col s3">
+            <div class="card-panel counter-panel clearfix">
+                <i class="material-icons icon">people</i>
+                <div class="right">
+                    <strong class="font-color darker">{{usersVM.list.length}}</strong>
+                    <span>Users</span>
+                </div>
+            </div>
+        </div>
+        <div class="col s3">
+            <div class="card-panel user-types">
+                <p class="uppercase">User types</p>
+                <ul>
+                    <li>
+                        <span>Administrators</span>
+                        <div class="right">
+                            <span>0</span>
+                            <span class="font-color medium">| 3</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Editors</span>
+                        <div class="right">
+                            <span>8</span>
+                            <span class="font-color medium">| 17</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Tourists</span>
+                        <div class="right">
+                            <span>77</span>
+                            <span class="font-color medium">| 2110</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Add User Modal -->
+    <div id="addUser" class="modal">
+        <div class="modal-header dash-color light">
+            <h4 class="font-color dark">Add User</h4>
+        </div>
+        <div class="modal-content" data-ng-include="'views/modules/users/modal/editUser.html'"></div>
+        <div class="modal-footer">
+            <a href="" class=" modal-action modal-close btn-flat uppercase">cancel</a>
+            <a href="" class=" modal-action modal-close btn-flat uppercase"
+                data-ng-click="addUser()">confirm</a>
+        </div>
+    </div>
+    <!-- Edit User Modal -->
+    <div id="editUser" class="modal">
+        <div class="modal-header dash-color light">
+            <h4 class="font-color dark">Edit User</h4>
+        </div>
+        <div class="modal-content" data-ng-include="'views/modules/users/modal/editUser.html'"></div>
+        <div class="modal-footer">
+            <a href="" class=" modal-action modal-close btn-flat uppercase">cancel</a>
+            <a href="" class=" modal-action modal-close btn-flat uppercase"
+                data-ng-click="saveActiveUser()">confirm</a>
+        </div>
+    </div>
+</div>

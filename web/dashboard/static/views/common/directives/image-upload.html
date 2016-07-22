@@ -1,0 +1,23 @@
+<ul class="gallery-holder">
+	<li class="thumbnail" data-ng-if="gallery"
+        data-ng-repeat="image in gallery" data-ng-mouseenter="overlay = true"
+		data-ng-mouseleave="overlay = false">
+        <img data-ng-src="{{path + '/' + image}}">
+		<div class="overlay" data-ng-if="overlay">
+			<div class="actions">
+				<i class="material-icons check"
+					data-ng-click="setOverview({image: image})">check_circle</i>
+				<i class="material-icons delete"
+					data-ng-click="removeImg({image: image})">delete</i>
+			</div>
+		</div>
+    </li>
+    <li class="clearfix"></li>
+	<li class="file-field">
+        <div class="btn upload-images">
+            <i class="material-icons">add_a_photo</i>
+            Upload image
+            <input type="file" accept="image/*" multiple>
+        </div>
+    </li>
+</ul>

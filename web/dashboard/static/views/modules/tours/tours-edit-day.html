@@ -1,0 +1,37 @@
+<map-view id="tour-day-map"
+    data-map-center="tourEditDayVM.map.center"
+    data-map-options="tourEditDayVM.map.options"
+    data-map-markers="tourEditDayVM.map.markers" class="map-view tour-map"></map-view>
+<!-- <leaflet defaults="tourEditDayVM.map.defaults"  lf-center="tourEditDayVM.map.center"
+    tiles="tourEditDayVM.map.tiles"></leaflet> -->
+<div class="primary-color light itinerary">
+    <div class="row itinerary-header">
+        <div class="col s6 itinerary-title">
+            <h5 class="uppercase">itinerary</h5>
+        </div>
+        <div class="col s6 itinerary-overview">
+            <i class="material-icons icon right tooltipped tooltip" data-position="top" data-delay="50"
+                data-tooltip="Total 8h and 12 min, 2h travel">info</i>
+            <div class="progress right">
+                <div class="determinate"></div>
+                <i class="material-icons">info</i>
+            </div>
+        </div>
+    </div>
+    <div class="row itinerary-content custom-scrollbar" custom-scrollbar-axis="x"
+        custom-scrollbar-theme="minimal-dark" custom-scrollbar-list="itinerary-points">
+        <ul class="collection itinerary-points">
+            <li data-ng-repeat="poi in tourEditDayVM.data.pois">
+                <div class="collection-item avatar item-poi">
+                    <i class="material-icons circle">check_circle</i>
+                    <span class="title">{{poi.name.en}}</span>
+                    <p class="">{{poi.spendTime}}</p>
+                </div>
+                <div class="item-route">
+                    <i class="material-icons icon">directions_walk</i>
+                    <p class="center-align time">25 min</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

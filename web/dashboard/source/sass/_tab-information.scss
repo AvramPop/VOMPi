@@ -1,0 +1,46 @@
+#information {
+  padding: 1.5rem 0.75rem 0.5rem;
+
+  .input-field {
+    margin-top: 0;
+  }
+
+  textarea {
+    &.materialize-textarea {
+      padding: 0;
+    }
+  }
+
+  [type="checkbox"].filled-in:checked + label:after {
+    border: 2px solid $accent-color;
+    background-color: $accent-color;
+  }
+
+  [type="checkbox"].filled-in:not(:checked) + label:after {
+    border: 2px solid $divider-color;
+  }
+
+  .collection .collection-item {
+    line-height: 2rem;
+  }
+
+  .interval {
+    .input-field {
+      display: inline-block;
+
+      select {
+        height: 2rem;
+      }
+    }
+
+    span {
+      padding: 0 5px;
+    }
+  }
+
+  label {
+    &.left {
+      padding-right: 0.5rem;
+    }
+  }
+}

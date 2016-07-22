@@ -1,0 +1,46 @@
+<div id="gallery">
+    <div class="row">
+        <div class="col s12 center">
+            <form class="upload-image" action="#">
+                <div class="file-field">
+                    <div class="btn">
+                        <i class="material-icons">add_a_photo</i>
+                        Upload image
+                        <input type="file" multiple>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row poi-gallery" data-ng-if="poiGalleryVM.info.images">
+        <!-- <img data-ng-if="poiEditGalleryVM.info.images.overview"
+            data-ng-src="{{poiEditGalleryVM.info.images.overview}}" class="responsive-img">
+        <img data-ng-if="poiEditGalleryVM.info.images.gallery"
+            data-ng-repeat="image in poiEditGalleryVM.info.images.gallery"
+            data-ng-src="{{image}}" class="responsive-img"> -->
+        <!-- <div class="col l6" data-ng-if="poiEditGalleryVM.info.images"> -->
+            <div class="img-container" data-ng-if="poiGalleryVM.info.images.overview"
+                ng-mouseenter="options[1] = true" ng-mouseleave="options[1] = false">
+                <img data-ng-src="{{poiGalleryVM.info.images.overview}}" class="responsive-img">
+                <div class="manage-img" ng-show="options[1]">
+                    <a href=""><i class="material-icons">insert_photo</i></a>
+                    <a href=""><i class="material-icons">cloud_download</i></a>
+                    <a href=""><i class="material-icons">delete</i></a>
+                </div>
+            </div>
+        <!-- </div> -->
+        <!-- <div class="col l3" data-ng-if="poiEditGalleryVM.info.images"
+            data-ng-repeat="image in poiEditGalleryVM.info.images.gallery"> -->
+            <div class="img-container" data-ng-if="poiGalleryVM.info.images.gallery"
+                data-ng-repeat="image in poiGalleryVM.info.images.gallery"
+                ng-mouseenter="options[2] = true" ng-mouseleave="options[2] = false">
+                <img data-ng-src="{{image}}" class="responsive-img">
+                <div class="manage-img" ng-show="options[2]">
+                    <a href=""><i class="material-icons">insert_photo</i></a>
+                    <a href=""><i class="material-icons">cloud_download</i></a>
+                    <a href=""><i class="material-icons">delete</i></a>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+</div>

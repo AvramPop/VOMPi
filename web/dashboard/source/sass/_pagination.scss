@@ -1,0 +1,18 @@
+.pagination {
+  li {
+    &:hover {
+      cursor: pointer;;
+    }
+    
+    &.page {
+      &:hover,
+      &.active {
+        background-color: $accent-color;
+      }
+
+      &:hover {
+        cursor: pointer;;
+      }
+    }
+  }
+}

@@ -1,4 +1,13 @@
 .categories {
+
+  i {
+    &.circle {
+      background-color: transparent;
+      color: $secondary-text-color;
+      font-size: 26px;
+    }
+  }
+
   .counter-panel {
     strong {
       font-weight: 800;
