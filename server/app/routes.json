@@ -345,7 +345,7 @@
   {
     "method": "delete",
     "path": "/admin/delete/:id",
-    "handler": "handlers/admin/delete.js",
+    "handler": "handlers/admin/remove.js",
     "validate": [ {
       "param": "id",
       "type": "body",
@@ -358,7 +358,7 @@
   {
     "method": "delete",
     "path": "/campaign/delete/:id",
-    "handler": "handlers/campaign/delete.js",
+    "handler": "handlers/campaign/remove.js",
     "validate": [ {
       "param": "id",
       "type": "body",
@@ -371,7 +371,7 @@
   {
     "method": "delete",
     "path": "/candidate/delete/:id",
-    "handler": "handlers/candidate/delete.js",
+    "handler": "handlers/candidate/remove.js",
     "validate": [ {
       "param": "id",
       "type": "body",
@@ -384,7 +384,7 @@
   {
     "method": "delete",
     "path": "/criteria/delete/:id",
-    "handler": "handlers/criteria/delete.js",
+    "handler": "handlers/criteria/remove.js",
     "validate": [ {
       "param": "id",
       "type": "body",
@@ -397,7 +397,7 @@
   {
     "method": "delete",
     "path": "/livingarea/delete/:id",
-    "handler": "handlers/livingarea/delete.js",
+    "handler": "handlers/livingarea/remove.js",
     "validate": [ {
       "param": "id",
       "type": "body",
@@ -410,7 +410,7 @@
   {
     "method": "delete",
     "path": "/person/delete/:id",
-    "handler": "handlers/person/delete.js",
+    "handler": "handlers/person/remove.js",
     "validate": [ {
       "param": "id",
       "type": "body",
@@ -423,7 +423,7 @@
   {
     "method": "delete",
     "path": "/voter/delete/:id",
-    "handler": "handlers/voter/delete.js",
+    "handler": "handlers/voter/remove.js",
     "validate": [ {
       "param": "id",
       "type": "body",
