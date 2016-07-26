@@ -25,6 +25,11 @@
                 url: '^/home',
                 parent: 'web',
                 templateUrl: 'views/modules/home/home.html'
+            })
+            .state('web.login', {
+                url: '^/login',
+                parent: 'web',
+                templateUrl: 'views/modules/login/login.html'
             });
     }
 })();
