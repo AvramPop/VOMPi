@@ -7,18 +7,17 @@ exports = module.exports = ( mongoose ) => {
                 required: true
             },
             personId: {
-                type: Schema.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: 'Person',
                 required: true
             },
-            optionals: {
-                type: Schema.Types.Mixed,
-                required: false
-            },
+            /*  optionals: {
+                  type: Schema.Types.Mixed,
+                  required: false
+              },*/
             numberOfVotes: {
                 type: Number,
-                required: true,
-                default: 0
+                required: true
             }
 
         } );

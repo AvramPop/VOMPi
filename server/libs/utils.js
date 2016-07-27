@@ -104,6 +104,12 @@ exports = module.exports = ( Settings ) => {
 
         return !!pattern.test( x ); // jshint ignore:line
     }
+
+    function calculateAge( birthday ) { // birthday is a date
+        var ageDifMs = Date.now() - birthday.getTime();
+        var ageDate = new Date( ageDifMs ); // miliseconds from epoch
+        return Math.abs( ageDate.getUTCFullYear() - 1970 );
+    }
 };
 
 exports[ '@singleton' ] = true;

@@ -14,7 +14,9 @@ exports = module.exports = ( AdminModel ) => {
                 //  email: b.email,
                 //  active: false,
                 email: b.email,
-                password: b.password
+                username: b.username,
+                password: b.password,
+                isAlive: false
             } );
             console.log( newAdmin );
             yield newAdmin.save();

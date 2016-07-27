@@ -1,12 +1,10 @@
 'use strict';
 
 exports = module.exports = ( CriteriaModel ) => {
-    return function* (id) {
+    return function* ( id ) {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield CriteriaModel.findById( {
-              _id: id
-            } ).remove().exec();
+            rec = yield CriteriaModel.findById( id ).remove().exec();
         this.success( {
             criterias: rec
         } );

@@ -1,12 +1,10 @@
 'use strict';
 
 exports = module.exports = ( CampaignModel ) => {
-    return function* (id) {
+    return function* ( id ) {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield CampaignModel.findById( {
-             _id: id
-            } ).remove().exec();
+            rec = yield CampaignModel.findById( id ).remove().exec();
         this.success( {
             campaigns: rec
         } );

@@ -62,6 +62,14 @@
       ]
     },
     {
+      "param": "username",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
       "param": "password",
       "type": "body",
       "validators": [
@@ -158,39 +166,8 @@
         "notEmpty",
         "isNumber"
       ]
-    },
-    {
-      "param": "candidate",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isArray"
-      ]
-    },
-    {
-      "param": "numberOfAllowedVoters",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isNumber"
-      ]
-    },
-    {
-      "param": "isCreating",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isBoolean"
-      ]
-    },
-    {
-      "param": "isAlive",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isBoolean"
-      ]
-    }]
+    }
+  ]
   },
   {
     "method": "get",
@@ -216,22 +193,7 @@
         "notEmpty",
         "isString"
       ]
-    },
-    {
-      "param": "optionals",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isOptional"
-      ]
-    },
-    {
-      "param": "numberOfVotes",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isNumber"
-      ] }]
+    }]
   },
   {
     "method": "get",
@@ -243,13 +205,18 @@
     "path": "/criteria/create",
     "handler": "handlers/criteria/create.js",
     "validate": [ {
-      "param": "campaignId",
+      "param": "requiresMaturity",
       "type": "body",
       "validators": [
-        "notEmpty",
-        "isId"
+        "notEmpty"
       ]
-    }]
+    },
+    {
+      "param": "requiresLocation",
+      "type": "body",
+      "validators": [
+        "notEmpty"
+      ] }]
   },
   {
     "method": "get",
@@ -308,11 +275,11 @@
         ]
       },
       {
-        "param": "livingarea",
+        "param": "livingArea",
         "type": "body",
         "validators": [
           "notEmpty",
-          "isId"
+          "isString"
         ]
       },
       {
@@ -338,104 +305,48 @@
       "type": "body",
       "validators": [
         "notEmpty",
-        "isId"
+        "isString"
       ]
     }]
   },
   {
     "method": "delete",
     "path": "/admin/delete/:id",
-    "handler": "handlers/admin/remove.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
+    "handler": "handlers/admin/remove.js"
   },
   {
     "method": "delete",
     "path": "/campaign/delete/:id",
-    "handler": "handlers/campaign/remove.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
+    "handler": "handlers/campaign/remove.js"
   },
   {
     "method": "delete",
     "path": "/candidate/delete/:id",
-    "handler": "handlers/candidate/remove.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
+    "handler": "handlers/candidate/remove.js"
   },
   {
     "method": "delete",
     "path": "/criteria/delete/:id",
-    "handler": "handlers/criteria/remove.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
+    "handler": "handlers/criteria/remove.js"
   },
   {
     "method": "delete",
     "path": "/livingarea/delete/:id",
-    "handler": "handlers/livingarea/remove.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
+    "handler": "handlers/livingarea/remove.js"
   },
   {
     "method": "delete",
     "path": "/person/delete/:id",
-    "handler": "handlers/person/remove.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
+    "handler": "handlers/person/remove.js"
   },
   {
     "method": "delete",
     "path": "/voter/delete/:id",
-    "handler": "handlers/voter/remove.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
+    "handler": "handlers/voter/remove.js"
   },
   {
     "method": "post",
-    "path": "/voter/vote/:id",
+    "path": "/voter/vote/:id/:campaignid/:candidate",
     "handler": "handlers/voter/vote.js",
     "validate": [ {
       "param": "id",
@@ -464,7 +375,7 @@
   },
   {
     "method": "post",
-    "path": "/candidate/assigntocampaign/:id",
+    "path": "/candidate/assigntocampaign/:id/:campaignid",
     "handler": "handlers/candidate/assigntocampaign.js",
     "validate": [ {
       "param": "id",
@@ -489,6 +400,32 @@
     "handler": "handlers/campaign/generateresults.js",
     "validate": [ {
       "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "post",
+    "path": "/criteria/assignlocation/:livingareaid",
+    "handler": "handlers/criteria/assignlocation.js",
+    "validate": [ {
+      "param": "livingareaId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }]
+  },
+  {
+    "method": "post",
+    "path": "/campaign/assigncriteria/:criteriaid",
+    "handler": "handlers/campaign/assigncriteria.js",
+    "validate": [ {
+      "param": "criteriaId",
       "type": "body",
       "validators": [
         "notEmpty",

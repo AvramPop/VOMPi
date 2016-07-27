@@ -5,14 +5,17 @@ exports = module.exports = ( CriteriaModel ) => {
         let h = this.request.header,
             b = this.request.body,
             rec = yield CriteriaModel.findOne( {
-                campaignId: b.campaignId
+                requiresMaturity: b.requiresMaturity,
+                requiresLocation: b.requiresLocation
+                    //mai e nevoie de un identificator
             } ).exec();
         console.log( b );
         if ( !rec ) {
             let newCriteria = new CriteriaModel( {
-                campaignId: b.campaignId
+                requiresMaturity: b.requiresMaturity,
+                requiresLocation: b.requiresLocation
             } );
-            console.log( newCampaign );
+            console.log( newCriteria );
             yield newCriteria.save();
             this.success( {
                 criteria: newCriteria

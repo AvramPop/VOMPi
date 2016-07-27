@@ -12,11 +12,10 @@ exports = module.exports = ( AdminModel, sendMail ) => {
         if ( !rec ) {
             throw ( {
                 code: '422',
-                message: 'error'
+                message: 'There is no admin with this email'
             } );
         }
-        sendMail.sendRegistrationEmail( 'Dani', rec.email, crypto.md5( new Date() + rec.email + 'ceva salt hashs' +
-            ' ca sa nu stie ce si cum sa generat' ) );
+        sendMail.sendRegistrationEmail( 'Dani' /*rec.username*/ , rec.email, 'asd' );
         this.success( {
             admins: rec
         } );

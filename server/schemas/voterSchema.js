@@ -7,18 +7,19 @@ exports = module.exports = ( mongoose ) => {
                 ref: 'Person',
                 required: true
             },
-            campaigns: {
-                type: Array,
-                required: true,
-                any: [
-                    /*
-                                    hasVoted
-                                    dateVoted
-                                    campaignId
-                                    criteriaId
-                                    */
-                ]
-            }
+            campaigns: [ {
+                hasVoted: {
+                    type: Boolean
+                },
+                campaignId: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'Campaign'
+                },
+                dateVoted: {
+                    type: Date
+                }
+
+            } ]
         } );
 
     return voterSchema;
