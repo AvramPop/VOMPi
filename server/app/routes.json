@@ -135,6 +135,28 @@
     }]
   },
   {
+    "method": "post",
+    "path": "/person/changepassword",
+    "handler": "handlers/person/changepassword.js",
+    "validate": [ {
+      "param": "email",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString",
+        "isEmail"
+      ]
+    },
+    {
+    "param": "uniqueIdentifier",
+    "type": "body",
+    "validators": [
+      "notEmpty",
+      "isString"
+    ]
+  }]
+  },
+  {
     "method": "get",
     "path": "/campaign/list",
     "handler": "handlers/campaign/list.js"
