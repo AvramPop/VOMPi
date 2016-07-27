@@ -15,8 +15,15 @@
             .state( 'layout', {
                 abstract: true,
                 controller: 'layoutCtrl',
-                controllerAs: 'layoutVM',
-                templateUrl: 'views/common/layout/layout.html'
+                controllerAs: 'vm',
+                templateUrl: 'views/common/layout/layout.html',
+                resolve: {
+                    User: [ 'OAuthService', function ( OAuthService ) {
+                        return OAuthService.info().then( function ( resp ) {
+                            return resp.user;
+                        } );
+                    } ]
+                }
             } );
     }
 } )();

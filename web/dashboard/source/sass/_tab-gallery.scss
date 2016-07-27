@@ -1,0 +1,48 @@
+#gallery {
+  form {
+    &.upload-image {
+      display: inline-block;
+      padding-top: 20px;
+
+        .btn, input {
+          height: 7rem;
+          width: 7rem;
+        }
+
+        .btn {
+          text-transform: none;
+          padding: 24px 0;
+          color: $divider-color;
+          font-size: small;
+          background-color: transparent;
+          line-height: 2rem;
+
+          i {
+            display: block;
+            font-size: 2.3rem;
+          }
+        }
+
+        .btn, .btn:hover {
+          border: 1px dashed;
+          box-shadow: none;
+        }
+      }
+    }
+
+    .img-container {
+      position: relative;
+      z-index: 1;
+
+      .manage-img {
+        position: absolute;
+        z-index: 10;
+        top: 5px;
+        right: 5px;
+
+        i {
+          color: $divider-color;
+        }
+      }
+    }
+  }

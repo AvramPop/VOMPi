@@ -4,8 +4,7 @@ exports = module.exports = ( CampaignModel ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield Campaign.findOne( {
-                //need some special identifier, not to (incurca) different numbers of same street, same town, etc
+            rec = yield CampaignModel.findOne( {
                 name: b.name
             } ).exec();
         console.log( b );
@@ -13,17 +12,15 @@ exports = module.exports = ( CampaignModel ) => {
             let newCampaign = new CampaignModel( {
                 name: b.name,
                 startDate: b.startDate,
-                isCreating: true,
                 duration: b.duration,
-                candidates: b.candidates,
-                numberOfAllowedVoters: b.numberOfAllowedVoters,
-                isCreating: b.isCreating,
-                isAlive: b.isAlive
+                isCreating: true,
+                isAlive: false,
+                candidates: []
             } );
             console.log( newCampaign );
             yield newCampaign.save();
             this.success( {
-                campaign: newCampaign
+                campaigns: newCampaign
             } );
         } else {
             throw ( {
@@ -36,5 +33,5 @@ exports = module.exports = ( CampaignModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/campaignModel'
+    'model/CampaignModel'
 ];

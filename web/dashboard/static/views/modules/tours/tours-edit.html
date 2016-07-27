@@ -1,0 +1,39 @@
+<div class="tours-edit">
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel with-header">
+                <div class="card-header edit-tour-header">
+                    <div class="row">
+                        <div class="left valign-wrapper card-title">
+                            <a data-ui-sref="tours" class="text-color dark">
+                                <i class="material-icons valign">arrow_back</i>
+                            </a>
+                            <h4 class="text-color dark valign">Edit tour: {{tourEditVM.tour.title}}</h4>
+                        </div>
+                        <div class="right valign-wrapper card-actions">
+                                <i class="material-icons">add</i>
+                                <a href="" class="text-color light valign">
+                            </a>
+                            <a href="" class="text-color light valign">
+                                <i class="material-icons">save</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content edit-tour-content">
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs edit-tab" no-content="true" data-active-tab="day1">
+                                <li class="tab {{'day' + key}}" data-ng-repeat="(key, value) in tourEditVM.tour.planning">
+                                    <a data-ng-class="{'active': key === tourEditVM.activeDay}"
+                                        data-ng-click="tourEditVM.goToDay(key)">day {{key}}</a>
+                                </li>
+                            </ul>
+                            <div class="day" ui-view></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

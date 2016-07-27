@@ -5,7 +5,6 @@ exports = module.exports = ( CandidateModel ) => {
         let h = this.request.header,
             b = this.request.body,
             rec = yield CandidateModel.findOne( {
-                //need some special identifier, not to (incurca) different numbers of same street, same town, etc
                 personId: b.personId
             } ).exec();
         console.log( b );
@@ -13,8 +12,7 @@ exports = module.exports = ( CandidateModel ) => {
             let newCandidate = new CandidateModel( {
                 type: b.type,
                 personId: b.personId,
-                optionals:b.optionals,
-                numberOfVotes: b.numberOfVotes
+                numberOfVotes: 0
             } );
             console.log( newCandidate );
             yield newCandidate.save();

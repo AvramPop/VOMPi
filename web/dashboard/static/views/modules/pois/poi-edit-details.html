@@ -1,0 +1,64 @@
+<div class="row poi-info">
+    <map-view id="poi-details-map" class="col s12 m8 map-view poi-details-map"
+    data-map-center="poiDetailsVM.location.center"
+    data-map-options="poiDetailsVM.location.options"
+    data-map-markers="poiDetailsVM.location.markers"></map-view>
+    <div class="col s12 m4 poi-details-holder custom-scrollbar" custom-scrollbar-axis="y"
+        custom-scrollbar-theme="minimal-dark" custom-scrollbar-list="poi-details">
+        <div class="poi-details">
+            <div class="detail-img-holder">
+                <div class="detail-img"
+                data-ng-style="{ 'background-image': 'url('+ poiDetailsVM.default.overview() +')' }"></div>
+            </div>
+            <div class="detail-info">
+                <div class="input-field no-border col s12 detail-name">
+                    <i class="material-icons prefix">{{poiDetailsVM.info.category.icon}}</i>
+                    <input id="poi-name" type="text" data-ng-model="poiDetailsVM.info.name['en']">
+                    <label for="poi-name" data-ng-if="!poiDetailsVM.info.name['en']">Name</label>
+                </div>
+                <div class="input-field no-border col s12 detail-description">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="poi-description" class="materialize-textarea"
+                    data-ng-model="poiDetailsVM.info.description"></textarea>
+                    <label for="poi-description" data-ng-if="!poiDetailsVM.info.description">Description</label>
+                </div>
+                <div class="row detail-tag">
+                    <div class="chip">
+                        {{poiDetailsVM.info.category.name['en']}}
+                    </div>
+                    <div class="chip">
+                        {{poiDetailsVM.info.tag.name['en']}}
+                    </div>
+                </div>
+                <div class="input-field no-border col s12 detail-program">
+                    <i class="material-icons prefix">watch_later</i>
+                    <textarea id="poi-program" class="materialize-textarea"
+                    data-ng-model="poiDetailsVM.info.details.opening.overpassValue"></textarea>
+                    <label for="poi-program" data-ng-if="!poiDetailsVM.info.details.opening">Pogram</label>
+                </div>
+                <div class="row detail-contact">
+                    <div class="input-field no-border col s12 detail-phone">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="poi-phone" type="text" data-ng-model="poiDetailsVM.info.details.contact.phone">
+                        <label for="poi-phone" data-ng-if="!poiDetailsVM.info.details.contact.phone">Phone</label>
+                    </div>
+                    <div class="input-field no-border col s12 detail-email">
+                        <i class="material-icons prefix">email</i>
+                        <input id="poi-email" type="text" data-ng-model="poiDetailsVM.info.details.contact.email">
+                        <label for="poi-email" data-ng-if="!poiDetailsVM.info.details.contact.email">Email</label>
+                    </div>
+                    <div class="input-field no-border col s12 detail-website">
+                        <i class="material-icons prefix">link</i>
+                        <input id="poi-website" type="text" data-ng-model="poiDetailsVM.info.details.website">
+                        <label for="poi-website" data-ng-if="!poiDetailsVM.info.details.website">Email</label>
+                    </div>
+                </div>
+                <div class="input-field no-border col s12 detail-coordinate">
+                    <i class="material-icons prefix">location_on</i>
+                    <input id="poi-phone" type="text" value="{{poiDetailsVM.info.coordinates.lat}}, {{poiDetailsVM.info.coordinates.lng}}" disabled>
+                    <label for="poi-coordinate" data-ng-if="!poiDetailsVM.info.coordinates">Coordinates</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

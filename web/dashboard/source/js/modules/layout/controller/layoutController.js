@@ -9,27 +9,50 @@
         .module( 'app.layout' )
         .controller( 'layoutCtrl', layoutCtrl );
 
-    layoutCtrl.$inject = [ 'ENV', '$scope', '$state', 'OAuthService', '_' ];
+    layoutCtrl.$inject = [ '$scope', '$state',
+        'User', 'ENV', 'localStorageService', '_'
+    ];
 
     /* @ngInject */
-    function layoutCtrl( ENV, $scope, $state, OAuthService, _ ) {
-        /* jshint validthis: true */
-        var layoutVM = this;
+    function layoutCtrl( $scope, $state,
+        User, ENV, localStorageService, _ ) {
+        console.log( 'Loading Layout Controller...' );
 
-        layoutVM.user = {};
-        layoutVM.config = {
+        /* jshint validthis: true */
+        var vm = this;
+
+        vm.config = {
             state: $state.current.name,
             siteName: ENV.APP.name
         };
 
-        OAuthService.info().then( function ( resp ) {
-            layoutVM.user = resp.user;
-            console.log( layoutVM.user );
-            if ( _.isEmpty( layoutVM.user.avatar ) ) {
-                layoutVM.user.avatar = ENV.DEFAULT.defaultAvatar;
-            }
-        } );
+        vm.user = User;
 
-        console.log( 'Loading Layout Controller...' );
+        if ( _.isEmpty( vm.user.avatar ) ) {
+            vm.user.avatar = ENV.DEFAULT.avatar;
+        }
+
+        // vm.language = {
+        //     availables: ENV.LANGS,
+        //     selected: ENV.LANGS.find( function ( lang ) {
+        //         return lang.value === ENV.APP.lang;
+        //     } )
+        // };
+
+        // vm.setLang = function ( langKey ) {
+        //     vm.language.selected = vm.language.availables.find( function ( lang ) {
+        //         return lang.value === langKey;
+        //     } );
+        //     $translate.use( langKey );
+        // };
+
+        vm.logout = function () {
+            var removeToken = localStorageService.set( 'token' );
+            if ( removeToken ) {
+                $state.go( 'home', {}, {
+                    reload: true
+                } );
+            }
+        };
     }
 } )();

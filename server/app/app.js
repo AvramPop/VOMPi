@@ -43,7 +43,7 @@ exports = module.exports = ( routes, router, validate, logging, response, settin
     FileSystem.createPath( settings.PATH.avatar );
 
     app
-        .use( serve( './docs/api' ) )
+    // .use( serve( './docs/api' ) )
         .use( serve( './web/common' ) )
         .use( serve( './web/client/public' ) )
         .use( serve( './web/dashboard/static' ) )

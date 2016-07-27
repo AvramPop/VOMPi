@@ -1,0 +1,66 @@
+<div class="categories">
+    <div class="row">
+        <div class="col s9">
+            <ul class="card-panel collection with-header collection-list">
+                <li class="collection-header clearfix">
+                    <i class="material-icons menu-icon left nav-icon">menu</i>
+                    <h4 class="left list-header">Categories</h4>
+                    <div class="right">
+                        <a href=""><i class="material-icons nav-icon">search</i></a>
+                        <a href="#addCategory" class="modal-trigger">
+                            <i class="material-icons n-icon">add</i>
+                        </a>
+                    </div>
+                </li>
+                <li class="collection-item avatar" data-ng-repeat="category in vm.list">
+                    <i class="material-icons circle">{{category.icon}}</i>
+                    <span class="title">{{category.name.en}}</span>
+                    <p class="description">{{category.nrOfPois}} entries</p>
+                    <a data-ui-sref="#" class="secondary-content">
+                        <i class="material-icons icon more-icon">more_vert</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col s3">
+            <div class="card-panel counter-panel clearfix">
+                <i class="material-icons icon">public</i>
+                <div class="right">
+                    <strong class="text-color dark">{{vm.list.length}}</strong>
+                    <span>Categories</span>
+                </div>
+            </div>
+        </div>
+        <div class="col s3">
+            <div class="card-panel top-categories">
+                <p class="uppercase">top categories</p>
+                <ul>
+                    <li data-ng-repeat="category in vm.list | orderBy: '-nrOfPois' | limitTo: 3">
+                        <span>{{category.name.en}}<span>
+                        <div class="right">
+                            <span>{{category.nrOfPois}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Add Category Modal -->
+    <div id="addCategory" class="modal">
+        <div class="modal-header primary-color light">
+            <h4 class="font-color dark">Add category</h4>
+        </div>
+        <div class="modal-content">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" class="input-suggestion input-focus"
+                        data-array-list="{{vm.list}}" placeholder="Category name ..." >
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="" class=" modal-action modal-close btn-flat uppercase">cancel</a>
+            <a href="" class=" modal-action modal-close btn-flat uppercase">confirm</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.regions {
+  .region-list {
+    .region-item {
+      p {
+        font-size: 11px;
+        color: #d4d4d4;
+
+        .description {
+          color: #9E9E9E;
+          width: calc(100% - 80px);
+        }
+      }
+    }
+  }
+}

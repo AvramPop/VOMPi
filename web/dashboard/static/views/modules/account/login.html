@@ -1,0 +1,47 @@
+<div class="row valign-wrapper login-wrapper">
+    <div class="col m6 s12 valign login-container">
+        <div class="card login-form">
+            <div class="card-content login">
+                <div class="row valign-wrapper user-avatar">
+                    <div class="valign">
+                        <img data-ng-src="{{vm.user.avatar}}" alt="" class="circle responsive-img">
+                    </div>
+                </div>
+                <div class="row user-info">
+                    <h5 class="user-name center-align">{{vm.user.name || 'LOGIN.Placeholder'}}</h5>
+                </div>
+                <form data-user="loginVM.user" data-panel="vm.panel" autocomplete="off" novalidate>
+                    <div class="row">
+                        <div class="input-field login-input rtl-toogle" data-lang="{{vm.language.selected.value}}">
+                            <input id="email" type="email" class="validate login-email" data-ng-model="vm.user.email">
+                            <label for="email">{{ 'LOGIN.Email' }}</label>
+                            <i class="material-icons prefix icon">email</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field login-input rtl-toogle" data-lang="{{vm.language.selected.value}}">
+                            <input id="password" type="password" data-ng-model="vm.user.password" class="validate">
+                            <label for="password">{{ 'LOGIN.Password' }}</label>
+                            <i class="material-icons prefix icon">lock</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field">
+                            <a class="btn-large col s12 waves-effect waves-light btn-login"
+                                data-ng-class="{'disabled': vm.user.name === vm.default.name}"
+                                data-ng-click="vm.signin(vm.user.email, vm.user.password)">
+                                {{ 'LOGIN.Signin'}}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <a class="btn-floating waves-effect waves-light langs" title="{{label.label}}"
+                            data-ng-repeat="lang in vm.language.availables" data-ng-click="vm.setLang(lang.value)">
+                            <img data-ng-src="{{lang.icon}}" alt="{{lang.label}}">
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

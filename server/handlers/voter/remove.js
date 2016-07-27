@@ -1,12 +1,10 @@
 'use strict';
 
 exports = module.exports = ( VoterModel ) => {
-    return function* (id) {
+    return function* ( id ) {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield VoterModel.findById( {
-              _id: id
-            } ).remove().exec();
+            rec = yield VoterModel.findById( id ).remove().exec();
         this.success( {
             voters: rec
         } );
@@ -15,5 +13,5 @@ exports = module.exports = ( VoterModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/personModel'
+    'model/voterModel'
 ];

@@ -1,0 +1,100 @@
+<div class="pois">
+    <div class="row">
+        <div class="col s9">
+            <ul class="card-panel collection with-header collection-list pois-list">
+                <li class="collection-header" data-ng-if="!vm.params.searchQuery">
+                    <i class="material-icons menu-icon left nav-icon">menu</i>
+                    <h4 class="left list-header">Points of interest</h4>
+                    <div class="left collection-list-paginate pois-list-paginate">
+                        <a data-ng-class="{'disabled': vm.params.startPage === 1}"
+                        data-ng-click="vm.getPois((vm.params.startPage - 1), vm.params.itemsPerPage, vm.params.filters)">
+                            <i class="material-icons">chevron_left</i>
+                        </a>
+                        {{vm.showing.init}} - {{vm.showing.end}}
+                        <a data-ng-class="{'disabled': vm.params.startPage === vm.params.totalPages}"
+                            data-ng-click="vm.getPois((vm.params.startPage + 1), vm.params.itemsPerPage, vm.params.filters)">
+                            <i class="material-icons">chevron_right</i>
+                        </a>
+                    </div>
+                    <div class="right collecion-list-options pois-list-options">
+                        <i class="material-icons nav-icon">filter_list</i>
+                        <i class="material-icons n-icon">add</i>
+                    </div>
+                </li>
+                <li class="collection-header" data-ng-if="vm.params.searchQuery">
+                    <a data-ng-click="vm.closeSearch()">
+                        <i class="material-icons menu-icon left nav-icon">arrow_back</i>
+                    </a>
+                    <h4 class="left list-header">Results for "{{vm.params.searchQuery}}"</h4>
+                </li>
+                <li class="collection-item avatar poi-item" data-ng-repeat="poi in vm.data.pois">
+                    <img data-ng-src="{{poi.image ? poi.image.overview : vm.default.image}}" alt="" class="circle">
+                    <span class="title">{{poi.name.en || 'Unkown'}}</span>
+                    <p>
+                        <span class="description">{{poi.category.name.en}} | {{poi.tag.name.en}}</span>
+                         in
+                        <span class="description">{{poi.city.name}} </span>
+                        <!-- <span class="star-rating">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_border</i>
+                        </span> -->
+                    </p>
+                    <a href="" data-ng-click="vm.editPoi(poi._id)" class="secondary-content">
+                        <i class="material-icons icon more-icon">more_vert</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col s3">
+            <div class="card-panel counter-panel">
+                <i class="material-icons icon">location_on</i>
+                <div class="right">
+                    <strong class="text-color dark">{{vm.data.total}}</strong>
+                    <span>POIs</span>
+                </div>
+            </div>
+            <div class="card-panel with-header" data-ng-if="!vm.params.searchQuery">
+                <div class="card-header filter-header">
+                    <div class="row">
+                        <div class="valign-wrapper card-title filter-title">
+                            <i class="material-icons">filter_list</i>
+                            <h4 class="list-header text-color dark">Categories</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content filter-content">
+                    <div class="row">
+                        <p class="filter-item" data-ng-repeat="category in vm.data.categories track by $index">
+                            <input type="checkbox" id="{{category._id}}" name="{{category._id}}" class="filled-in"
+                                data-status="category.filter" data-ng-click="vm.setCategFilter(category)" data-ng-checked="category.checked"/>
+                            <label for="{{category._id}}">{{category.name.en}}</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="card-panel with-header">
+                <div class="card-header filter-header">
+                    <div class="row">
+                        <div class="valign-wrapper card-title filter-title">
+                            <i class="material-icons">filter_list</i>
+                            <h4 class="list-header text-color dark">Tags</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content filter-content filter-tags custom-scrollbar" custom-scrollbar-axis="y"
+                    custom-scrollbar-theme="minimal-dark">
+                    <div class="row tag-list">
+                        <p class="filter-item" data-ng-repeat="tag in vm.params.filters.tags track by $index">
+                            <input type="checkbox" id="{{tag._id}}" name="{{tag._id}}"
+                                class="filled-in" data-ng-click="vm.setTagStatus(tag)" data-ng-checked="tag.checked"/>
+                            <label for="{{tag._id}}">{{tag.name.en}}</label>
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

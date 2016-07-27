@@ -1,8 +1,6 @@
 .card-panel {
   /**
-   *
    * Card With Header
-   *
    */
   &.with-header {
     padding: 0;
@@ -11,6 +9,7 @@
 
     .card-header {
       padding: $padding-medium $padding-medium 0;
+      overflow: hidden;;
 
       .row {
 
@@ -25,9 +24,19 @@
 
           /*----------- Back Arrow -----------*/
 
-          i {
-            float: left;
-            margin-right: $col-margin * 2;
+          a {
+            color: $secondary-text-color;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            i {
+              float: left;
+              font-size: 26px;
+              font-weight: 600;
+              margin-right: $col-margin * 2;
+            }
           }
 
           /*----------- Title -----------*/
@@ -53,6 +62,30 @@
           }
         }
       }
+
+      &.filter-header {
+        padding: 0 $padding-medium;
+        border-bottom: 1px solid $border-color;
+
+        .row {
+          margin-bottom: 0;
+
+          .filter-title {
+            i {
+              color: $secondary-text-color;
+              font-size: 26px;
+              font-weight: 600;
+              margin-right: $col-margin;
+            }
+
+            h4 {
+              font-size: 1.6rem;
+              font-weight: 400;
+              margin-left: 0;
+            }
+          }
+        }
+      }
     }
 
     /*----------- Content -----------*/
@@ -63,38 +96,101 @@
           padding: 0;
         }
       }
+
+      &.filter-content {
+        &.filter-tags {
+          display: block;
+          height: 380px;
+          overflow: auto;
+        }
+
+        .row {
+          padding: 0 $padding-medium;
+          .filter-item {
+
+          }
+        }
+      }
     }
   }
 
+  /**
+   * Card with collection list
+   */
   &.collection-list {
     padding: 0;
 
     li {
       &.collection-header {
+        overflow: hidden;
 
         i {
           font-size: 26px;
           font-weight: 600;
+        }
+
+        a {
+          color: $secondary-text-color;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          i {
+            @extend i;
+          }
+        }
+
+        .collection-list-paginate {
+          display: block;
+          margin: 1.2rem 0 0.912rem  1rem;
+
+          a {
+            color: $primary-text-color;
+            display: inline-block;
+            font-size: 1.2rem;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 2px;
+            text-align: center;
+
+            i {
+              font-size: 2rem;
+              font-weight: normal;
+              vertical-align: middle;
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &.disabled {
+              color: #999;
+              cursor: default;
+            }
+          }
         }
       }
 
       &.collection-item {
         &.avatar {
           min-height: 0;
+        }
 
-          img {
-            &.circle {
-              width: 35px;
-              height: 35px;
-            }
-          }
+        &.filter-item {
+          padding: 0 $padding-medium;
         }
       }
     }
   }
+
+  /**
+   * Card with counter
+   */
   &.counter-panel {
     font-size: 22px;
     line-height: 35px;
+    overflow: hidden;
 
     i {
       font-size: 35px;

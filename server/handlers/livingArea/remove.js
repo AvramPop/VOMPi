@@ -1,18 +1,18 @@
 'use strict';
 
 exports = module.exports = ( LivingAreaModel ) => {
-    return function* (id) {
+    return function* ( id ) {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield LivingAreaModel.findById( {
-              _id: id
-            } ).remove().exec();
+            rec = yield LivingAreaModel.findById( id ).remove().exec();
+        console.log( rec );
         this.success( {
             livingAreas: rec
         } );
         // this.success({ user: 'ceva' });
     };
 };
+
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
     'model/livingAreaModel'

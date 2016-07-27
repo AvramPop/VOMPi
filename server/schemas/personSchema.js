@@ -12,25 +12,27 @@ exports = module.exports = ( mongoose ) => {
                 required: true
             },
             email: {
-                 type: String,
-                 required: true
+                type: String,
+                required: true
             },
             uniqueIdentifier: {
                 type: String,
                 required: true
             },
             gender: {
-                 type: String,
+                type: String,
             },
             dateOfBirth: {
-                 type: Date,
+                type: Date,
+                required: true
             },
             livingArea: {
-              type: mongoose.Schema.Types.ObjectId,
-              ref: 'Living Area',
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Living Area',
+                required: true
             },
             telephone: {
-              type: String
+                type: String
             }
 
         } );

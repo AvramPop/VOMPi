@@ -1,6 +1,6 @@
-// =============================================================================
-// LOGIN CONTROLLER
-// =============================================================================
+/*=============================================>>>>>
+= LOGIN CONTROLLER =
+===============================================>>>>>*/
 
 ( function () {
     'use strict';
@@ -9,31 +9,50 @@
         .module( 'app.account' )
         .controller( 'loginCtrl', loginCtrl );
 
-    loginCtrl.$inject = [ '$state', 'OAuthService', 'localStorageService', 'ENV' ];
+    loginCtrl.$inject = [ '$scope', '$state', '$timeout',
+        'OAuthService', 'localStorageService', 'ENV'
+    ];
 
     /* @ngInject */
-    function loginCtrl( $state, OAuthService, localStorageService, ENV ) {
+    function loginCtrl( $scope, $state, $timeout,
+        OAuthService, localStorageService, ENV ) {
         console.log( 'Running LOGIN Ctrl...' );
-        /* jshint validthis: true */
-        var loginVM = this,
-            defaultName = 'Enter your email and password';
 
-        loginVM.default = {
+        var defaultName,
+            /* jshint validthis: true */
+            vm = this;
+        // 
+        // vm.language = {
+        //     availables: ENV.LANGS,
+        //     selected: ENV.LANGS.find( function ( lang ) {
+        //         return lang.value === ENV.APP.lang;
+        //     } )
+        // };
+        //
+        // vm.setLang = function ( langKey ) {
+        //     vm.language.selected = vm.language.availables.find( function ( lang ) {
+        //         return lang.value === langKey;
+        //     } );
+        //     $translate.use( langKey );
+        // };
+
+        vm.default = {
             name: defaultName,
-            avatar: ENV.DEFAULT.defaultAvatar
+            avatar: ENV.DEFAULT.avatar,
+            lang: ENV.APP.lang,
         };
 
-        loginVM.user = {
+        vm.user = {
             name: defaultName,
-            avatar: ENV.DEFAULT.defaultAvatar
+            avatar: ENV.DEFAULT.avatar
         };
 
-        loginVM.setInfo = function ( email ) {
+        vm.setInfo = function ( email ) {
             return OAuthService.loginInfo( email );
         };
 
-        loginVM.signin = function ( email, password ) {
-            if ( !email || !password || !loginVM.user.name ) {
+        vm.signin = function ( email, password ) {
+            if ( !email || !password || !vm.user.name ) {
                 return;
             }
             // password = CryptoJS.encrypt( password, false );

@@ -59,6 +59,7 @@
             min-height: 37px;
 
             h5 {
+              color: $secondary-text-color;
               font-size: 1.2rem;
               font-weight: 100;
             }
@@ -99,8 +100,10 @@
             i {
               &.icon {
                 // color: #fff;
+                left: inherit;
                 opacity: .45;
                 padding-left: $col-padding;
+                padding-right: inherit;
                 right: 0;
                 top: 8px;
                 transition: opacity .2s;
@@ -136,12 +139,36 @@
                 // color: rgba(255, 255, 255, .45);
               }
             }
+
+            &.rtl {
+              text-align: right;
+
+              input {
+                text-align: right;
+              }
+
+              i {
+                &.icon {
+                  left: 0;
+                  padding-right: $col-padding;
+                  padding-left: inherit;
+                  right: inherit;
+                }
+              }
+            }
           }
 
-          .input-field {
-            .btn-next,
-            .btn-login {
-              // background: $primary-light;
+          .langs {
+            background-color: $primary-color-light;
+            box-shadow: inherit;
+
+            &:first-child {
+              margin-right: $col-padding;
+            }
+
+            img {
+              position: relative;
+              top: 2px;
             }
           }
         }
