@@ -33,5 +33,5 @@ exports = module.exports = ( CampaignModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/CampaignModel'
+    'model/campaignModel'
 ];

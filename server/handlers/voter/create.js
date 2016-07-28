@@ -29,5 +29,5 @@ exports = module.exports = ( VoterModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/VoterModel'
+    'model/voterModel'
 ];

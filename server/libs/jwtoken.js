@@ -10,13 +10,13 @@ exports = module.exports = ( settings ) => {
 
     return methods;
 
-    function signToken( data ) {
+    function signToken( data ) { // create token (enrypted)
         return jwt.sign( data, settings.SESSION.secret, {
             expiresIn: settings.SESSION.expire
         } );
     }
 
-    function verifyToken( token ) {
+    function verifyToken( token ) { // verify token (decrypt)
         return jwt.verify( token, settings.SESSION.secret );
     }
 };
