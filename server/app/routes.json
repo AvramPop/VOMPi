@@ -10,7 +10,29 @@
     "method": "post",
     "path": "/admin/activate/:email",
     "handler": "handlers/admin/activate.js"
-}, {
+},
+{
+    "method": "post",
+    "path": "/person/login",
+    "handler": "handlers/person/login.js",
+    "validate": [ {
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isEmail"
+        ]
+    },
+    {
+        "param": "password",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+},
+{
     "method": "post",
     "path": "/campaign/start",
     "handler": "handlers/campaign/startCampaign.js",

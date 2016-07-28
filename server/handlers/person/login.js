@@ -21,7 +21,7 @@ exports = module.exports = ( Person, JWT ) => {
         }
 
         // Create user token
-        let userToken = JWT.signToken( {
+        let userToken = JWT.sign( {
             uniqId: user.uniqueIdentifier,
             firstName: user.firstName,
             lastName: user.lastName
@@ -30,7 +30,9 @@ exports = module.exports = ( Person, JWT ) => {
         console.log( userToken );
 
         // Send Response
-        this.success();
+        this.success( {
+            token: userToken
+        } );
     };
 };
 
