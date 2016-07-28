@@ -8,7 +8,8 @@ exports = module.exports = ( CampaignModel, CandidateModel ) => {
             candidateRec = yield CandidateModel.findById( b.candidateId ).exec();
         console.log( 'ads' );
         if ( campaignRec.isCreating ) {
-            campaignRec.candidates.push( candidateRec );
+            campaignRec.candidates.push( candidateRec._id );
+            console.log( campaignRec.candidates );
             yield campaignRec.save();
         } else {
             console.log( 'The creating period has finihed for campaign: ' +

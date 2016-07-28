@@ -11,14 +11,13 @@ exports = module.exports = ( CampaignModel ) => {
         if ( !rec ) {
             let newCampaign = new CampaignModel( {
                 name: b.name,
-                startDate: b.startDate,
+                startDate: new Date( b.startDate ),
                 duration: b.duration,
                 isCreating: true,
-                isAlive: false,
-                candidates: []
+                isAlive: false
             } );
             console.log( newCampaign );
-            yield newCampaign.save();
+            console.log( yield newCampaign.save() );
             this.success( {
                 campaigns: newCampaign
             } );

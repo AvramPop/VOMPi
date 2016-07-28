@@ -1,4 +1,5 @@
 'use strict';
+
 exports = module.exports = ( mongoose ) => {
     let Schema = mongoose.Schema,
         candidateSchema = new Schema( {

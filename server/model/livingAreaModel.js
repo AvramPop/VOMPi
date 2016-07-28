@@ -1,7 +1,7 @@
 'use strict';
 
 exports = module.exports = ( mongoose, livingAreaSchema ) => {
-    let LivingArea = mongoose.model( 'LivingArea', livingAreaSchema, 'LivingArea' );
+    let LivingArea = mongoose.model( 'LivingArea', livingAreaSchema, 'LivingAreas' );
     return LivingArea;
 };
 exports[ '@singleton' ] = true;
