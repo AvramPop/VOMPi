@@ -4,7 +4,7 @@ exports = module.exports = ( LivingAreaModel ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield LivingAreaModel.find( {} ).exec();
+            rec = yield LivingAreaModel.find().exec();
         this.success( {
             livingAreas: rec
         } );

@@ -30,5 +30,5 @@ exports = module.exports = ( CandidateModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/CandidateModel'
+    'model/candidateModel'
 ];

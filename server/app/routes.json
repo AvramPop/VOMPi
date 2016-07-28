@@ -1,548 +1,487 @@
-[
-  {
+[ {
     "method": "get",
     "path": "/",
     "handler": "handlers/index.js"
-  },
-  {
+}, {
     "method": "get",
     "path": "/user/list",
     "handler": "handlers/list.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/admin/activate/:email",
     "handler": "handlers/admin/activate.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/campaign/start",
     "handler": "handlers/campaign/startCampaign.js",
     "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ] }]
-  },
-  {
+        "param": "id",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "post",
     "path": "/admin/deactivate/:email",
     "handler": "handlers/admin/deactivate.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/user/create",
     "handler": "handlers/create.js",
     "validate": [ {
-      "param": "password",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "email",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isEmail"
-      ]
+        "param": "password",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
     }, {
-      "param": "name",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isEmail"
+        ]
     }, {
-      "param": "lastName",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "name",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "lastName",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "get",
     "path": "/admin/list",
     "handler": "handlers/admin/list.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/admin/create",
     "handler": "handlers/admin/create.js",
     "validate": [ {
-      "param": "email",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "username",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "password",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "username",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "password",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "get",
-    "path": "/livingarea/list",
-    "handler": "handlers/livingarea/list.js"
-  },
-  {
+    "path": "/livingArea/list",
+    "handler": "handlers/livingArea/list.js"
+}, {
     "method": "post",
-    "path": "/livingarea/create",
-    "handler": "handlers/livingarea/create.js",
+    "path": "/livingArea/create",
+    "handler": "handlers/livingArea/create.js",
     "validate": [ {
-      "param": "country",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "region",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "town",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "street",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "country",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "region",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "town",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "street",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "post",
     "path": "/admin/changepassword",
-    "handler": "handlers/admin/changepassword.js",
+    "handler": "handlers/admin/changePassword.js",
     "validate": [ {
-      "param": "email",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString",
-        "isEmail"
-      ]
-    },
-    {
-      "param": "password",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }
-  ]
-  },
-  {
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString",
+            "isEmail"
+        ]
+    }, {
+        "param": "password",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "post",
     "path": "/admin/forgotpassword",
-    "handler": "handlers/admin/forgotpassword.js",
+    "handler": "handlers/admin/forgotPassword.js",
     "validate": [ {
-      "param": "email",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString",
-        "isEmail"
-      ]
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString",
+            "isEmail"
+        ]
     } ]
-  },
-  {
+}, {
     "method": "post",
     "path": "/person/forgotpassword",
-    "handler": "handlers/person/forgotpassword.js",
+    "handler": "handlers/person/forgotPassword.js",
     "validate": [ {
-      "param": "email",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString",
-        "isEmail"
-      ]
-    },
-    {
-    "param": "uniqueIdentifier",
-    "type": "body",
-    "validators": [
-      "notEmpty",
-      "isString"
-    ]
-  } ]
-  },
-  {
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString",
+            "isEmail"
+        ]
+    }, {
+        "param": "uniqueIdentifier",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "post",
     "path": "/person/changepassword",
-    "handler": "handlers/person/changepassword.js",
+    "handler": "handlers/person/changePassword.js",
     "validate": [ {
-      "param": "email",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString",
-        "isEmail"
-      ]
-    },
-    {
-    "param": "uniqueIdentifier",
-    "type": "body",
-    "validators": [
-      "notEmpty",
-      "isString"
-    ]
-  }, {
-    "param": "password",
-    "type": "body",
-    "validators": [
-      "notEmpty",
-      "isString"
-    ]
-  }]
-  },
-  {
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString",
+            "isEmail"
+        ]
+    }, {
+        "param": "uniqueIdentifier",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "password",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "post",
     "path": "/campaign/assigncandidate",
     "handler": "handlers/campaign/assignCandidate.js",
     "validate": [ {
-      "param": "campaignId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-    "param": "candidateId",
-    "type": "body",
-    "validators": [
-      "notEmpty",
-      "isString"
-    ]
-  }]
-  },
-  {
+        "param": "campaignId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "candidateId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "get",
     "path": "/campaign/list",
     "handler": "handlers/campaign/list.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/campaign/create",
     "handler": "handlers/campaign/create.js",
     "validate": [ {
-      "param": "name",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "startDate",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isDate"
-      ]
-    },
-    {
-      "param": "duration",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isNumber"
-      ]
-    }
-  ]
-  },
-  {
+        "param": "name",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "startDate",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isDate"
+        ]
+    }, {
+        "param": "duration",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isNumber"
+        ]
+    } ]
+}, {
     "method": "get",
     "path": "/candidate/list",
     "handler": "handlers/candidate/list.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/candidate/create",
     "handler": "handlers/candidate/create.js",
     "validate": [ {
-      "param": "type",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "personId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "type",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "personId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "get",
     "path": "/criteria/list",
     "handler": "handlers/criteria/list.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/criteria/create",
     "handler": "handlers/criteria/create.js",
     "validate": [ {
-      "param": "requiresMaturity",
-      "type": "body",
-      "validators": [
-        "notEmpty"
-      ]
-    },
-    {
-      "param": "requiresLocation",
-      "type": "body",
-      "validators": [
-        "notEmpty"
-      ] }]
-  },
-  {
+        "param": "requiresMaturity",
+        "type": "body",
+        "validators": [
+            "notEmpty"
+        ]
+    }, {
+        "param": "requiresLocation",
+        "type": "body",
+        "validators": [
+            "notEmpty"
+        ]
+    } ]
+}, {
     "method": "get",
     "path": "/person/list",
     "handler": "handlers/person/list.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/person/create",
     "handler": "handlers/person/create.js",
     "validate": [ {
-      "param": "firstName",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "lastName",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "email",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "uniqueIdentifier",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ] },
-      {
+        "param": "firstName",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "lastName",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "email",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "uniqueIdentifier",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
         "param": "gender",
         "type": "body",
         "validators": [
-          "notEmpty",
-          "isString"
+            "notEmpty",
+            "isString"
         ]
-      },
-      {
+    }, {
         "param": "dateOfBirth",
         "type": "body",
         "validators": [
-          "notEmpty",
-          "isDate"
+            "notEmpty",
+            "isDate"
         ]
-      },
-      {
+    }, {
         "param": "livingArea",
         "type": "body",
         "validators": [
-          "notEmpty",
-          "isString"
+            "notEmpty",
+            "isString"
         ]
-      },
-      {
+    }, {
         "param": "telephone",
         "type": "body",
         "validators": [
-          "notEmpty",
-          "isString"
+            "notEmpty",
+            "isString"
         ]
-      }]
-  },
-  {
+    } ]
+}, {
     "method": "get",
     "path": "/voter/list",
     "handler": "handlers/voter/list.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/voter/create",
     "handler": "handlers/voter/create.js",
     "validate": [ {
-      "param": "personId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "personId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "delete",
     "path": "/admin/delete/:id",
     "handler": "handlers/admin/remove.js"
-  },
-  {
+}, {
     "method": "delete",
     "path": "/campaign/delete/:id",
     "handler": "handlers/campaign/remove.js"
-  },
-  {
+}, {
     "method": "delete",
     "path": "/candidate/delete/:id",
     "handler": "handlers/candidate/remove.js"
-  },
-  {
+}, {
     "method": "delete",
     "path": "/criteria/delete/:id",
     "handler": "handlers/criteria/remove.js"
-  },
-  {
+}, {
     "method": "delete",
-    "path": "/livingarea/delete/:id",
-    "handler": "handlers/livingarea/remove.js"
-  },
-  {
+    "path": "/livingArea/delete/:id",
+    "handler": "handlers/livingArea/remove.js"
+}, {
     "method": "delete",
     "path": "/person/delete/:id",
     "handler": "handlers/person/remove.js"
-  },
-  {
+}, {
     "method": "delete",
     "path": "/voter/delete/:id",
     "handler": "handlers/voter/remove.js"
-  },
-  {
+}, {
     "method": "post",
     "path": "/voter/vote",
     "handler": "handlers/voter/vote.js",
     "validate": [ {
-      "param": "voterId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "campaignId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "candidateId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "voterId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "campaignId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "candidateId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "get",
     "path": "/campaign/generateresults/:id",
-    "handler": "handlers/campaign/generateresults.js",
+    "handler": "handlers/campaign/generateResults.js",
     "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "id",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "post",
     "path": "/criteria/assignlocation",
-    "handler": "handlers/criteria/assignlocation.js",
+    "handler": "handlers/criteria/assignLocation.js",
     "validate": [ {
-      "param": "criteriaId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "livingAreaId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
+        "param": "criteriaId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "livingAreaId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "post",
     "path": "/campaign/assigncriteria",
-    "handler": "handlers/campaign/assigncriteria.js",
+    "handler": "handlers/campaign/assignCriteria.js",
     "validate": [ {
-      "param": "name",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "criteriaId",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  }
-]
+        "param": "name",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "criteriaId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+} ]
