@@ -16,16 +16,11 @@ exports = module.exports = ( PersonModel, sendMail ) => {
                 message: 'There is no person with this unique identifier'
             } );
         }
-        if ( true /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/ ) {
-            rec.password = b.password;
-            rec.save();
-            var name = rec.firstName + ' ' + rec.lastName;
-            sendMail.sendPersonSuccesfullChangedPasswordEmail( name, rec.email, 'asd' /*token pt reset password*/ );
-        } else {
-            console.log( 'password does not match criteria' );
-        }
+        var name = rec.firstName + ' ' + rec.lastName;
+        console.log( rec );
+        sendMail.sendPersonForgottenPasswordEmail( rec.lastName, rec.email, 'asd' );
         this.success( {
-            admins: rec
+            persons: rec
         } );
     };
 };

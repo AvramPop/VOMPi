@@ -11,6 +11,28 @@
   },
   {
     "method": "post",
+    "path": "/admin/activate/:email",
+    "handler": "handlers/admin/activate.js"
+  },
+  {
+    "method": "post",
+    "path": "/campaign/start",
+    "handler": "handlers/campaign/startCampaign.js",
+    "validate": [ {
+      "param": "id",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ] }]
+  },
+  {
+    "method": "post",
+    "path": "/admin/deactivate/:email",
+    "handler": "handlers/admin/deactivate.js"
+  },
+  {
+    "method": "post",
     "path": "/user/create",
     "handler": "handlers/create.js",
     "validate": [ {
@@ -132,7 +154,52 @@
         "isString",
         "isEmail"
       ]
-    }]
+    },
+    {
+      "param": "password",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    }
+  ]
+  },
+  {
+    "method": "post",
+    "path": "/admin/forgotpassword",
+    "handler": "handlers/admin/forgotpassword.js",
+    "validate": [ {
+      "param": "email",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString",
+        "isEmail"
+      ]
+    } ]
+  },
+  {
+    "method": "post",
+    "path": "/person/forgotpassword",
+    "handler": "handlers/person/forgotpassword.js",
+    "validate": [ {
+      "param": "email",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString",
+        "isEmail"
+      ]
+    },
+    {
+    "param": "uniqueIdentifier",
+    "type": "body",
+    "validators": [
+      "notEmpty",
+      "isString"
+    ]
+  } ]
   },
   {
     "method": "post",
@@ -149,6 +216,34 @@
     },
     {
     "param": "uniqueIdentifier",
+    "type": "body",
+    "validators": [
+      "notEmpty",
+      "isString"
+    ]
+  }, {
+    "param": "password",
+    "type": "body",
+    "validators": [
+      "notEmpty",
+      "isString"
+    ]
+  }]
+  },
+  {
+    "method": "post",
+    "path": "/campaign/assigncandidate",
+    "handler": "handlers/campaign/assignCandidate.js",
+    "validate": [ {
+      "param": "campaignId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+    "param": "candidateId",
     "type": "body",
     "validators": [
       "notEmpty",
@@ -368,10 +463,10 @@
   },
   {
     "method": "post",
-    "path": "/voter/vote/:id/:campaignid/:candidate",
+    "path": "/voter/vote",
     "handler": "handlers/voter/vote.js",
     "validate": [ {
-      "param": "id",
+      "param": "voterId",
       "type": "body",
       "validators": [
         "notEmpty",
@@ -387,28 +482,7 @@
       ]
     },
     {
-      "param": "candidate",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    }]
-  },
-  {
-    "method": "post",
-    "path": "/candidate/assigntocampaign/:id/:campaignid",
-    "handler": "handlers/candidate/assigntocampaign.js",
-    "validate": [ {
-      "param": "id",
-      "type": "body",
-      "validators": [
-        "notEmpty",
-        "isString"
-      ]
-    },
-    {
-      "param": "campaignId",
+      "param": "candidateId",
       "type": "body",
       "validators": [
         "notEmpty",
@@ -431,10 +505,18 @@
   },
   {
     "method": "post",
-    "path": "/criteria/assignlocation/:livingareaid",
+    "path": "/criteria/assignlocation",
     "handler": "handlers/criteria/assignlocation.js",
     "validate": [ {
-      "param": "livingareaId",
+      "param": "criteriaId",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
+      "param": "livingAreaId",
       "type": "body",
       "validators": [
         "notEmpty",
@@ -444,9 +526,17 @@
   },
   {
     "method": "post",
-    "path": "/campaign/assigncriteria/:criteriaid",
+    "path": "/campaign/assigncriteria",
     "handler": "handlers/campaign/assigncriteria.js",
     "validate": [ {
+      "param": "name",
+      "type": "body",
+      "validators": [
+        "notEmpty",
+        "isString"
+      ]
+    },
+    {
       "param": "criteriaId",
       "type": "body",
       "validators": [

@@ -23,8 +23,12 @@ exports = module.exports = ( mongoose ) => {
                 type: Boolean,
                 required: true
             },
-            candidates: [ { //asta credca se poate mai simplut
-                candidates: {
+            criteria: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: 'Criteria'
+            },
+            candidates: [ {
+                candidate: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Candidate'
                 }

@@ -1,16 +1,16 @@
 'use strict';
 
 exports = module.exports = ( AdminModel ) => {
-    return function* () {
+    return function* ( aEmail ) {
         let h = this.request.header,
             b = this.request.body,
             rec = yield AdminModel.findOne( {
-                email: b.email
+                email: aEmail
             } ).exec();
         rec.isAlive = false;
         rec.save();
         this.success( {
-            activated: true
+            deactivated: true
         } );
     };
 };

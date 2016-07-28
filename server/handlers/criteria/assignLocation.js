@@ -1,26 +1,26 @@
 'use strict';
 
-exports = module.exports = ( CriteriaModel ) => {
-    return function* ( livingAreaId ) {
+exports = module.exports = ( CriteriaModel, LivingAreaModel ) => {
+    return function* () {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield CriteriaModel.findOne( {
-                requiresMaturity: b.requiresMaturity,
-                requiresLocation: b.requiresLocation
-                    //celalalt identificator
-            } ).exec();
+            criteria = yield CriteriaModel.findById( b.criteriaId ).exec(),
+            location = yield LivingAreaModel.findById( b.livingAreaId ).exec();
         console.log( b );
-        if ( rec.requiresLocation ) {
-            rec.locationRequired.push( livingAreaId );
+        if ( criteria.requiresLocation ) {
+            criteria.locationRequired.push( location );
+            yield criteria.save();
+        } else {
+            console.log( 'This criteria do not require locations' );
         }
-        yield rec.save();
         this.success( {
-            criteria: rec
+            criteria: criteria
         } );
         // this.success({ user: 'ceva' });
     };
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/criteriaModel'
+    'model/criteriaModel',
+    'model/livingAreaModel'
 ];

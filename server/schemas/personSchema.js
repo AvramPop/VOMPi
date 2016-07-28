@@ -33,8 +33,10 @@ exports = module.exports = ( mongoose ) => {
             },
             telephone: {
                 type: String
+            },
+            password: {
+                type: String
             }
-
         } );
 
     return personSchema;
