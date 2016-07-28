@@ -1,0 +1,57 @@
+ADMIN
+
+{
+	"email": "dani_pop08@yahoo.com",
+	"username": "johndoe",
+	"password":"johny"
+}
+
+CAMPAIGN
+
+{
+	"name": "Parlamentare 2016",
+	"startDate": "1999-12-22T18:25:43.511Z",
+	"duration":"80"
+}
+
+CANDIDATE
+
+{
+	"type": "UCDR",
+	"personId": "5799c0a48d28f34c238c827a"
+}
+
+CRITERIA
+
+{
+	"requiresMaturity": "true",
+	"requiresLocation": "true"
+}
+
+LIVINGAREA
+
+{
+	"country": "Sweden",
+	"region": "Kronoberg",
+  "town":"Älmhult",
+  "street":"Elmevagen"
+}
+
+PERSON
+
+{
+	"firstName": "John",
+	"lastName": "Doe",
+	"email": "sefuiop@gmail.com",
+	"uniqueIdentifier": "1291322225815",
+	"gender": "male",
+	"dateOfBirth": "1999-12-22T18:25:43.511Z",
+	"livingArea": "5798899ac15c8420193adc4a",
+	"telephone": "0757337065"
+}
+
+VOTER
+
+{
+	"personId":"5799c0a48d28f34c238c827a"
+}

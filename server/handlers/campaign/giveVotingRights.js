@@ -28,7 +28,7 @@ exports = module.exports = ( CampaignModel, CriteriaModel, PersonModel, VoterMod
                 voter = yield VoterModel.findOne( {
                     personId: pers._id //oare are asa ceva?
                 } ).exec();
-                voter.campaigns.push( campaignRec );
+                voter.campaigns.push( campaignRec ); //asta nui ok!!
                 voter.campaigns.push( {
                     campaignId: campaignRec._id
                 } ); // ceva nu pusca aici but watever

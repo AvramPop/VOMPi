@@ -11,7 +11,7 @@ exports = module.exports = ( VoterModel ) => {
         if ( !rec ) {
             let newVoter = new VoterModel( {
                 personId: b.personId,
-                campaigns: b.campaigns
+                campaigns: []
             } );
             console.log( newVoter );
             yield newVoter.save();
