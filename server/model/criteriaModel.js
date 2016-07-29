@@ -1,7 +1,7 @@
 'use strict';
 
 exports = module.exports = ( database, settings, mongoose, criteriaSchema ) => {
-    let Criteria = mongoose.model( 'Criteria', criteriaSchema, 'Criteria' );
+    let Criteria = mongoose.model( 'Criteria', criteriaSchema, 'Criterias' );
     return Criteria;
 };
 exports[ '@singleton' ] = true;

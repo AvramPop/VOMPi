@@ -3,10 +3,6 @@
     "path": "/",
     "handler": "handlers/index.js"
 }, {
-    "method": "get",
-    "path": "/user/list",
-    "handler": "handlers/list.js"
-}, {
     "method": "post",
     "path": "/admin/activate/:email",
     "handler": "handlers/admin/activate.js"
@@ -48,40 +44,8 @@
     "method": "post",
     "path": "/admin/deactivate/:email",
     "handler": "handlers/admin/deactivate.js"
-}, {
-    "method": "post",
-    "path": "/user/create",
-    "handler": "handlers/create.js",
-    "validate": [ {
-        "param": "password",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    }, {
-        "param": "email",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isEmail"
-        ]
-    }, {
-        "param": "name",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    }, {
-        "param": "lastName",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    } ]
-}, {
+},
+{
     "method": "get",
     "path": "/admin/list",
     "handler": "handlers/admin/list.js"
@@ -241,6 +205,18 @@
         ]
     }, {
         "param": "candidateId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
+    "method": "post",
+    "path": "/campaign/givevotingrights",
+    "handler": "handlers/campaign/giveVotingRights.js",
+    "validate": [ {
+        "param": "name",
         "type": "body",
         "validators": [
             "notEmpty",
@@ -457,11 +433,11 @@
         ]
     } ]
 }, {
-    "method": "get",
-    "path": "/campaign/generateresults/:id",
+    "method": "post",
+    "path": "/campaign/generateresults",
     "handler": "handlers/campaign/generateResults.js",
     "validate": [ {
-        "param": "id",
+        "param": "campaignId",
         "type": "body",
         "validators": [
             "notEmpty",
@@ -500,6 +476,26 @@
         ]
     }, {
         "param": "criteriaId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+},
+{
+    "method": "delete",
+    "path": "/campaign/removecandidate",
+    "handler": "handlers/campaign/removeCandidate.js",
+    "validate": [ {
+        "param": "campaignId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "candidateId",
         "type": "body",
         "validators": [
             "notEmpty",

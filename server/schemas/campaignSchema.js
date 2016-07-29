@@ -24,14 +24,13 @@ exports = module.exports = ( mongoose ) => {
                 required: true
             },
             criteria: {
-                type: mongoose.Schema.Types.ObjectId,
-                required: 'Criteria'
+                type: Schema.Types.ObjectId,
+                ref: 'Criteria'
             },
             candidates: [ {
-                candidate: {
-                    type: mongoose.Schema.Types.ObjectId,
-                    ref: 'Candidate'
-                }
+                type: Schema.Types.ObjectId,
+                ref: 'Candidate',
+                required: false
             } ]
         } );
 

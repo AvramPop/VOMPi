@@ -12,10 +12,8 @@ exports = module.exports = ( mongoose ) => {
                 required: true
             },
             locationRequired: [ {
-                livingArea: {
-                    type: mongoose.Schema.Types.ObjectId,
-                    ref: 'Living Area'
-                }
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'LivingArea'
             } ]
         } );
 

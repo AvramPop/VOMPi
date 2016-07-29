@@ -8,7 +8,7 @@ exports = module.exports = ( CriteriaModel, LivingAreaModel ) => {
             location = yield LivingAreaModel.findById( b.livingAreaId ).exec();
         console.log( b );
         if ( criteria.requiresLocation ) {
-            criteria.locationRequired.push( location );
+            criteria.locationRequired.push( location._id );
             yield criteria.save();
         } else {
             console.log( 'This criteria do not require locations' );

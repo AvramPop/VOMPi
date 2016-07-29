@@ -16,9 +16,8 @@ exports = module.exports = ( PersonModel, sendMail ) => {
                 message: 'There is no person with this unique identifier'
             } );
         }
-        var name = rec.firstName + ' ' + rec.lastName;
         console.log( rec );
-        sendMail.sendPersonForgottenPasswordEmail( rec.lastName, rec.email, 'asd' );
+        sendMail.sendPersonForgottenPasswordEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email, 'asd' );
         this.success( {
             persons: rec
         } );

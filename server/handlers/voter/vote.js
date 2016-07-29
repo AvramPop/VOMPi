@@ -1,24 +1,34 @@
 'use strict';
 
-exports = module.exports = ( VoterModel, CampaignModel ) => {
-    return function* ( voterId, campaignId, candidateId ) {
+let _ = require( 'underscore' );
+
+exports = module.exports = ( VoterModel, CampaignModel, CandidateModel ) => {
+    return function* () {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield VoterModel.findById( voterId ).exec(),
-            campaign = yield CampaignModel.findById( campaignId ).exec(),
-            index = campaign.candidates.find( x => x._id === candidateId ),
+            voter = yield VoterModel.findById( b.voterId ).exec(),
+            campaign = yield CampaignModel.findById( b.campaignId ).exec(),
+            candidate = yield CandidateModel.findById( b.candidateId ).exec(),
             d = Date.now();
-        if ( d > campaign.startDate && d < ( campaign.startDate + campaign.duration * 3600000 ) &&
-            campaign.isAlive && !rec.campaigns[ campaigns.length - 1 ].hasVoted ) {
-            campaign.candidates[ index ].numberOfVotes++;
-            rec.campaigns[ campaigns.length - 1 ].hasVoted = true;
-            rec.campaigns[ campaigns.length - 1 ].dateVoted = Date.now();
-            campaign.save();
+        console.log( candidate._id );
+        console.log( campaign.candidates[ 0 ] );
+        console.log( campaign.candidates[ 0 ] === b.candidateId );
+        console.log( _.contains( campaign.candidates, candidate._id ) );
+        if ( 1 //campaign.candidates.indexOf( candidate._id ) // so the candidate is part of campaign
+            /* && d > campaign.startDate && d < ( campaign.startDate + campaign.duration * 3600000 ) &&
+                       campaign.isAlive && !voter.campaigns[ voter.campaigns.length - 1 ].hasVoted*/
+        ) {
+            //console.log( voter + '\n' + campaign + '\n' + candidate );
+            candidate.numberOfVotes++;
+            voter.campaigns[ voter.campaigns.length - 1 ] = {
+                hasVoted: true,
+                dateVoted: Date.now()
+            };
+            yield voter.save();
+            yield candidate.save();
         }
-        rec.hasVoted = true;
-        yield rec.save();
         this.success( {
-            voters: rec
+            voters: voter
         } );
         // this.success({ user: 'ceva' });
     };
@@ -26,5 +36,6 @@ exports = module.exports = ( VoterModel, CampaignModel ) => {
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
     'model/voterModel',
-    'model/campaignModel'
+    'model/campaignModel',
+    'model/candidateModel'
 ];

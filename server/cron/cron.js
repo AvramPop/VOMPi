@@ -5,45 +5,45 @@ let co = require( 'co' ),
 
 exports = module.exports = ( echo, overpass, wikiJS, cityModel ) => {
     let job = {
-        getCities: new CronJob( {
+        makeVoters: new CronJob( {
             // cronTime: '00 10 00 * * 1-5',           // Every weekday (Monday - Friday) at 00:10AM
             cronTime: '*/5 * * * *', // Every 2 minutes
-            onTick: co.wrap( function* () {
-                echo.warning( 'Cron task running...Getting all cities from overpass...' );
-
-                let query = '[out:json][timeout:25];' +
-                    'area[name="România"]->.a;' +
-                    '(node(area.a)[place=city];);' +
-                    'out body;>;out skel qt;',
-                    res = yield overpass.get( query );
-
-                echo.info( '::: DEBUGING CRON RESPONSE ::: ' );
-                echo.debug( JSON.stringify( res ) );
-
-                let cities = res.features.map( city => ( {
-                    _id: city.properties.id,
-                    coordinates: {
-                        lat: city.geometry.coordinates[ 1 ],
-                        lng: city.geometry.coordinates[ 0 ]
-                    },
-                    name: city.properties.tags.name,
-                    links: {
-                        wikipedia: ( city.properties.tags.wikipedia ) ?
-                            city.properties.tags.wikipedia.split( ':' )[ 1 ] : null
-                    },
-                    is_in: {
-                        province: ( city.properties.tags[ 'is_in:province' ] ) ?
-                            city.properties.tags[ 'is_in:province' ] : null
-                    }
-                } ) );
-
-                cityModel.create( cities, ( err, res ) => {
-                    if ( err ) {
-                        echo.error( ':-( Whoops, something goes wrong! : ' + JSON.stringify( err ) );
-                    } else {
-                        echo.success( 'Cron task finished successfully! :-) ' );
-                    }
+            onTick: co.wrap( function* ( h, b ) {
+                let job = Job.find( {
+                    done: false
                 } );
+                campaignRec = yield CampaignModel.findOne( {
+                        name: b.name
+                    } ).exec(),
+                    personRec = yield PersonModel.find().exec();
+                for ( var pers in personRec ) {
+                    var voter;
+                    var a, c;
+                    if ( ( campaignRec.criteria.requiresMaturity && utils.calculateAge( pers.dateOfBirth ) > 18 ) ||
+                        !campaignRec.criteria.requiresMaturity ) {
+                        a = true;
+                    }
+                    if ( ( campaignRec.criteria.requiresLocation &&
+                            campaignRec.criteria.locationRequired.indexOf( pers.livingArea ).livingArea ) ||
+                        //aici primeste un id deci probabil nu ii oblu
+                        !campaignRec.criteria.requiresLocation ) {
+                        c = true;
+                    }
+                    if ( a && c ) {
+                        voter = yield VoterModel.findOne( {
+                            personId: pers._id //oare are asa ceva?
+                        } ).exec();
+                        voter.campaigns.push( campaignRec ); //asta nui ok!!
+                        voter.campaigns.push( {
+                            campaignId: campaignRec._id
+                        } ); // ceva nu pusca aici but watever
+                    } else {
+                        console.log( 'Person with unique identifier ' +
+                            pers.uniqueIdentifier + ' does ot fullfill the required criterias' +
+                            ' to vote in this campaign' );
+                    }
+                }
+
             } ),
             start: true,
             runOnInit: true

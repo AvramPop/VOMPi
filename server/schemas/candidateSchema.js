@@ -1,4 +1,5 @@
 'use strict';
+
 exports = module.exports = ( mongoose ) => {
     let Schema = mongoose.Schema,
         candidateSchema = new Schema( {
@@ -11,10 +12,6 @@ exports = module.exports = ( mongoose ) => {
                 ref: 'Person',
                 required: true
             },
-            /*  optionals: {
-                  type: Schema.Types.Mixed,
-                  required: false
-              },*/
             numberOfVotes: {
                 type: Number,
                 required: true
