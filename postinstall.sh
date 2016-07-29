@@ -60,7 +60,7 @@ function execute {
         # node server/schemas/import/importUserRoles.js
         # node server/schemas/import/importClient.js
         # node server/schemas/import/importCategories.js
-        # node server/schemas/import/importCity.js
+        node server/schemas/import/importPersons.js
         # printf "\n\033[38;5;2mSuccess! Data Imported\n\n" &&
         # printf "\033[38;5;15m" &&
 
