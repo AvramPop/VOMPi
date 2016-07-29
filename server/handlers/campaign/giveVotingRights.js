@@ -1,40 +1,51 @@
 'use strict';
 
-let utils = require( '../../libs/utils' );
+//let utils = require( '../libs/utils' ); // make it work!!!!
+let _ = require( 'underscore' );
+
+function calculateAge( birthday ) { // birthday is a date
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date( ageDifMs ); // miliseconds from epoch
+    return Math.abs( ageDate.getUTCFullYear() - 1970 );
+}
 
 exports = module.exports = ( CampaignModel, CriteriaModel, PersonModel, VoterModel ) => {
-    //oare aici se pun sau un rand mai jos astea?? ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
             campaignRec = yield CampaignModel.findOne( {
                 name: b.name
             } ).exec(),
-            personRec = yield PersonModel.find().exec();
-        for ( var pers in personRec ) {
-            var voter;
-            var a, c;
-            if ( ( campaignRec.criteria.requiresMaturity && utils.calculateAge( pers.dateOfBirth ) > 18 ) ||
-                !campaignRec.criteria.requiresMaturity ) {
+            personRec = yield PersonModel.find().exec(),
+            criteria = yield CriteriaModel.findById( campaignRec.criteria ).exec();
+        for ( var i = 0; i < personRec.length; i++ ) {
+            var a = false,
+                c = false;
+            var age = calculateAge( personRec[ i ].dateOfBirth );
+            if ( ( criteria.requiresMaturity && age > 18 ) ||
+                !criteria.requiresMaturity ) {
                 a = true;
             }
-            if ( ( campaignRec.criteria.requiresLocation &&
-                    campaignRec.criteria.locationRequired.indexOf( pers.livingArea ).livingArea ) ||
-                //aici primeste un id deci probabil nu ii oblu
-                !campaignRec.criteria.requiresLocation ) {
+            if ( ( criteria.requiresLocation &&
+                    criteria.locationRequired.indexOf( personRec[ i ].livingArea ) ) ||
+                !criteria.requiresLocation ) {
                 c = true;
             }
             if ( a && c ) {
-                voter = yield VoterModel.findOne( {
-                    personId: pers._id //oare are asa ceva?
+                let voter = yield VoterModel.findOne( {
+                    personId: personRec[ i ]._id
                 } ).exec();
-                voter.campaigns.push( campaignRec ); //asta nui ok!!
+                //if(!_.contains(voter.campaigns.campaignId, b.campaignId)) ???????
                 voter.campaigns.push( {
                     campaignId: campaignRec._id
-                } ); // ceva nu pusca aici but watever
+                } );
+                yield voter.save();
+                console.log( 'Person with unique identifier ' +
+                    personRec[ i ].uniqueIdentifier + ' was successfully awarded with voting rights' +
+                    ' for this campaign' );
             } else {
                 console.log( 'Person with unique identifier ' +
-                    pers.uniqueIdentifier + ' does ot fullfill the required criterias' +
+                    personRec[ i ].uniqueIdentifier + ' does not fullfill the required criterias' +
                     ' to vote in this campaign' );
             }
         }

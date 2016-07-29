@@ -14,7 +14,8 @@ exports = module.exports = ( Settings ) => {
             postFormData: postFormData,
             dateToString: dateToString,
             isValidURL: isValidURL,
-            getDateArrayString: getDateArrayString
+            getDateArrayString: getDateArrayString,
+            calculateAge: calculateAge
         };
 
     return utils;

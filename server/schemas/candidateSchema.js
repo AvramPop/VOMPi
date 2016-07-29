@@ -12,10 +12,6 @@ exports = module.exports = ( mongoose ) => {
                 ref: 'Person',
                 required: true
             },
-            /*  optionals: {
-                  type: Schema.Types.Mixed,
-                  required: false
-              },*/
             numberOfVotes: {
                 type: Number,
                 required: true
