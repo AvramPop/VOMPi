@@ -7,13 +7,13 @@ exports = module.exports = ( CampaignModel, CandidateModel ) => {
             campaignRec = yield CampaignModel.findById( b.campaignId ).exec();
 
         var index = campaignRec.candidates.indexOf( b.candidateId );
-        console.log( campaignRec + index );
+        //    console.log( campaignRec + index );
         if ( index > -1 ) {
             campaignRec.candidates.splice( index, 1 );
             yield campaignRec.save();
         }
         this.success( {
-            campaign: campaignRec
+            campaigns: campaignRec
         } );
     };
 };

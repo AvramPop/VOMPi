@@ -76,7 +76,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'admin-forgotpass' );
 
                 return true;
             },
@@ -95,7 +95,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'admin-registered' );
 
                 return true;
             },
@@ -114,7 +114,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'admin-deletedaccount' );
 
                 return true;
             },
@@ -133,7 +133,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'person-registered' );
 
                 return true;
             },
@@ -152,7 +152,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'person-forgotpass' );
 
                 return true;
             },
@@ -171,7 +171,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'person-deletedaccount' );
 
                 return true;
             },
@@ -190,7 +190,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'admin-changedpass' );
 
                 return true;
             },
@@ -209,7 +209,26 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'person-changedpass' );
+
+                return true;
+            },
+
+            sendPersonSuccesfullActivatedAccountMail: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'person-activatedacc' );
 
                 return true;
             },
@@ -228,7 +247,7 @@ exports = module.exports = ( echo, settings ) => {
                     echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
                 );
 
-                sendEmail( email, name, subject, data, 'user-registration' );
+                sendEmail( email, name, subject, data, 'person-tokenforvote' );
 
                 return true;
             }

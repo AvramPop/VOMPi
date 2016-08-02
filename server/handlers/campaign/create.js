@@ -16,8 +16,7 @@ exports = module.exports = ( CampaignModel ) => {
                 isCreating: true,
                 isAlive: false
             } );
-            console.log( newCampaign );
-            console.log( yield newCampaign.save() );
+            yield newCampaign.save();
             this.success( {
                 campaigns: newCampaign
             } );

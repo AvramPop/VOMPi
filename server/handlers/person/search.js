@@ -1,23 +1,19 @@
 'use strict';
 
-exports = module.exports = ( VoterModel, PersonModel ) => {
+exports = module.exports = ( PersonModel ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
             rec = yield PersonModel.findOne( {
                 uniqueIdentifier: b.uniqueIdentifier
-            } ).exec(),
-            rec2 = yield VoterModel.findOne( {
-                personId: rec._id
-            } );
+            } ).exec();
         this.success( {
-            voters: rec2
+            person: rec
         } );
         // this.success({ user: 'ceva' });
     };
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/voterModel',
     'model/personModel'
 ];

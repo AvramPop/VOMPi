@@ -24,7 +24,6 @@ exports = module.exports = ( VoterModel ) => {
                 message: 'Voter already exists'
             } );
         }
-        // this.success({ user: 'ceva' });
     };
 };
 exports[ '@singleton' ] = true;

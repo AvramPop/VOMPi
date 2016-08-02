@@ -1,10 +1,11 @@
 'use strict';
 
-exports = module.exports = ( PersonModel ) => {
+exports = module.exports = ( PersonModel, sendMail ) => {
     return function* ( id ) {
         let h = this.request.header,
             b = this.request.body,
             rec = yield PersonModel.findById( id ).remove().exec();
+        sendMail.sendPersonDeletedAccountEmail( rec.firstName, rec.email, 'asd' );
         this.success( {
             persons: rec
         } );
@@ -13,5 +14,6 @@ exports = module.exports = ( PersonModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/personModel'
+    'model/personModel',
+    'libs/email'
 ];

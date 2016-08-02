@@ -1,10 +1,11 @@
 'use strict';
 
-exports = module.exports = ( AdminModel ) => {
+exports = module.exports = ( AdminModel, sendMail ) => {
     return function* ( id ) {
         let h = this.request.header,
             b = this.request.body,
             rec = yield AdminModel.findById( id ).remove().exec();
+        sendMail.sendAdminDeletedAccountEmail( rec.username, rec.email, 'asad' );
         this.success( {
             admins: rec
         } );
@@ -13,5 +14,6 @@ exports = module.exports = ( AdminModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/adminModel'
+    'model/adminModel',
+    'libs/email'
 ];

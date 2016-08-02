@@ -17,6 +17,7 @@ exports = module.exports = ( PersonModel ) => {
                 gender: b.gender,
                 dateOfBirth: b.dateOfBirth,
                 livingArea: b.livingArea,
+                isActivated: false,
                 telephone: b.telephone
             } );
             console.log( newPerson );

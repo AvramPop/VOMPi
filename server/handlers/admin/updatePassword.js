@@ -15,7 +15,7 @@ exports = module.exports = ( AdminModel, sendMail ) => {
                 message: 'There is no admin with this email'
             } );
         }
-        if ( b.password === b.repeatPassword /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/ ) {
+        if ( rec.password === b.oldPassword && b.password === b.repeatPassword /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/ ) {
             rec.password = b.password;
             rec.save();
             sendMail.sendAdminSuccesfullChangedPasswordEmail( rec.username, rec.email, 'asd' );
