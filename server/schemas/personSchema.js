@@ -34,6 +34,9 @@ exports = module.exports = ( mongoose ) => {
             telephone: {
                 type: String
             },
+            isActivated: {
+                type: Boolean
+            },
             password: {
                 type: String
             }

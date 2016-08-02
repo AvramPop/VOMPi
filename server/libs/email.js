@@ -213,6 +213,24 @@ exports = module.exports = ( echo, settings ) => {
 
                 return true;
             },
+            sendPersonSuccesfullActivatedAccountMail: ( name, email, activationCode ) => {
+                let subject = 'Welcome to Romania360 Planner Trip',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        link: encodeURI(
+                            host + '/web/#/signin?code=' + activationCode
+                        )
+                    };
+                console.log(
+                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'user-registration' );
+
+                return true;
+            },
 
             sendTokenToVoter: ( name, email, activationCode ) => {
                 let subject = 'Welcome to Romania360 Planner Trip',

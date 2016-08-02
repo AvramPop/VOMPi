@@ -10,9 +10,6 @@ exports = module.exports = ( AdminModel ) => {
         console.log( b );
         if ( !rec ) {
             let newAdmin = new AdminModel( {
-                //  password: b.password,
-                //  email: b.email,
-                //  active: false,
                 email: b.email,
                 username: b.username,
                 password: b.password,

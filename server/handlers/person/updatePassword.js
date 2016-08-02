@@ -1,5 +1,3 @@
-//daca o fost uitata si o primit mail
-
 'use strict';
 
 var crypto = require( 'crypto-js' );
@@ -17,7 +15,7 @@ exports = module.exports = ( PersonModel, sendMail ) => {
                 message: 'There is no person with this unique identifier'
             } );
         }
-        if ( b.password === b.repeatPassword /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/ ) {
+        if ( rec.password === b.oldPassword && b.password === b.repeatPassword /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/ ) {
             rec.password = b.password;
             rec.save();
             var name = rec.firstName + ' ' + rec.lastName;

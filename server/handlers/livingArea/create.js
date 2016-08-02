@@ -5,7 +5,7 @@ exports = module.exports = ( LivingAreaModel ) => {
         let h = this.request.header,
             b = this.request.body,
             rec = yield LivingAreaModel.findOne( {
-                //need some special identifier, not to (incurca) different numbers of same street, same town, etc
+                //need some special identifier, sa nu incurcam aceeasi strada da nr diferite, sa le trimitem scrisori aiurea
                 country: b.country,
                 region: b.region,
                 town: b.town,
@@ -14,9 +14,6 @@ exports = module.exports = ( LivingAreaModel ) => {
         console.log( b );
         if ( !rec ) {
             let newLivingArea = new LivingAreaModel( {
-                //  password: b.password,
-                //  email: b.email,
-                //  active: false,
                 country: b.country,
                 region: b.region,
                 town: b.town,
