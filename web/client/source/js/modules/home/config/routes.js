@@ -16,7 +16,7 @@
         $stateProvider
             .state('web', {
                 abstract: true,
-                url: '/web',
+                url: '/',
                 controller: 'homeCtrl',
                 controllerAs: 'homeVM',
                 templateUrl: 'views/common/layout/content.html'

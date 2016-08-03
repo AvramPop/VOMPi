@@ -2,12 +2,6 @@
 <html data-ng-app="app">
     <head>
         <base href="/web/client/public/"/>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Voting APP</title>
-        <!-- FAVICON -->
-		<!-- <link rel="icon" type="image/png" href="assets/images/favicon.png"/> -->
-        <!-- JQUERY UI -->
         <link href="../../common/vendors/jquery-ui/themes/base/all.css" rel="stylesheet"/>
         <!-- ANIMATE -->
         <link href="../../common/vendors/animate.css/animate.min.css" rel="stylesheet"/>
@@ -15,44 +9,23 @@
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!-- FONT-AWESOME -->
 		<link href="../../common/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
-        <!-- LEAFLET CORE CSS -->
-        <link href="../../common/vendors/leaflet/dist/leaflet.css" rel="stylesheet"/>
-        <!-- LEAFLET AWESOME MARKERS CORE CSS -->
-        <link href="../../common/vendors/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css" rel="stylesheet"/>
-        <!-- LEAFLET EXTRA MARKER CORE CSS -->
-        <link href="../../common/vendors/Leaflet.extra-markers/dist/css/leaflet.extra-markers.min.css" rel="stylesheet"/>
         <!-- MATERILIZE CORE CSS-->
 		<link href="../../common/vendors/Materialize/dist/css/materialize.css" rel="stylesheet"/>
+        <!-- CUSTOM SCROLLBAR -->
+        <link href="../../common/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet"/>
 		<!-- MAIN STYLE -->
 		<link href="css/app.css" rel="stylesheet"/>
 		<!-- END MAIN STYLE -->
     </head>
-    <body>
+    <body class="text-color dark">
         <section ui-view></section>
+        <div id="toast-container"></div>
 
         <!-- jQuery -->
         <script src="../../common/vendors/jquery/dist/jquery.min.js"></script>
 		<script src="../../common/vendors/jquery-ui/jquery-ui.min.js"></script>
 
-        <!-- Leaflet Core Script -->
-        <script src="../../common/vendors/leaflet/dist/leaflet-src.js"></script>
-
-        <!-- Mapbox Core Script -->
-        <script src="https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.js"></script>
-
-        <!-- Leaflet Layer OverPass Core Script -->
-        <script src="../../common/vendors/leaflet-layer-overpass/src/OverPassLayer.js"></script>
-
-        <!-- Leaflet Awesome Markers Core Script -->
-        <script src="../../common/vendors/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
-
-        <!-- Leaflet Extra Markers Core Script -->
-        <script src="../../common/vendors/Leaflet.extra-markers/dist/js/leaflet.extra-markers.min.js"></script>
-
-        <!-- Leaflet Maki Markers Core Script -->
-        <script src="../../common/vendors/Leaflet.MakiMarkers/Leaflet.MakiMarkers.js"></script>
-
-		<!-- Materialize Core Script -->
+        <!-- Materialize Core Script -->
 		<script src="../../common/vendors/Materialize/dist/js/materialize.js"></script>
 
         <!-- Angular -->
@@ -62,16 +35,21 @@
 		<script src="../../common/vendors/angular-filter/dist/angular-filter.min.js"></script>
         <script src="../../common/vendors/angular-resource/angular-resource.js"></script>
 		<script src="../../common/vendors/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="../../common/vendors/angular-local-storage/dist/angular-local-storage.js"></script>
 
         <!-- RestAngular Core Script -->
         <script src="../../common/vendors/restangular/dist/restangular.min.js"></script>
+
+          <!-- Waves Core Script -->
+        <script src="../../common/vendors/waves/dist/waves.min.js"></script>
+
         <!-- NG Materielize Core Script -->
         <script src="../../common/vendors/ng-materialize/dist/ng-materialize.min.js"></script>
 
 		<!-- Third Party Libraries -->
+        <script src="../../common/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script src="../../common/vendors/lodash/dist/lodash.min.js"></script>
 		<script src="../../common/vendors/moment/moment.js"></script>
-
         <!-- APP -->
         <script src="js/app.min.js"></script>
         <!-- END APP -->

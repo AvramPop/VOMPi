@@ -2,17 +2,17 @@
     'use strict';
 
     angular
-        .module( 'app.login' )
+        .module( 'app.home' )
         .controller( 'loginCtrl', loginCtrl );
 
     loginCtrl.$inject = [ '$scope'];
 
     /* @ngInject */
-    function homeCtrl( $scope ) {
+    function loginCtrl( $scope ) {
          $scope.submit = function(){
                 var uname = $scope.username;
                 var password = $scope.password;
-            }
+            };
         }
-    
+
 })();
