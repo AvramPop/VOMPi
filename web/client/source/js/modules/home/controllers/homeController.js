@@ -15,7 +15,18 @@
     function homeCtrl( $scope, $state, moment, ENV ) {
         /* jshint validthis: true */
         var homeVM = this;
-
+        homeVM.slider = [{
+            url:'https://untold.com/assets/img/Bg.jpg',
+        },{
+            url:'https://untold.com/assets/img/Bg.jpg',
+        },{
+            url:'https://untold.com/assets/img/Bg.jpg',
+        },{
+            url:'https://untold.com/assets/img/Bg.jpg',
+        },{
+            url:'https://untold.com/assets/img/Bg.jpg',
+        }
+    ];
         homeVM.config = {
             state: $state.current.name,
             siteName: ENV.appName,
