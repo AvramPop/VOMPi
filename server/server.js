@@ -23,7 +23,7 @@ server.listen( settings.PORT, settings.HOST );
 // if server starts succesfully
 server.on( 'listening', () => {
     console.log( echo.success(
-        'Welcome!! Magic it\'s happening on http://' + settings.HOST + ':' + settings.PORT
+        'Welcome!! Magic is happening on http://' + settings.HOST + ':' + settings.PORT
     ) );
     console.log( echo.info( 'Process PID: ' + process.pid ) );
 } );

@@ -13,6 +13,7 @@
 
     /* @ngInject */
     function homeCtrl( $scope, $state, moment, ENV ) {
+        console.log( 'home' );
         /* jshint validthis: true */
         var homeVM = this;
 
