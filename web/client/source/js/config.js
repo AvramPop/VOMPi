@@ -15,8 +15,8 @@
     function Config( $httpProvider, RestangularProvider, ENV ) {
         console.info( 'Running CONFIG...' );
 
-        //  $logProvider.debugEnabled( false );
-        //RestangularProvider.setBaseUrl( ENV.apiEndPoint );
+        $logProvider.debugEnabled( false );
+        RestangularProvider.setBaseUrl( ENV.apiEndPoint );
         // $httpProvider.interceptors.push('errorInterceptor');
         // $httpProvider.interceptors.push('resourceInterceptor');
     }
