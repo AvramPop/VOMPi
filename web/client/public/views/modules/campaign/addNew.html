@@ -1,9 +1,51 @@
-<div class="home">
-    <h3> All Good! </h3>
-    <h4> You're in the client "home" view. </h4>
-    <div class="row">
-        <div class="col s6 offset-s3">
-            <data-custom-select data-colors="homeVM.colors"></data-custom-select>
-        </div>
-    </div>
+<div class="campaign">
+    <h3> Campaign </h3>
+    <h4> You're in the client "campaign" view. </h4>
+    <form name="exampleForm" novalidate>
+      <div class="input-field">
+        <input
+          type="text"
+          class="validate"
+          id="example1"
+          name="example1"
+          ng-model="inputs.example1"
+          floating-label="Name"
+          ng-maxlength="30"
+          ng-required="true"/>
+      </div>
+    </form>
+    <form name="exampleForm" novalidate>
+      <div class="input-field">
+        <input
+          type="text"
+          class="validate"
+          id="example1"
+          name="example1"
+          ng-model="inputs.example1"
+          floating-label="Start Date and Time"
+          ng-maxlength="30"
+          ng-required="true"/>
+      </div>
+    </form>
+    <form name="exampleForm" novalidate>
+      <div class="input-field">
+        <input
+          type="text"
+          class="validate"
+          id="example1"
+          name="example1"
+          ng-model="inputs.example1"
+          floating-label="Duration(in hours)"
+          ng-maxlength="30"
+          ng-required="true"/>
+      </div>
+    </form>
+    <mb-datepicker element-id='date1'
+                   input-class="testClass"
+                   input-name="testName"
+                   arrows="arrows"
+                   calendar-header="header"
+                   date="date"
+                   date-format="YYYY-MM-DD"></mb-datepicker>
+<button type="button" class="btn btn-default" no-ink="true">Submit</button>
 </div>

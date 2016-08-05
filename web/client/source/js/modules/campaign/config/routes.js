@@ -13,11 +13,9 @@
 
     /* @ngInject */
     function campaignConfig( $stateProvider ) {
-        console.log( 'rewrty' );
         $stateProvider
             .state( 'layout.campaignform', {
-                url: 'campaignform',
-                controller: 'campaignform',
+                url: '^/campaignform',
                 parent: 'layout',
                 templateUrl: 'views/modules/campaign/addNew.html'
             } );
