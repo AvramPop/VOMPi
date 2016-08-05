@@ -13,7 +13,7 @@ exports = module.exports = ( PersonModel, sendMail ) => {
             rec.password = b.password;
             rec.isActivated = true;
             yield rec.save();
-            sendMail.sendPersonSuccesfullActivatedAccountMail( ( rec.firstName + ' ' + rec.lastName ), rec.email, 'asd' /*link pt reset password*/ );
+            sendMail.sendPersonRegistrationEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email );
         } else {
             throw ( {
                 code: 404,

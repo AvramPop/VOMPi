@@ -43,27 +43,8 @@ exports = module.exports = ( echo, settings ) => {
          *  to send emails
          */
         methods = {
-            sendRegistrationEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
-                    // See the related template in order to set
-                    // the correct variables that need to be replaced
-                    data = {
-                        name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
-                    };
-                console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
-                );
-
-                sendEmail( email, name, subject, data, 'user-registration' );
-
-                return true;
-            },
-
             sendAdminForgottenPasswordEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+                let subject = 'Reset VOMPi admin password',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
@@ -73,7 +54,7 @@ exports = module.exports = ( echo, settings ) => {
                         )
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'admin-forgotpass' );
@@ -81,18 +62,15 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
-            sendAdminRegistrationEmail /*signUp*/: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+            sendAdminRegistrationEmail /*signUp*/: ( name, email ) => {
+                let subject = 'VOMPi admin account created!',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
-                        name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
+                        name: name
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'admin-registered' );
@@ -100,18 +78,15 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
-            sendAdminDeletedAccountEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+            sendAdminDeletedAccountEmail: ( name, email ) => {
+                let subject = 'VOMPi admin account deleted',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
-                        name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
+                        name: name
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'admin-deletedaccount' );
@@ -119,18 +94,15 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
-            sendPersonRegistrationEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+            sendPersonRegistrationEmail: ( name, email ) => {
+                let subject = 'VOMPi account created',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
-                        name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
+                        name: name
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'person-registered' );
@@ -139,7 +111,7 @@ exports = module.exports = ( echo, settings ) => {
             },
 
             sendPersonForgottenPasswordEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+                let subject = 'Reset VOMPi password',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
@@ -149,7 +121,7 @@ exports = module.exports = ( echo, settings ) => {
                         )
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'person-forgotpass' );
@@ -157,8 +129,8 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
-            sendPersonDeletedAccountEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+            sendPersonSignUpLinkEmail: ( name, email, activationCode ) => {
+                let subject = 'Create VOMPi account',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
@@ -168,7 +140,24 @@ exports = module.exports = ( echo, settings ) => {
                         )
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
+                );
+
+                sendEmail( email, name, subject, data, 'person-signup' );
+
+                return true;
+            },
+
+
+            sendPersonDeletedAccountEmail: ( name, email ) => {
+                let subject = 'VOMPi account deleted',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name
+                    };
+                console.log(
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'person-deletedaccount' );
@@ -176,18 +165,15 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
-            sendAdminSuccesfullChangedPasswordEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+            sendAdminSuccessfullyChangedPasswordEmail: ( name, email ) => {
+                let subject = 'VOMPi admin password changed',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
-                        name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
+                        name: name
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'admin-changedpass' );
@@ -195,18 +181,15 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
-            sendPersonSuccesfullChangedPasswordEmail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+            sendPersonSuccessfullyChangedPasswordEmail: ( name, email ) => {
+                let subject = 'VOMPi password changed',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
-                        name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
+                        name: name
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'person-changedpass' );
@@ -214,37 +197,17 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
-            sendPersonSuccesfullActivatedAccountMail: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
+            sendTokenToVoter: ( name, email, token, campaign ) => {
+                let subject = 'VOMPi campaign token',
                     // See the related template in order to set
                     // the correct variables that need to be replaced
                     data = {
                         name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
+                        token: token,
+                        campaign: campaign
                     };
                 console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
-                );
-
-                sendEmail( email, name, subject, data, 'person-activatedacc' );
-
-                return true;
-            },
-
-            sendTokenToVoter: ( name, email, activationCode ) => {
-                let subject = 'Welcome to Romania360 Planner Trip',
-                    // See the related template in order to set
-                    // the correct variables that need to be replaced
-                    data = {
-                        name: name,
-                        link: encodeURI(
-                            host + '/web/#/signin?code=' + activationCode
-                        )
-                    };
-                console.log(
-                    echo.info( 'Sending email registration to: ' + name + ' <' + email + '>' )
+                    echo.info( 'Sending email to: ' + name + ' <' + email + '>' )
                 );
 
                 sendEmail( email, name, subject, data, 'person-tokenforvote' );

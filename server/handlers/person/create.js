@@ -1,6 +1,6 @@
 'use strict';
 
-exports = module.exports = ( PersonModel ) => {
+exports = module.exports = ( PersonModel, sendMail ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
@@ -36,5 +36,6 @@ exports = module.exports = ( PersonModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/personModel'
+    'model/personModel',
+    'libs/email'
 ];

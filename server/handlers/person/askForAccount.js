@@ -12,7 +12,7 @@ exports = module.exports = ( PersonModel, sendMail ) => {
             console.log( 'asad' );
             if ( !rec.isActivated ) {
                 console.log( 'sdafc' );
-                sendMail.sendPersonRegistrationEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email, 'asd' /*link pt reset password*/ );
+                sendMail.sendPersonSignUpLinkEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email, 'asd' /*link pt reset password*/ );
                 this.success( {
                     person: rec
                 } );

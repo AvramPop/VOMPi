@@ -15,7 +15,7 @@ exports = module.exports = ( AdminModel, sendMail ) => {
                 message: 'There is no admin with this email'
             } );
         }
-        sendMail.sendAdminForgottenPasswordEmail( rec.username, rec.email, 'asd' );
+        sendMail.sendAdminForgottenPasswordEmail( rec.username, rec.email, 'asadas' );
         this.success( {
             admins: rec
         } );

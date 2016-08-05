@@ -1,6 +1,6 @@
 'use strict';
 
-exports = module.exports = ( AdminModel ) => {
+exports = module.exports = ( AdminModel, sendMail ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
@@ -17,6 +17,7 @@ exports = module.exports = ( AdminModel ) => {
             } );
             console.log( newAdmin );
             yield newAdmin.save();
+            sendMail.sendAdminRegistrationEmail( rec.username, rec.email );
             this.success( {
                 admin: newAdmin
             } );
@@ -31,5 +32,6 @@ exports = module.exports = ( AdminModel ) => {
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/adminModel'
+    'model/adminModel',
+    'libs/email'
 ];

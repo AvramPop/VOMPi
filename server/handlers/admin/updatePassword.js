@@ -18,7 +18,7 @@ exports = module.exports = ( AdminModel, sendMail ) => {
         if ( rec.password === b.oldPassword && b.password === b.repeatPassword /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/ ) {
             rec.password = b.password;
             rec.save();
-            sendMail.sendAdminSuccesfullChangedPasswordEmail( rec.username, rec.email, 'asd' );
+            sendMail.sendAdminSuccessfullyChangedPasswordEmail( rec.username, rec.email );
             this.success( {
                 admins: rec
             } );
