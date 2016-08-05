@@ -15,6 +15,8 @@
             'ngMaterialize',
             'app.models', // APP MODELS
             'app.common', // APP COMMON
+            'app.layout',
+            'app.campaign',
             'app.home' // APP HOME Module
         ] );
 } )();

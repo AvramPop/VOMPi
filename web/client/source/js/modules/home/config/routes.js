@@ -2,34 +2,27 @@
 // DASHBARD ROUTE
 // =============================================================================
 
-(function() {
+( function () {
     'use strict';
 
     angular
-        .module('app.home')
-        .config(homeConfig);
+        .module( 'app.home' )
+        .config( homeConfig );
 
-    homeConfig.$inject = ['$stateProvider'];
+    homeConfig.$inject = [ '$stateProvider' ];
 
     /* @ngInject */
-    function homeConfig($stateProvider) {
+    function homeConfig( $stateProvider ) {
         $stateProvider
-            .state('web', {
-                abstract: true,
-                url: '/web',
-                controller: 'homeCtrl',
-                controllerAs: 'homeVM',
-                templateUrl: 'views/common/layout/content.html'
-            })
-            .state('web.home', {
+            .state( 'layout.home', {
                 url: '^/home',
-                parent: 'web',
+                parent: 'layout',
                 templateUrl: 'views/modules/home/home.html'
-            })
-            .state('web.login', {
+            } )
+            .state( 'layout.login', {
                 url: '^/login',
-                parent: 'web',
+                parent: 'layout',
                 templateUrl: 'views/modules/login/login.html'
-            });
+            } );
     }
-})();
+} )();
