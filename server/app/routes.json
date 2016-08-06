@@ -29,6 +29,19 @@
     } ]
 },
 {
+    "method": "post",
+    "path": "/campaign/generatetokens",
+    "handler": "handlers/campaign/generateSubscribeToken.js",
+    "validate": [ {
+        "param": "campaignId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }]
+},
+{
     "method": "put",
     "path": "/campaign/update",
     "handler": "handlers/campaign/update.js",

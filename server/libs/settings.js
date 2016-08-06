@@ -14,8 +14,8 @@ exports = module.exports = () => {
         HOST: process.env.HOST_ADDRESS,
         PORT: process.env.HOST_PORT,
         SYSTEM: {
-            name: 'Romania360 Planner Trip App',
-            noReplyEmail: 'no-replay@local.dev.romania360'
+            name: 'VOMPi',
+            noReplyEmail: 'no-replay@vompi.net'
         },
         API: {
             root: '/api',
