@@ -1,17 +1,26 @@
 'use strict';
 
-exports = module.exports = ( CandidateModel ) => {
+exports = module.exports = ( CandidateModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            rec = yield CandidateModel.find( {} ).exec();
-        this.success( {
-            candidates: rec
-        } );
-        // this.success({ user: 'ceva' });
+            auth = JWT.verify( h[ 'x-auth-token' ] );
+        if ( auth ) {
+            var rec = yield CandidateModel.find( {} ).exec();
+            this.success( {
+                candidates: rec
+            } );
+            // this.success({ user: 'ceva' });
+        } else {
+            throw ( {
+                code: 422,
+                message: 'Invalid token'
+            } );
+        }
     };
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/candidateModel'
+    'model/candidateModel',
+    'libs/jwtoken'
 ];
