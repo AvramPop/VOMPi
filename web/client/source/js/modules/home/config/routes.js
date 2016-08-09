@@ -14,18 +14,7 @@
     /* @ngInject */
     function homeConfig( $stateProvider ) {
         $stateProvider
-<<<<<<< HEAD
-            .state('web', {
-                abstract: true,
-                url: '/',
-                controller: 'homeCtrl',
-                controllerAs: 'homeVM',
-                templateUrl: 'views/common/layout/content.html'
-            })
-            .state('web.home', {
-=======
             .state( 'layout.home', {
->>>>>>> dani
                 url: '^/home',
                 parent: 'layout',
                 templateUrl: 'views/modules/home/home.html'
