@@ -498,19 +498,7 @@
             "isString"
         ]
     } ]
-}, {
-    "method": "post",
-    "path": "/campaign/givevotingrights",
-    "handler": "handlers/campaign/giveVotingRights.js",
-    "validate": [ {
-        "param": "name",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    } ]
-}, {
+},  {
     "method": "get",
     "path": "/campaign/list",
     "handler": "handlers/campaign/list.js"
@@ -541,6 +529,7 @@
         ]
     } ]
 },
+
 {
     "method": "get",
     "path": "/person/search",
@@ -745,33 +734,7 @@
     "method": "delete",
     "path": "/voter/delete/:id",
     "handler": "handlers/voter/remove.js"
-}, {
-    "method": "post",
-    "path": "/voter/vote",
-    "handler": "handlers/voter/vote.js",
-    "validate": [ {
-        "param": "voterId",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    }, {
-        "param": "campaignId",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    }, {
-        "param": "candidateId",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    } ]
-}, {
+},  {
     "method": "post",
     "path": "/campaign/generateresults",
     "handler": "handlers/campaign/generateResults.js",
@@ -783,7 +746,21 @@
             "isString"
         ]
     } ]
-}, {
+},
+{
+    "method": "post",
+    "path": "/campaign/givevotingrights",
+    "handler": "handlers/campaign/giveVotingRights.js",
+    "validate": [ {
+        "param": "name",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+},
+ {
     "method": "post",
     "path": "/criteria/assignlocation",
     "handler": "handlers/criteria/assignLocation.js",
@@ -815,6 +792,33 @@
         ]
     }, {
         "param": "criteriaId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+},
+{
+    "method": "post",
+    "path": "/voter/vote",
+    "handler": "handlers/voter/vote.js",
+    "validate": [ {
+        "param": "voterId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "campaignId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "candidateId",
         "type": "body",
         "validators": [
             "notEmpty",

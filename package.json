@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp start",
     "apidoc": "./node_modules/apidoc/bin/apidoc -i ./server/handlers",
-    "postinstall": "postinstall.sh",
+    "postinstall": "./postinstall.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
