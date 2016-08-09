@@ -21,7 +21,7 @@ exports = module.exports = ( PersonModel, sendMail ) => {
             rec.password = b.password;
             rec.save();
             var name = rec.firstName + ' ' + rec.lastName;
-            sendMail.sendPersonSuccesfullChangedPasswordEmail( name, rec.email, 'asd' /*token pt reset password*/ );
+            sendMail.sendPersonSuccessfullyChangedPasswordEmail( name, rec.email );
             this.success( {
                 admins: rec
             } );

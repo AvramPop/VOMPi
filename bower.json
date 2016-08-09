@@ -38,7 +38,8 @@
     "Leaflet.MakiMarkers": "~2.0.0",
     "Leaflet.extra-markers": "^1.0.6",
     "leaflet-layer-overpass": "^1.0.2",
-    "restangular": "^1.5.2"
+    "restangular": "^1.5.2",
+    "Waves": "waves#^0.7.5"
   },
   "resolutions": {
     "angular": "~1.5",

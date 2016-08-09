@@ -1,0 +1,34 @@
+<div ng-controller="campaignCtrl">
+<div class="campaign">
+    <h3> Add Campaign </h3>
+    <form name="exampleForm" novalidate>
+      <div class="input-field">
+        <input
+          type="text"
+          class="validate"
+          id="name"
+          name="name"
+          ng-model="inputs.name"
+          floating-label="Name"
+          ng-maxlength="30"
+          ng-required="true"/>
+      </div>
+    </form>
+    <div class="date">
+      <h6> Start Date </h6>
+    <input type="date" class="datepicker"> </div>
+    <form name="exampleForm" novalidate>
+      <div class="input-field">
+        <input
+          type="text"
+          class="validate"
+          id="duration"
+          name="duration"
+          ng-model="inputs.duration"
+          floating-label="Duration(in hours)"
+          ng-maxlength="30"
+          ng-required="true"/>
+      </div>
+    </form>
+    <button type="button" class="btn btn-default" no-ink="true">Submit</button>
+</div>

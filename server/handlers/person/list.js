@@ -4,8 +4,8 @@ exports = module.exports = ( PersonModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            validate = JWT.verify( h[ 'access-token' ] );
-        if ( validate ) {
+            auth = JWT.verify( h[ 'x-auth-token' ] );
+        if ( auth ) {
             let rec = yield PersonModel.find( {} ).exec();
             this.success( {
                 persons: rec
@@ -13,10 +13,8 @@ exports = module.exports = ( PersonModel, JWT ) => {
             // this.success({ user: 'ceva' });
         } else {
             throw ( {
-                code: 401,
-                message: {
-                    en: 'Invalid user credentials!',
-                }
+                code: 422,
+                message: 'Invalid token'
             } );
         }
 

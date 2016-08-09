@@ -1,26 +1,35 @@
 'use strict';
 
-exports = module.exports = ( CriteriaModel, LivingAreaModel ) => {
+exports = module.exports = ( CriteriaModel, LivingAreaModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            criteria = yield CriteriaModel.findById( b.criteriaId ).exec(),
-            location = yield LivingAreaModel.findById( b.livingAreaId ).exec();
-        console.log( b );
-        if ( criteria.requiresLocation ) {
-            criteria.locationRequired.push( location._id );
-            yield criteria.save();
+            auth = JWT.verify( h[ 'x-auth-token' ] );
+        if ( auth ) {
+            var criteria = yield CriteriaModel.findById( b.criteriaId ).exec(),
+                location = yield LivingAreaModel.findById( b.livingAreaId ).exec();
+            console.log( b );
+            if ( criteria.requiresLocation ) {
+                criteria.locationRequired.push( location._id );
+                yield criteria.save();
+            } else {
+                console.log( 'This criteria do not require locations' );
+            }
+            this.success( {
+                criteria: criteria
+            } );
+            // this.success({ user: 'ceva' });
         } else {
-            console.log( 'This criteria do not require locations' );
+            throw ( {
+                code: 422,
+                message: 'Invalid token'
+            } );
         }
-        this.success( {
-            criteria: criteria
-        } );
-        // this.success({ user: 'ceva' });
     };
 };
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
     'model/criteriaModel',
-    'model/livingAreaModel'
+    'model/livingAreaModel',
+    'libs/jwtoken'
 ];

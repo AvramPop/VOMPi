@@ -3,6 +3,7 @@
 
     angular
         .module( 'app.home' )
+<<<<<<< HEAD
         .controller( 'loginController', loginCtrl );
 
     loginCtrl.$inject = [ '$scope', 'authService', '$state', '$http'];
@@ -36,3 +37,18 @@
         }
 
 })();
+=======
+        .controller( 'loginCtrl', loginCtrl );
+
+    loginCtrl.$inject = [ '$scope' ];
+
+    /* @ngInject */
+    function loginCtrl( $scope ) {
+        $scope.submit = function () {
+            var uname = $scope.username;
+            var password = $scope.password;
+        };
+    }
+
+} )();
+>>>>>>> dani
