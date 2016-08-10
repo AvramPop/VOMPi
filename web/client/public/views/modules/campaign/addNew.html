@@ -1,34 +1,23 @@
+<!DOCTYPE html>
 <div ng-controller="campaignCtrl">
 <div class="campaign">
     <h3> Add Campaign </h3>
-    <form name="exampleForm" novalidate>
-      <div class="input-field">
-        <input
-          type="text"
-          class="validate"
-          id="name"
-          name="name"
-          ng-model="inputs.name"
-          floating-label="Name"
-          ng-maxlength="30"
-          ng-required="true"/>
-      </div>
-    </form>
-    <div class="date">
-      <h6> Start Date </h6>
-    <input type="date" class="datepicker"> </div>
-    <form name="exampleForm" novalidate>
-      <div class="input-field">
-        <input
-          type="text"
-          class="validate"
-          id="duration"
-          name="duration"
-          ng-model="inputs.duration"
-          floating-label="Duration(in hours)"
-          ng-maxlength="30"
-          ng-required="true"/>
-      </div>
-    </form>
+    <form class="col s12">
+            <div class="input-field col s6">
+              <input placeholder="Name" id="name" type="text" class="validate">
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Question" id="question" type="text" class="validate">
+            </div>
+          </form>
+    <h6> Start Date </h6>
+<input type="date" class="datepicker" >
+    <form class="col s12">
+            <div class="input-field col s6">
+              <input placeholder="Duration" id="duration" type="text" class="validate">
+            </div>
+
+          </form>
     <button type="button" class="btn btn-default" no-ink="true">Submit</button>
+</div>
 </div>

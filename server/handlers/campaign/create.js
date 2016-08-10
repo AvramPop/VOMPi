@@ -15,6 +15,7 @@ exports = module.exports = ( CampaignModel, JWT ) => {
                     name: b.name,
                     startDate: new Date( b.startDate ),
                     duration: b.duration,
+                    question: b.question,
                     isCreating: true,
                     isAlive: false
                 } );
