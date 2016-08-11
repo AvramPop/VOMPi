@@ -19,6 +19,12 @@
                 parent: 'layout',
                 templateUrl: 'views/modules/home/home.html'
             } )
+            .state( 'layout.main', {
+                url: '^/main',
+                parent: 'layout',
+                templateUrl: 'views/modules/main/index.html',
+                style: 'views/modules/main/min/custom-min.css'
+            } )
             .state( 'layout.login', {
                 url: '^/login',
                 parent: 'layout',
