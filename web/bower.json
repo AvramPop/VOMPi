@@ -1,0 +1,21 @@
+{
+  "name": "web",
+  "homepage": "https://github.com/kovacssupki/Voting-Platform",
+  "authors": [
+    "Andrei Gatea <andreigatea@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/common/vendors/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-css": "^1.0.8"
+  }
+}

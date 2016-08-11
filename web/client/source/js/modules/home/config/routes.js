@@ -23,6 +23,12 @@
                 url: '^/login',
                 parent: 'layout',
                 templateUrl: 'views/modules/login/login.html'
+            } )
+             .state( 'layout.main', {
+                url: '^/main',
+                parent: 'layout',
+                templateUrl: 'views/modules/main/index.html',
+                css: ['views/modules/main/min/custom-min.css']
             } );
     }
 } )();
