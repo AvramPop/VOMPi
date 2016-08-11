@@ -19,6 +19,10 @@ exports = module.exports = ( mongoose ) => {
                 type: Boolean,
                 required: true
             },
+            question: {
+                type: String,
+                required: true
+            },
             isAlive: {
                 type: Boolean,
                 required: true
