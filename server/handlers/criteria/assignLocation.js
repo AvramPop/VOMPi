@@ -18,7 +18,7 @@ exports = module.exports = ( CriteriaModel, LivingAreaModel, JWT ) => {
             this.success( {
                 criteria: criteria
             } );
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

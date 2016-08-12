@@ -23,7 +23,7 @@ exports = module.exports = ( LivingAreaModel, JWT ) => {
                     message: 'Living area does not exist'
                 } );
             }
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

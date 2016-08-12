@@ -22,7 +22,7 @@ exports = module.exports = ( CriteriaModel, JWT ) => {
                     message: 'Criteria does not exist'
                 } );
             }
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

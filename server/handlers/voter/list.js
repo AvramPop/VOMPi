@@ -10,7 +10,7 @@ exports = module.exports = ( VoterModel, JWT ) => {
             this.success( {
                 voters: rec
             } );
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

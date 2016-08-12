@@ -550,7 +550,7 @@
     "handler": "handlers/campaign/list.js"
 },
 {
-    "method": "get",
+    "method": "post",
     "path": "/candidate/search",
     "handler": "handlers/candidate/search.js",
     "validate": [ {
@@ -563,7 +563,7 @@
     } ]
 },
 {
-    "method": "get",
+    "method": "post",
     "path": "/campaign/search",
     "handler": "handlers/campaign/search.js",
     "validate": [ {
@@ -576,7 +576,7 @@
     } ]
 },
 {
-    "method": "get",
+    "method": "post",
     "path": "/person/search",
     "handler": "handlers/person/search.js",
     "validate": [ {
@@ -589,7 +589,7 @@
     } ]
 },
 {
-    "method": "get",
+    "method": "post",
     "path": "/voter/search",
     "handler": "handlers/voter/search.js",
     "validate": [ {

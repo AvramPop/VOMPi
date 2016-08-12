@@ -17,7 +17,7 @@ exports = module.exports = ( CriteriaModel, JWT ) => {
                 criteria: newCriteria
             } );
 
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

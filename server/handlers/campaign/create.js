@@ -29,7 +29,7 @@ exports = module.exports = ( CampaignModel, JWT ) => {
                     message: 'Campaign already exists'
                 } );
             }
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

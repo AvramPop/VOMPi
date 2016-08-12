@@ -10,7 +10,7 @@ exports = module.exports = ( AdminModel, sendMail ) => {
         this.success( {
             admins: rec
         } );
-        // this.success({ user: 'ceva' });
+        
     };
 };
 exports[ '@singleton' ] = true;

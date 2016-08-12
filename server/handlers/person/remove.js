@@ -12,7 +12,7 @@ exports = module.exports = ( PersonModel, sendMail, JWT ) => {
             this.success( {
                 persons: rec
             } );
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

@@ -15,7 +15,6 @@ exports = module.exports = ( CandidateModel, PersonModel, JWT ) => {
             this.success( {
                 candidate: rec2
             } );
-            // this.success({ user: 'ceva' });
         } else {
             throw ( {
                 code: 422,

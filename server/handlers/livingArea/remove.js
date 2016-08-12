@@ -11,7 +11,7 @@ exports = module.exports = ( LivingAreaModel, JWT ) => {
             this.success( {
                 livingAreas: rec
             } );
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

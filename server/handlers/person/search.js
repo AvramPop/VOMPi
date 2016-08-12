@@ -12,7 +12,7 @@ exports = module.exports = ( PersonModel, JWT ) => {
             this.success( {
                 person: rec
             } );
-            // this.success({ user: 'ceva' });
+
         } else {
             throw ( {
                 code: 422,

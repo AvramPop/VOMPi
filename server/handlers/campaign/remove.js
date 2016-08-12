@@ -10,7 +10,7 @@ exports = module.exports = ( CampaignModel, JWT ) => {
             this.success( {
                 campaigns: rec
             } );
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

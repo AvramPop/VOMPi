@@ -33,7 +33,7 @@ exports = module.exports = ( PersonModel, JWT ) => {
                     message: 'Person already exists'
                 } );
             }
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

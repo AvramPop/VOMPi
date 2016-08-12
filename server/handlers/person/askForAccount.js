@@ -28,7 +28,7 @@ exports = module.exports = ( PersonModel, sendMail ) => {
                 message: 'Person does not exist'
             } );
         }
-        // this.success({ user: 'ceva' });
+        
     };
 };
 exports[ '@singleton' ] = true;

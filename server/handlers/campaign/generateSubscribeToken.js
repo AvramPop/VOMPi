@@ -21,7 +21,7 @@ exports = module.exports = ( CampaignModel, VoterModel, PersonModel, JWT, sendMa
             this.success( {
                 campaigns: campaign
             } );
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

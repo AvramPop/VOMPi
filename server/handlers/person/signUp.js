@@ -20,7 +20,7 @@ exports = module.exports = ( PersonModel, sendMail ) => {
                 message: 'Passwords dont match'
             } );
         }
-        // this.success({ user: 'ceva' });
+        
     };
 };
 exports[ '@singleton' ] = true;

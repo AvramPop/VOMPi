@@ -20,7 +20,7 @@ exports = module.exports = ( CandidateModel, JWT ) => {
                     message: 'Candidate does not exist'
                 } );
             }
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

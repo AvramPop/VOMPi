@@ -24,7 +24,7 @@ exports = module.exports = ( CandidateModel, JWT ) => {
                 message: 'Invalid token'
             } );
         }
-        // this.success({ user: 'ceva' });
+        
     };
 };
 exports[ '@singleton' ] = true;

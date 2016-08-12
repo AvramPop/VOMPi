@@ -9,10 +9,10 @@ exports = module.exports = ( CampaignModel, JWT ) => {
             var rec = yield CampaignModel.findOne( {
                 name: b.name
             } ).exec();
+            console.log( rec );
             this.success( {
                 campaign: rec
             } );
-            // this.success({ user: 'ceva' });
         } else {
             throw ( {
                 code: 422,
