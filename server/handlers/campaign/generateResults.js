@@ -12,17 +12,11 @@ exports = module.exports = ( CampaignModel, CandidateModel, JWT ) => {
                 var candidate = yield CandidateModel.findById( rec.candidates[ i ] ).exec();
                 arr.push( candidate );
             }
-            console.log( arr );
             arr.sort( function ( a, b ) {
-                if ( a.numberOfVotes < b.numberOfVotes ) {
-                    return 1;
-                }
-                if ( b.numberOfVotes < a.numberOfVotes ) {
-                    return -1;
-                } else return 0;
+                return b.numberOfVotes - a.numberOfVotes;
             } );
             /*daca is 2 cu acelasi numar de voturi ar trebui sa se intample ceva :) */
-            console.log( rec.candidates.toString() );
+            console.log( arr.toString() );
             yield rec.save();
             this.success( {
                 campaigns: rec
