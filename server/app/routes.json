@@ -12,6 +12,27 @@
     "path": "/person/login",
     "handler": "handlers/person/login.js",
     "validate": [ {
+        "param": "uniqueIdentifier",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    },
+    {
+        "param": "password",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+},
+{
+    "method": "post",
+    "path": "/admin/login",
+    "handler": "handlers/admin/login.js",
+    "validate": [ {
         "param": "email",
         "type": "body",
         "validators": [
@@ -208,6 +229,19 @@
     "method": "put",
     "path": "/campaign/start",
     "handler": "handlers/campaign/startCampaign.js",
+    "validate": [ {
+        "param": "id",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+},
+{
+    "method": "put",
+    "path": "/campaign/end",
+    "handler": "handlers/campaign/endCampaign.js",
     "validate": [ {
         "param": "id",
         "type": "body",
@@ -503,7 +537,7 @@
     "path": "/campaign/givevotingrights",
     "handler": "handlers/campaign/giveVotingRights.js",
     "validate": [ {
-        "param": "name",
+        "param": "campaignId",
         "type": "body",
         "validators": [
             "notEmpty",

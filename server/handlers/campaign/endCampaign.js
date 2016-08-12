@@ -1,34 +1,29 @@
 'use strict';
 
-exports = module.exports = ( CandidateModel, JWT ) => {
+exports = module.exports = ( CampaignModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
-
-            let newCandidate = new CandidateModel( {
-                type: b.type,
-                personId: b.personId,
-                numberOfVotes: 0
-            } );
-            console.log( newCandidate );
-            yield newCandidate.save();
+            var rec = yield CampaignModel.findById( b.id ).exec();
+            rec.isAlive = false;
+            //aici se fac joburile si/sau se pune timer pt durata in ORE!!!
+            rec.save();
             this.success( {
-                candidate: newCandidate
+                activated: true
             } );
-
         } else {
             throw ( {
                 code: 422,
                 message: 'Invalid token'
             } );
         }
-        // this.success({ user: 'ceva' });
     };
 };
+
 exports[ '@singleton' ] = true;
 exports[ '@require' ] = [
-    'model/candidateModel',
+    'model/campaignModel',
     'libs/jwtoken'
 ];
