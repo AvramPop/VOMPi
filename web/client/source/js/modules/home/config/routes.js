@@ -17,7 +17,7 @@
             .state( 'layout.home', {
                 url: '^/home',
                 parent: 'layout',
-                templateUrl: 'views/modules/home/home.html'
+                templateUrl: 'views/modules/main/index.html'
             } )
             .state( 'layout.login', {
                 url: '^/login',
