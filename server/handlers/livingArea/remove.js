@@ -6,12 +6,19 @@ exports = module.exports = ( LivingAreaModel, JWT ) => {
             b = this.request.body,
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
-            var rec = yield LivingAreaModel.findById( id ).remove().exec();
-            console.log( rec );
-            this.success( {
-                livingAreas: rec
-            } );
-            
+            var rec = yield LivingAreaModel.findById( id ).exec();
+            if ( rec ) {
+                yield rec.remove();
+                this.success( {
+                    livingAreas: rec
+                } );
+
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Living area does not exist'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

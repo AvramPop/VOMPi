@@ -6,11 +6,18 @@ exports = module.exports = ( VoterModel, JWT ) => {
             b = this.request.body,
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
-            var rec = yield VoterModel.findById( id ).remove().exec();
-            this.success( {
-                voters: rec
-            } );
-            
+            var rec = yield VoterModel.findById( id ).exec();
+            if ( rec ) {
+                yield rec.remove();
+                this.success( {
+                    voters: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Voter does not exist'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

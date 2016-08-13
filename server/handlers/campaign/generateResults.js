@@ -7,20 +7,34 @@ exports = module.exports = ( CampaignModel, CandidateModel, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             var rec = yield CampaignModel.findById( b.campaignId ).exec();
-            var arr = [];
-            for ( var i = 0; i < rec.candidates.length; i++ ) {
-                var candidate = yield CandidateModel.findById( rec.candidates[ i ] ).exec();
-                arr.push( candidate );
+            if ( rec ) {
+                var arr = [];
+                for ( var i = 0; i < rec.candidates.length; i++ ) {
+                    var candidate = yield CandidateModel.findById( rec.candidates[ i ] ).exec();
+                    if ( candidate ) {
+                        arr.push( candidate );
+                    } else {
+                        throw ( {
+                            code: 404,
+                            message: 'Candidate not found!'
+                        } );
+                    }
+                }
+                arr.sort( function ( a, b ) {
+                    return b.numberOfVotes - a.numberOfVotes;
+                } );
+                /*daca is 2 cu acelasi numar de voturi ar trebui sa se intample ceva :) */
+                console.log( arr.toString() );
+                yield rec.save();
+                this.success( {
+                    campaigns: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Campaign not found!'
+                } );
             }
-            arr.sort( function ( a, b ) {
-                return b.numberOfVotes - a.numberOfVotes;
-            } );
-            /*daca is 2 cu acelasi numar de voturi ar trebui sa se intample ceva :) */
-            console.log( arr.toString() );
-            yield rec.save();
-            this.success( {
-                campaigns: rec
-            } );
         } else {
             throw ( {
                 code: 422,

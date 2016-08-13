@@ -17,7 +17,7 @@ exports = module.exports = ( CriteriaModel, JWT ) => {
                 criteria: newCriteria
             } );
 
-            
+
         } else {
             throw ( {
                 code: 422,

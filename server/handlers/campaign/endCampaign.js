@@ -7,12 +7,19 @@ exports = module.exports = ( CampaignModel, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             var rec = yield CampaignModel.findById( b.id ).exec();
-            rec.isAlive = false;
-            //aici se fac joburile si/sau se pune timer pt durata in ORE!!!
-            rec.save();
-            this.success( {
-                activated: true
-            } );
+            if ( rec ) {
+                rec.isAlive = false;
+                //aici se fac joburile si/sau se pune timer pt durata in ORE!!!
+                rec.save();
+                this.success( {
+                    activated: true
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Campaign not found!'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

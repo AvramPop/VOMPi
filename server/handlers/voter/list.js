@@ -7,10 +7,16 @@ exports = module.exports = ( VoterModel, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             var rec = yield VoterModel.find( {} ).exec();
-            this.success( {
-                voters: rec
-            } );
-            
+            if ( rec ) {
+                this.success( {
+                    voters: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Not any voter!'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

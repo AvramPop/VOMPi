@@ -6,7 +6,6 @@ exports = module.exports = ( CandidateModel, JWT ) => {
             b = this.request.body,
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
-
             let newCandidate = new CandidateModel( {
                 type: b.type,
                 personId: b.personId,
@@ -24,7 +23,7 @@ exports = module.exports = ( CandidateModel, JWT ) => {
                 message: 'Invalid token'
             } );
         }
-        
+
     };
 };
 exports[ '@singleton' ] = true;

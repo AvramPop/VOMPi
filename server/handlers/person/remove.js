@@ -7,12 +7,18 @@ exports = module.exports = ( PersonModel, sendMail, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             var rec = yield PersonModel.findById( id ).exec();
-            sendMail.sendPersonDeletedAccountEmail( rec.firstName, rec.email );
-            yield rec.remove();
-            this.success( {
-                persons: rec
-            } );
-            
+            if ( rec ) {
+                sendMail.sendPersonDeletedAccountEmail( rec.firstName, rec.email );
+                yield rec.remove();
+                this.success( {
+                    persons: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Person not found'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

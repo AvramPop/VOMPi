@@ -6,11 +6,18 @@ exports = module.exports = ( CampaignModel, JWT ) => {
             b = this.request.body,
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
-            var rec = yield CampaignModel.findById( id ).remove().exec();
-            this.success( {
-                campaigns: rec
-            } );
-            
+            var rec = yield CampaignModel.findById( id ).exec();
+            if ( rec ) {
+                yield rec.remove();
+                this.success( {
+                    campaigns: rec
+                } );
+            } else {
+                throw ( {
+                    code: 422,
+                    message: 'Campaign not found'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

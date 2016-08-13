@@ -6,11 +6,18 @@ exports = module.exports = ( CandidateModel, JWT ) => {
             b = this.request.body,
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
-            var rec = yield CandidateModel.findById( id ).remove().exec();
-            this.success( {
-                candidates: rec
-            } );
-            
+            var rec = yield CandidateModel.findById( id ).exec();
+            if ( rec ) {
+                yield rec.remove();
+                this.success( {
+                    candidates: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Not found candidate to delete'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

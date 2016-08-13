@@ -7,10 +7,16 @@ exports = module.exports = ( CriteriaModel, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             var rec = yield CriteriaModel.find( {} ).exec();
-            this.success( {
-                criterias: rec
-            } );
-            
+            if ( rec ) {
+                this.success( {
+                    criterias: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Criteria array not found'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

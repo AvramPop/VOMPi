@@ -15,12 +15,13 @@ exports = module.exports = ( PersonModel, sendMail ) => {
                 code: '422',
                 message: 'There is no person with this unique identifier'
             } );
+        } else {
+            console.log( rec );
+            sendMail.sendPersonForgottenPasswordEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email, 'asd' );
+            this.success( {
+                persons: rec
+            } );
         }
-        console.log( rec );
-        sendMail.sendPersonForgottenPasswordEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email, 'asd' );
-        this.success( {
-            persons: rec
-        } );
     };
 };
 

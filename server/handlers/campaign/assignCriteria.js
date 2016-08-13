@@ -10,11 +10,25 @@ exports = module.exports = ( CampaignModel, CriteriaModel, JWT ) => {
                     name: b.name
                 } ).exec(),
                 criteriaRec = yield CriteriaModel.findById( b.criteriaId ).exec();
-            campaignRec.criteria = criteriaRec;
-            yield campaignRec.save();
-            this.success( {
-                campaign: campaignRec
-            } );
+            if ( campaignRec ) {
+                if ( criteriaRec ) {
+                    campaignRec.criteria = criteriaRec;
+                    yield campaignRec.save();
+                    this.success( {
+                        campaign: campaignRec
+                    } );
+                } else {
+                    throw ( {
+                        code: 404,
+                        message: 'Criteria not found!'
+                    } );
+                }
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Campaign not found!'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,
