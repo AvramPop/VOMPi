@@ -9,10 +9,17 @@ exports = module.exports = ( CampaignModel, JWT ) => {
             var rec = yield CampaignModel.findOne( {
                 name: b.name
             } ).exec();
-            console.log( rec );
-            this.success( {
-                campaign: rec
-            } );
+            if ( rec ) {
+                console.log( rec );
+                this.success( {
+                    campaign: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'There is no campaign with this name'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

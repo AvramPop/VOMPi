@@ -17,6 +17,7 @@
             'app.common', // APP COMMON
             'app.layout',
             'app.campaign',
+            'app.person',
             'app.home' // APP HOME Module
         ] );
 } )();

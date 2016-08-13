@@ -8,20 +8,40 @@ exports = module.exports = ( CampaignModel, VoterModel, PersonModel, JWT, sendMa
         if ( auth ) {
             var campaign = yield CampaignModel.findById( b.campaignId ).exec(),
                 voters = yield VoterModel.find( {} ).exec();
-            for ( var i = 0; i < voters.length; i++ ) {
-                if ( voters[ i ].campaigns.indexOf( {
-                        campaignId: b.campaignId
-                    } ) ) {
-                    var person = yield PersonModel.findById( voters[ i ].personId ).exec(),
-                        token = '654das'; //aici trebe generat tokenu
-                    sendMail.sendTokenToVoter( ( person.firstName + ' ' + person.lastName ),
-                        person.email, token, campaign.name );
+            if ( campaign ) {
+                if ( voters ) {
+                    for ( var i = 0; i < voters.length; i++ ) {
+                        if ( voters[ i ].campaigns.indexOf( {
+                                campaignId: b.campaignId
+                            } ) ) {
+                            var person = yield PersonModel.findById( voters[ i ].personId ).exec(),
+                                token = '654das'; //aici trebe generat tokenu
+                            if ( person ) {
+                                sendMail.sendTokenToVoter( ( person.firstName + ' ' + person.lastName ),
+                                    person.email, token, campaign.name );
+                            } else {
+                                throw ( {
+                                    code: 404,
+                                    message: 'Person not found!'
+                                } );
+                            }
+                        }
+                    }
+                    this.success( {
+                        campaigns: campaign
+                    } );
+                } else {
+                    throw ( {
+                        code: 404,
+                        message: 'Voters array not found!'
+                    } );
                 }
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Campaign not found!'
+                } );
             }
-            this.success( {
-                campaigns: campaign
-            } );
-            
         } else {
             throw ( {
                 code: 422,

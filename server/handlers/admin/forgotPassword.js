@@ -14,11 +14,12 @@ exports = module.exports = ( AdminModel, sendMail ) => {
                 code: '422',
                 message: 'There is no admin with this email'
             } );
+        } else {
+            sendMail.sendAdminForgottenPasswordEmail( rec.username, rec.email, 'asadas' );
+            this.success( {
+                admins: rec
+            } );
         }
-        sendMail.sendAdminForgottenPasswordEmail( rec.username, rec.email, 'asadas' );
-        this.success( {
-            admins: rec
-        } );
     };
 };
 

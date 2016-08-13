@@ -9,10 +9,16 @@ exports = module.exports = ( PersonModel, JWT ) => {
             var rec = yield PersonModel.findOne( {
                 uniqueIdentifier: b.uniqueIdentifier
             } ).exec();
-            this.success( {
-                person: rec
-            } );
-
+            if ( rec ) {
+                this.success( {
+                    person: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Person not found'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

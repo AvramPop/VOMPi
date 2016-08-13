@@ -5,9 +5,16 @@ exports = module.exports = ( AdminModel ) => {
         let h = this.request.header,
             b = this.request.body,
             rec = yield AdminModel.find( {} ).exec();
-        this.success( {
-            admins: rec
-        } );
+        if ( rec ) {
+            this.success( {
+                admins: rec
+            } );
+        } else {
+            throw ( {
+                code: 404,
+                message: 'Not any admins'
+            } );
+        }
     };
 };
 exports[ '@singleton' ] = true;

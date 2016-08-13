@@ -12,9 +12,23 @@ exports = module.exports = ( CandidateModel, PersonModel, JWT ) => {
                 rec2 = yield CandidateModel.findOne( {
                     personId: rec._id
                 } );
-            this.success( {
-                candidate: rec2
-            } );
+            if ( rec ) {
+                if ( rec2 ) {
+                    this.success( {
+                        candidate: rec2
+                    } );
+                } else {
+                    throw ( {
+                        code: 404,
+                        message: 'There is not any candidate for this person'
+                    } );
+                }
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'There is not any person with this uniqueIdentifier'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

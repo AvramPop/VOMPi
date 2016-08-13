@@ -16,20 +16,24 @@ exports = module.exports = ( PersonModel, sendMail, JWT ) => {
                     code: '422',
                     message: 'There is no person with this unique identifier'
                 } );
-            }
-            if ( rec.password === b.oldPassword && b.password === b.repeatPassword /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/ ) {
-                rec.password = b.password;
-                rec.save();
-                var name = rec.firstName + ' ' + rec.lastName;
-                sendMail.sendPersonSuccessfullyChangedPasswordEmail( name, rec.email );
-                this.success( {
-                    admins: rec
-                } );
             } else {
-                throw ( {
-                    code: 404,
-                    message: 'passwords dont match or dont match criteria'
-                } );
+                if ( rec.password === b.oldPassword &&
+                    b.password === b.repeatPassword
+                    /*aici ar trebui validatori de parola, sa fie de 8 caractere etc*/
+                ) {
+                    rec.password = b.password;
+                    rec.save();
+                    var name = rec.firstName + ' ' + rec.lastName;
+                    sendMail.sendPersonSuccessfullyChangedPasswordEmail( name, rec.email );
+                    this.success( {
+                        admins: rec
+                    } );
+                } else {
+                    throw ( {
+                        code: 404,
+                        message: 'passwords dont match or dont match criteria'
+                    } );
+                }
             }
         } else {
             throw ( {
