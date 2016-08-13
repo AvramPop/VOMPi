@@ -17,6 +17,7 @@
             .state( 'layout.campaignform', {
                 url: '^/campaignform',
                 parent: 'layout',
+                controller: 'campaignCtrl',
                 templateUrl: 'views/modules/campaign/addNew.html'
             } )
             .state( 'layout.sidebar', {
