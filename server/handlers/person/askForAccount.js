@@ -7,12 +7,11 @@ exports = module.exports = ( PersonModel, sendMail ) => {
             rec = yield PersonModel.findOne( {
                 uniqueIdentifier: b.uniqueIdentifier
             } ).exec();
-        console.log( rec );
         if ( rec ) {
-            console.log( 'asad' );
             if ( !rec.isActivated ) {
                 console.log( 'sdafc' );
-                sendMail.sendPersonSignUpLinkEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email, 'asd' /*link pt reset password*/ );
+                sendMail.sendPersonSignUpLinkEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email,
+                    'asd' /*link pt reset password*/ );
                 this.success( {
                     person: rec
                 } );
@@ -28,7 +27,7 @@ exports = module.exports = ( PersonModel, sendMail ) => {
                 message: 'Person does not exist'
             } );
         }
-        // this.success({ user: 'ceva' });
+
     };
 };
 exports[ '@singleton' ] = true;

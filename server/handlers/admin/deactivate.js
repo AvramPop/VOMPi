@@ -7,11 +7,18 @@ exports = module.exports = ( AdminModel ) => {
             rec = yield AdminModel.findOne( {
                 email: aEmail
             } ).exec();
-        rec.isAlive = false;
-        rec.save();
-        this.success( {
-            deactivated: true
-        } );
+        if ( rec ) {
+            rec.isAlive = false;
+            rec.save();
+            this.success( {
+                deactivated: true
+            } );
+        } else {
+            throw ( {
+                code: 404,
+                message: 'Admin not found!'
+            } );
+        }
     };
 };
 exports[ '@singleton' ] = true;

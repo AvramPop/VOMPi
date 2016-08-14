@@ -7,10 +7,16 @@ exports = module.exports = ( PersonModel, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             let rec = yield PersonModel.find( {} ).exec();
-            this.success( {
-                persons: rec
-            } );
-            // this.success({ user: 'ceva' });
+            if ( rec ) {
+                this.success( {
+                    persons: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Persons not found'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

@@ -12,10 +12,23 @@ exports = module.exports = ( VoterModel, PersonModel, JWT ) => {
                 rec2 = yield VoterModel.findOne( {
                     personId: rec._id
                 } );
-            this.success( {
-                voters: rec2
-            } );
-            // this.success({ user: 'ceva' });
+            if ( rec ) {
+                if ( rec2 ) {
+                    this.success( {
+                        voters: rec2
+                    } );
+                } else {
+                    throw ( {
+                        code: 404,
+                        message: 'There is no voter for this person'
+                    } );
+                }
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'There is no person with this uid'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

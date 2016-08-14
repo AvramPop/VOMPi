@@ -8,19 +8,24 @@ exports = module.exports = ( PersonModel, sendMail ) => {
             rec = yield PersonModel.findOne( {
                 uniqueIdentifier: b.uniqueIdentifier //ar trebui sa stie singur cine ii
             } ).exec();
-        console.log( b );
-        if ( b.password === b.repeatPassword ) {
-            rec.password = b.password;
-            rec.isActivated = true;
-            yield rec.save();
-            sendMail.sendPersonRegistrationEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email );
+        if ( rec ) {
+            if ( b.password === b.repeatPassword ) {
+                rec.password = b.password;
+                rec.isActivated = true;
+                yield rec.save();
+                sendMail.sendPersonRegistrationEmail( ( rec.firstName + ' ' + rec.lastName ), rec.email );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Passwords dont match'
+                } );
+            }
         } else {
             throw ( {
                 code: 404,
-                message: 'Passwords dont match'
+                message: 'There is not any person with this uid!'
             } );
         }
-        // this.success({ user: 'ceva' });
     };
 };
 exports[ '@singleton' ] = true;

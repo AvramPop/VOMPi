@@ -17,24 +17,27 @@
             .state( 'layout.home', {
                 url: '^/home',
                 parent: 'layout',
-                templateUrl: 'views/modules/home/home.html'
+                templateUrl: 'views/modules/main/index.html'
             } )
-            .state( 'layout.main', {
-                url: '^/main',
+            .state( 'layout.signup', {
+                url: '^/signup',
                 parent: 'layout',
-                templateUrl: 'views/modules/main/index.html',
-                style: 'views/modules/main/min/custom-min.css'
+                templateUrl: 'views/modules/login/signup.html'
+            } )
+            .state( 'layout.changepass', {
+                url: '^/changepass',
+                parent: 'layout',
+                templateUrl: 'views/modules/login/changepass.html'
+            } )
+            .state( 'layout.forgotpass', {
+                url: '^/forgotpass',
+                parent: 'layout',
+                templateUrl: 'views/modules/login/forgotpass.html'
             } )
             .state( 'layout.login', {
                 url: '^/login',
                 parent: 'layout',
                 templateUrl: 'views/modules/login/login.html'
-            } )
-             .state( 'layout.main', {
-                url: '^/main',
-                parent: 'layout',
-                templateUrl: 'views/modules/main/index.html',
-                css: ['views/modules/main/min/custom-min.css']
             } );
     }
 } )();

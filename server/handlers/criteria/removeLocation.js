@@ -8,14 +8,27 @@ exports = module.exports = ( CriteriaModel, LivingAreaModel, JWT ) => {
         if ( auth ) {
             var criteriaRec = yield CriteriaModel.findById( b.criteriaId ).exec();
             var index = criteriaRec.locationRequired.indexOf( b.livingAreaId );
-            //    console.log( campaignRec + index );
-            if ( index > -1 ) {
-                criteriaRec.locationRequired.splice( index, 1 );
-                yield criteriaRec.save();
+            if ( criteriaRec ) {
+                if ( index ) {
+                    if ( index > -1 ) {
+                        criteriaRec.locationRequired.splice( index, 1 );
+                        yield criteriaRec.save();
+                        this.success( {
+                            criterias: criteriaRec
+                        } );
+                    }
+                } else {
+                    throw ( {
+                        code: 404,
+                        message: 'Criteria does not have this location'
+                    } );
+                }
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Criteria not found'
+                } );
             }
-            this.success( {
-                criterias: criteriaRec
-            } );
         } else {
             throw ( {
                 code: 422,

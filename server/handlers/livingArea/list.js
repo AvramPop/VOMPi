@@ -7,10 +7,16 @@ exports = module.exports = ( LivingAreaModel, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             var rec = yield LivingAreaModel.find().exec();
-            this.success( {
-                livingAreas: rec
-            } );
-            // this.success({ user: 'ceva' });
+            if ( rec ) {
+                this.success( {
+                    livingAreas: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Living area arr does not exist'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

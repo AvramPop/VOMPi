@@ -30,7 +30,7 @@ exports = module.exports = ( PersonModel, JWT ) => {
                     message: 'Person does not exist'
                 } );
             }
-            // this.success({ user: 'ceva' });
+            
         } else {
             throw ( {
                 code: 422,

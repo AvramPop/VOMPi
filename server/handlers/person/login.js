@@ -5,9 +5,8 @@ exports = module.exports = ( Person, JWT ) => {
         let b = this.request.body,
             // Verify if user in DB
             user = yield Person.findOne( {
-                email: b.email,
-                password: b.password
-                    // uniqueIdentifier: b.uniqueIdentifier
+                password: b.password,
+                uniqueIdentifier: b.uniqueIdentifier
             } ).exec();
 
         // Handle error if doesn't exist

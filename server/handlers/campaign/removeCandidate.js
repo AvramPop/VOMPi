@@ -9,14 +9,19 @@ exports = module.exports = ( CampaignModel, CandidateModel, JWT ) => {
             var campaignRec = yield CampaignModel.findById( b.campaignId ).exec();
 
             var index = campaignRec.candidates.indexOf( b.candidateId );
-            //    console.log( campaignRec + index );
             if ( index > -1 ) {
                 campaignRec.candidates.splice( index, 1 );
                 yield campaignRec.save();
+                this.success( {
+                    campaigns: campaignRec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'There is no candidate to remove with this id'
+                } );
             }
-            this.success( {
-                campaigns: campaignRec
-            } );
+
         } else {
             throw ( {
                 code: 422,

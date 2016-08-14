@@ -12,6 +12,27 @@
     "path": "/person/login",
     "handler": "handlers/person/login.js",
     "validate": [ {
+        "param": "uniqueIdentifier",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    },
+    {
+        "param": "password",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+},
+{
+    "method": "post",
+    "path": "/admin/login",
+    "handler": "handlers/admin/login.js",
+    "validate": [ {
         "param": "email",
         "type": "body",
         "validators": [
@@ -205,7 +226,7 @@
  }]
 },
 {
-    "method": "post",
+    "method": "put",
     "path": "/campaign/start",
     "handler": "handlers/campaign/startCampaign.js",
     "validate": [ {
@@ -216,8 +237,21 @@
             "isString"
         ]
     } ]
+},
+{
+    "method": "put",
+    "path": "/campaign/end",
+    "handler": "handlers/campaign/endCampaign.js",
+    "validate": [ {
+        "param": "id",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
 }, {
-    "method": "post",
+    "method": "put",
     "path": "/admin/deactivate/:email",
     "handler": "handlers/admin/deactivate.js"
 },
@@ -289,7 +323,7 @@
         ]
     } ]
 }, {
-    "method": "post",
+    "method": "put",
     "path": "/admin/changepassword",
     "handler": "handlers/admin/changePassword.js",
     "validate": [ {
@@ -347,7 +381,7 @@
         ]
     } ]
 }, {
-    "method": "post",
+    "method": "put",
     "path": "/person/changepassword",
     "handler": "handlers/person/changePassword.js",
     "validate": [ {
@@ -375,7 +409,7 @@
     } ]
 },
 {
-    "method": "post",
+    "method": "put",
     "path": "/admin/updatepassword",
     "handler": "handlers/admin/updatePassword.js",
     "validate": [ {
@@ -412,7 +446,7 @@
 },
 
 {
-    "method": "post",
+    "method": "put",
     "path": "/person/updatepassword",
     "handler": "handlers/person/updatePassword.js",
     "validate": [ {
@@ -461,7 +495,7 @@
     }]
 },
 {
-    "method": "post",
+    "method": "put",
     "path": "/person/signup",
     "handler": "handlers/person/signUp.js",
     "validate": [  {
@@ -480,7 +514,7 @@
         ]
     } ]
 },{
-    "method": "post",
+    "method": "put",
     "path": "/campaign/assigncandidate",
     "handler": "handlers/campaign/assignCandidate.js",
     "validate": [ {
@@ -498,13 +532,25 @@
             "isString"
         ]
     } ]
-},  {
+}, {
+    "method": "put",
+    "path": "/campaign/givevotingrights",
+    "handler": "handlers/campaign/giveVotingRights.js",
+    "validate": [ {
+        "param": "campaignId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
     "method": "get",
     "path": "/campaign/list",
     "handler": "handlers/campaign/list.js"
 },
 {
-    "method": "get",
+    "method": "post",
     "path": "/candidate/search",
     "handler": "handlers/candidate/search.js",
     "validate": [ {
@@ -517,7 +563,7 @@
     } ]
 },
 {
-    "method": "get",
+    "method": "post",
     "path": "/campaign/search",
     "handler": "handlers/campaign/search.js",
     "validate": [ {
@@ -529,9 +575,8 @@
         ]
     } ]
 },
-
 {
-    "method": "get",
+    "method": "post",
     "path": "/person/search",
     "handler": "handlers/person/search.js",
     "validate": [ {
@@ -544,7 +589,7 @@
     } ]
 },
 {
-    "method": "get",
+    "method": "post",
     "path": "/voter/search",
     "handler": "handlers/voter/search.js",
     "validate": [ {
@@ -579,6 +624,14 @@
         "validators": [
             "notEmpty",
             "isNumber"
+        ]
+    },
+    {
+        "param": "question",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
         ]
     } ]
 }, {
@@ -734,73 +787,8 @@
     "method": "delete",
     "path": "/voter/delete/:id",
     "handler": "handlers/voter/remove.js"
-},  {
-    "method": "post",
-    "path": "/campaign/generateresults",
-    "handler": "handlers/campaign/generateResults.js",
-    "validate": [ {
-        "param": "campaignId",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    } ]
-},
-{
-    "method": "post",
-    "path": "/campaign/givevotingrights",
-    "handler": "handlers/campaign/giveVotingRights.js",
-    "validate": [ {
-        "param": "name",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    } ]
-},
- {
-    "method": "post",
-    "path": "/criteria/assignlocation",
-    "handler": "handlers/criteria/assignLocation.js",
-    "validate": [ {
-        "param": "criteriaId",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    }, {
-        "param": "livingAreaId",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    } ]
 }, {
-    "method": "post",
-    "path": "/campaign/assigncriteria",
-    "handler": "handlers/campaign/assignCriteria.js",
-    "validate": [ {
-        "param": "name",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    }, {
-        "param": "criteriaId",
-        "type": "body",
-        "validators": [
-            "notEmpty",
-            "isString"
-        ]
-    } ]
-},
-{
-    "method": "post",
+    "method": "put",
     "path": "/voter/vote",
     "handler": "handlers/voter/vote.js",
     "validate": [ {
@@ -819,6 +807,56 @@
         ]
     }, {
         "param": "candidateId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
+    "method": "put",
+    "path": "/campaign/generateresults",
+    "handler": "handlers/campaign/generateResults.js",
+    "validate": [ {
+        "param": "campaignId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
+    "method": "put",
+    "path": "/criteria/assignlocation",
+    "handler": "handlers/criteria/assignLocation.js",
+    "validate": [ {
+        "param": "criteriaId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "livingAreaId",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    } ]
+}, {
+    "method": "put",
+    "path": "/campaign/assigncriteria",
+    "handler": "handlers/campaign/assignCriteria.js",
+    "validate": [ {
+        "param": "name",
+        "type": "body",
+        "validators": [
+            "notEmpty",
+            "isString"
+        ]
+    }, {
+        "param": "criteriaId",
         "type": "body",
         "validators": [
             "notEmpty",

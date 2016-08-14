@@ -27,7 +27,7 @@ exports = module.exports = ( AdminModel, sendMail ) => {
                 message: 'Admin already exists'
             } );
         }
-        // this.success({ user: 'ceva' });
+
     };
 };
 exports[ '@singleton' ] = true;

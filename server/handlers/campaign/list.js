@@ -7,10 +7,16 @@ exports = module.exports = ( CampaignModel, JWT ) => {
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
             var rec = yield CampaignModel.find( {} ).exec();
-            this.success( {
-                campaigns: rec
-            } );
-            // this.success({ user: 'ceva' });
+            if ( rec ) {
+                this.success( {
+                    campaigns: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Not any campaigns!'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,

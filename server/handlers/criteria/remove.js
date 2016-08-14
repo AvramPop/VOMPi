@@ -6,11 +6,18 @@ exports = module.exports = ( CriteriaModel, JWT ) => {
             b = this.request.body,
             auth = JWT.verify( h[ 'x-auth-token' ] );
         if ( auth ) {
-            var rec = yield CriteriaModel.findById( id ).remove().exec();
-            this.success( {
-                criterias: rec
-            } );
-            // this.success({ user: 'ceva' });
+            var rec = yield CriteriaModel.findById( id ).exec();
+            if ( rec ) {
+                yield rec.remove();
+                this.success( {
+                    criterias: rec
+                } );
+            } else {
+                throw ( {
+                    code: 404,
+                    message: 'Criteria not found'
+                } );
+            }
         } else {
             throw ( {
                 code: 422,
