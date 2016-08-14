@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<div ng-controller="personCtrl">
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <div ng-controller="personCtrl">
+
 <div class="campaign">
     <h3> Add Campaign </h3>
     <form class="col s12">
-            <div class="input-field col s6">
-              <input placeholder="Name" id="name" type="text" class="validate">
-            </div>
-            <div class="input-field col s6">
-              <input placeholder="Question" id="question" type="text" class="validate">
-            </div>
+      <div class="input-field col s6">
+    <input id="name" type="text" class="validate">
+    <label for="name">Name</label>
+  </div>
+  <div class="input-field col s6">
+<input id="question" type="text" class="validate">
+<label for="question">Question</label>
+</div>
           </form>
     <h6> Start Date </h6>
 <input type="date" class="datepicker" >
     <form class="col s12">
-            <div class="input-field col s6">
-              <input placeholder="Duration" id="duration" type="text" class="validate">
-            </div>
+      <div class="input-field col s6">
+    <input id="duration" type="text" class="validate">
+    <label for="duraion">Duration(hours)</label>
+  </div>
 
           </form>
     <button type="button" class="btn btn-default" no-ink="true">Submit</button>
