@@ -17,18 +17,7 @@
             .state( 'layout.campaignform', {
                 url: '^/campaignform',
                 parent: 'layout',
-                controller: 'campaignCtrl',
                 templateUrl: 'views/modules/campaign/addNew.html'
-            } )
-            .state( 'layout.sidebar', {
-                url: '^/sidebar',
-                parent: 'layout',
-                templateUrl: 'views/modules/campaign/sidebar.html'
-            } )
-            .state( 'layout.list', {
-                url: '^/list',
-                parent: 'layout',
-                templateUrl: 'views/modules/campaign/list.html'
             } );
     }
 } )();

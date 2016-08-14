@@ -18,11 +18,6 @@
                 url: '^/personform',
                 parent: 'layout',
                 templateUrl: 'views/modules/person/addNew.html'
-            } )
-            .state( 'layout.test', {
-                url: '^/test',
-                parent: 'layout',
-                templateUrl: 'views/modules/person/test.html'
             } );
     }
 } )();
