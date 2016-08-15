@@ -94,6 +94,24 @@ exports = module.exports = ( echo, settings ) => {
                 return true;
             },
 
+            sendContactEmail: ( name, selfEmail, textBody ) => {
+                let subject = 'Contact',
+                    // See the related template in order to set
+                    // the correct variables that need to be replaced
+                    data = {
+                        name: name,
+                        selfEmail: selfEmail,
+                        textBody: textBody
+                    };
+                console.log(
+                    echo.info( 'Receiving email from ' + name + ' <' + selfEmail + '>' )
+                );
+
+                sendEmail( 'Dany4God@gmail.com', name, subject, data, 'contact' );
+
+                return true;
+            },
+
             sendPersonRegistrationEmail: ( name, email ) => {
                 let subject = 'VOMPi account created',
                     // See the related template in order to set

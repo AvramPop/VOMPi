@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<style>
+.center {
+  margin: auto;
+  width: 25%;
+}
+</style>
+<div ng-controller="loginCtrl">
+
+<form id="myLogin">
+<div class="center">
+  <h3>Welcome to <b>VOMPi</b>!</h3>
+  <h5>Here, you can ask for an account. If you are in our database, we will contact you as soon as possible ;)</h5>
+    <div class="row">
+        <div class="input-field col s12">
+          <input id="uid" type="text" class="validate">
+          <label for="uid">Unique Identifier</label>
+        </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">ASK!
+    <i class="material-icons right">send</i>
+  </button>
+  </div>
+</form>
+
+</div>

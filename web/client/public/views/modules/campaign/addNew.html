@@ -1,24 +1,52 @@
 <!DOCTYPE html>
+<style>
+#test5{
+  padding: 50px;
+}
+
+#test6{
+  padding:50px;
+}
+</style>
+
 <div ng-controller="personCtrl">
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <div class="campaign">
     <h3> Add Campaign </h3>
     <form class="col s12">
-            <div class="input-field col s6">
-              <input placeholder="Name" id="name" type="text" class="validate">
-            </div>
-            <div class="input-field col s6">
-              <input placeholder="Question" id="question" type="text" class="validate">
-            </div>
+      <div class="input-field col s6">
+    <input id="name" type="text" class="validate">
+    <label for="name">Name</label>
+  </div>
+  <div class="input-field col s6">
+<input id="ques" type="text" class="validate">
+<label for="ques">Question</label>
+</div>
           </form>
     <h6> Start Date </h6>
 <input type="date" class="datepicker" >
     <form class="col s12">
-            <div class="input-field col s6">
-              <input placeholder="Duration" id="duration" type="text" class="validate">
-            </div>
+      <div class="input-field col s6">
+    <input id="duration" type="text" class="validate">
+    <label for="duration">Duration(hours)</label>
+  </div>
 
           </form>
-    <button type="button" class="btn btn-default" no-ink="true">Submit</button>
+
+          <form action="#">
+            <div class="row"> <!--put some space between them! -->
+       <p><input type="checkbox" id="test5" /><label for="test5">Requires maturity</label><input type="checkbox" id="test6" ng-model="master"/><label for="test6">Requires location</label> </p>
+     </div>
+</form>
+<!--<div ng-checked="master"> this should work!-->
+<div class="row">
+        <div class="input-field col s12">
+          <input disabled value="Location" id="disabled" type="text" class="validate" style="width:25%;">    <!--butonu ar trebui sa se puna pe ultimu input alive-->     <a class="btn-floating disabled"><i class="material-icons">add</i></a>
+        </div>
+
+      </div>
+      <img src="https://s3.postimg.org/ihy7b0dpf/Capture1.png"> <!--sa aiba si plus si minus sa poti si scoate-->
+    <!--</div>-->
+    <button type="button" class="btn btn-default" no-ink="true">Begin countdown!</button>
 </div>
 </div>

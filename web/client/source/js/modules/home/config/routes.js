@@ -29,6 +29,11 @@
                 parent: 'layout',
                 templateUrl: 'views/modules/login/changepass.html'
             } )
+            .state( 'layout.ask', {
+                url: '^/ask',
+                parent: 'layout',
+                templateUrl: 'views/modules/login/ask.html'
+            } )
             .state( 'layout.forgotpass', {
                 url: '^/forgotpass',
                 parent: 'layout',
