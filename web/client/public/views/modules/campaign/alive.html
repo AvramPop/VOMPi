@@ -33,11 +33,39 @@ img{height:150px;width:150px;border-radius:75px}.card-avatar .card-content{text-
 p{margin:15px
 0px}.card-avatar .card-content
 i{font-size:1.5rem}.card-avatar .card-content .card-title{line-height:30px !important}.parallax-container{max-height:400px}footer.page-footer{margin-top:0px !important}
+   li.vote{
+     display: inline;
+       float: left;
+        margin: 0;
+    padding: 0;
+}
+ul.vote{
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    list-style-type:none;
+}
     </style>
     <style>
 .center {
   margin: auto;
   width: 25%;
+  
+}
+li.vote{
+     display: inline;
+       float: left;
+        margin: 0;
+    padding: 0;
+}
+ul.vote{
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    list-style-type:none;
+}
+.vote{
+    orientation: center;
 }
 </style>
 </head>
@@ -85,21 +113,30 @@ i{font-size:1.5rem}.card-avatar .card-content .card-title{line-height:30px !impo
 <div class="center">
      <h4>Parlamentare 2016</h4>
      <h4>Care este optiunea dvs.?</h4>
-     
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-            
+     <div ng-init="names=['Jani','Hege','Kai']">
+        <ul >
+        <li ng-repeat="x in names">
+            <div class = "row">
+                <div class="col s90 m40">
+                     <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="http://lorempixel.com/100/190/nature/10">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <span class="card-title" id="dani">{{x}}</span>
+                                <p>I am a very simple card. I am good at containing small bits of information.</p>
+                            </div>
+                        <div class="card-action">
+                            <a href="#">VOte</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </li>
+    </ul>
+ </div>          
      </div>
 </body>
  
