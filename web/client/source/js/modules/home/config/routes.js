@@ -34,11 +34,6 @@
                 parent: 'layout',
                 templateUrl: 'views/modules/login/forgotpass.html'
             } )
-            .state( 'layout.test', {
-                url: '^/test',
-                parent: 'layout',
-                templateUrl: 'views/modules/home/test.html'
-            } )
             .state( 'layout.login', {
                 url: '^/login',
                 parent: 'layout',

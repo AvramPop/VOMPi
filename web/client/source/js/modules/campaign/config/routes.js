@@ -25,6 +25,16 @@
                 parent: 'layout',
                 templateUrl: 'views/modules/campaign/sidebar.html'
             } )
+             .state( 'layout.alive', {
+                url: '^/alive',
+                parent: 'layout',
+                templateUrl: 'views/modules/campaign/alive.html'
+            } )
+            .state( 'layout.finished', {
+                url: '^/finished',
+                parent: 'layout',
+                templateUrl: 'views/modules/campaign/finished.html'
+            } )
             .state( 'layout.list', {
                 url: '^/list',
                 parent: 'layout',
