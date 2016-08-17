@@ -33,11 +33,6 @@
     "Materialize": "materialize#~0.97.5",
     "moment": "~2.13.0",
     "ng-materialize": "^0.1.2",
-    "leaflet": "^0.7.7",
-    "Leaflet.awesome-markers": "~2.0.2",
-    "Leaflet.MakiMarkers": "~2.0.0",
-    "Leaflet.extra-markers": "^1.0.6",
-    "leaflet-layer-overpass": "^1.0.2",
     "restangular": "^1.5.2",
     "Waves": "waves#^0.7.5"
   },
