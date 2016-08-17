@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<div ng-controller="campaignCtrl">
-<div class="campaign">
+
+<div ng-controller="personCtrl">
+<div >
     <h3> Add Campaign </h3>
     <form class="col s12">
             <div class="input-field col s6">
@@ -18,18 +18,28 @@
             <div class="input-field col s6">
               <input placeholder="Telephone" id="tel" type="text" class="validate">
             </div>
+               <div class="input-field col s6">
+                    <select>
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                    <label>Materialize Select</label>
+                 <!-- <div dropdown>
+                    <button type="button" dropdown-toggle class="btn btn-default">Default Dropdown</button>
+                  </div>
+                  <ul class="dropdown-menu">
+                    <li><a href>One</a></li>
+                    <li><a href>Two</a></li>
+                    <li class="divider"></li>
+                    <li><a href>Three</a></li>
+                  </ul> -->
+               <!-- <a class="btn btn-default" >Submit</a> -->
+             </div>
           </form>
-    <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-  </div>
+
    <!-- <h6>Date of birth</h6>
     <input type="date" class="datepicker" > <!--link them somehow to look nice!-->
-    <button type="button" class="btn" no-ink="true" style:"color: #561B3C">Submit</button> <!--color!!!-->
 </div>
 </div>

@@ -3,22 +3,24 @@
 
 <div class="campaign">
     <h3> Add Campaign </h3>
-    <form class="col s12">
+    <form data-ng-submit="submit()" class="col s12">
             <div class="input-field col s6">
-              <input placeholder="Name" id="name" type="text" class="validate">
+              <input placeholder="Name" id="name" type="text" data-ng-model="add.name" class="validate">
             </div>
             <div class="input-field col s6">
-              <input placeholder="Question" id="question" type="text" class="validate">
+            <label> Question </label>
+            <input id="question" type="text" data-ng-model="add.question" class="validate">
             </div>
-          </form>
-    <h6> Start Date </h6>
-<input type="date" class="datepicker" >
-    <form class="col s12">
             <div class="input-field col s6">
-              <input placeholder="Duration" id="duration" type="text" class="validate">
+            <label> Start Date </label>
+            <input type="date" class="datepicker" data-ng-model="add.startDate">
             </div>
+            <div class="input-field col s6">
+              <label> Question </label>
+              <input placeholder="Duration" id="duration" type="text" data-ng-model="add.duration" class="validate">
+            </div>
+            <button type="submit" class="btn btn-default" no-ink="true">Submit</button>
+    </form>
 
-          </form>
-    <button type="button" class="btn btn-default" no-ink="true">Submit</button>
 </div>
 </div>

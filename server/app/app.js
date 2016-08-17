@@ -67,9 +67,9 @@ exports = module.exports = ( routes, router, validate, logging, response, settin
                     this.path = this.path.replace( settings.API.root + settings.API.version, '' );
                     yield next;
                 } else {
-                    // Force redirect to web client
-                    // if URL it's not one of the above
-                    this.redirect( '/' );
+                    // // Force redirect to web client
+                    // // if URL it's not one of the above
+                    // this.redirect( '/' );  
                 }
             }
         } )

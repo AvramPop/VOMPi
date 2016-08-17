@@ -17,7 +17,7 @@
 
         /* jshint validthis: true */
         var vm = this;
-
+        $scope.currentState = $state.current;
         // vm.config = {
         //     state: $state.current.name,
         //     siteName: ENV.APP.name
