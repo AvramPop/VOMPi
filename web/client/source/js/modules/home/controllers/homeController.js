@@ -9,7 +9,7 @@
         .module( 'app.home' )
         .controller( 'homeCtrl', homeCtrl );
 
-    homeCtrl.$inject = [ '$scope', '$state', 'moment', 'ENV' ];
+    homeCtrl.$inject = [ '$scope', '$http', '$state', 'moment', 'ENV' ];
 
     /* @ngInject */
     function homeCtrl( $scope, $state, moment, ENV ) {
