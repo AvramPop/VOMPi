@@ -17,6 +17,7 @@
             .state( 'layout.personform', {
                 url: '^/addperson',
                 parent: 'layout',
+                controller: 'personCtrl',
                 templateUrl: 'views/modules/person/addNew.html'
             } )
             .state( 'layout.personsignup', {

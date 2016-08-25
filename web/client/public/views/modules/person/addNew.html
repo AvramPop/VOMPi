@@ -1,42 +1,24 @@
 
 <div ng-controller="addNew">
 <div >
-    <h3> Add Campaign </h3>
+    <h3> Add Person </h3>
     <form class="col s12">
             <div class="input-field col s6">
-              <input placeholder="First Name" id="fname" type="text" class="validate">
+              <input placeholder="First Name" id="fname" type="text" class="validate" data-ng-model="add.firstName">
             </div>
             <div class="input-field col s6">
-              <input placeholder="Last Name" id="lname" type="text" class="validate">
+              <input placeholder="Last Name" id="lname" type="text" class="validate" data-ng-model="add.lastName">
             </div>
             <div class="input-field col s6">
               <div class="input-field col s6">
-                <input placeholder="Unique Identifier" id="uid" type="text" class="validate">
+                <input placeholder="Unique Identifier" id="uid" type="text" class="validate" data-ng-model="add.uniqueIdentifier">
               </div>
-              <input placeholder="Email" id="email" type="text" class="validate">
+              <input placeholder="Email" id="email" type="text" class="validate" data-ng-model="add.email">
             </div>
             <div class="input-field col s6">
-              <input placeholder="Telephone" id="tel" type="text" class="validate">
-            </div>
-               <div class="input-field col s6">
-                    <select>
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>
-                    <label>Materialize Select</label>
-                 <!-- <div dropdown>
-                    <button type="button" dropdown-toggle class="btn btn-default">Default Dropdown</button>
-                  </div>
-                  <ul class="dropdown-menu">
-                    <li><a href>One</a></li>
-                    <li><a href>Two</a></li>
-                    <li class="divider"></li>
-                    <li><a href>Three</a></li>
-                  </ul> -->
-               <!-- <a class="btn btn-default" >Submit</a> -->
-             </div>
+              <input placeholder="Telephone" id="tel" type="text" class="validate" data-ng-model="add.telephone">
+              </div>
+            <button type="submit" class="btn btn-default" no-ink="true">Log In</button>
           </form>
 
    <!-- <h6>Date of birth</h6>

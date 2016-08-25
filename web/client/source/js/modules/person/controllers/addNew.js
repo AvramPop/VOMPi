@@ -2,20 +2,28 @@
     'use strict';
 
     angular
-        .module( 'app.person' )
+        .module( 'app.home' )
         .controller( 'personCtrl', personCtrl );
 
-    personCtrl.$inject = [ '$scope' ];
+        personCtrl.$inject = [ '$scope', '$location', '$state', '$http' ];
 
-    /* @ngInject */
-    function personCtrl( $scope ) {
-        console.log( 'krydsac' );
+    / @ngInject /
+    function personCtrl( $scope, $location, $state, $http ) {
+
         $scope.submit = function () {
-            var name = $scope.name;
-            var date = $scope.datepicker;
-            var duration = $scope.duration;
+            $http.post( '/api/v1/person/addNew', $scope.add, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            } ).then( function ( respSucc ) {
+                console.log( 'merge pana la request', respSucc );
+                $location.path( '/#/list' );
+                return respSucc;
+            }, function ( respErr ) {
+                console.log( 'merge pana la request', respErr );
+                
+                return respErr;
+            } );
         };
-
     }
-
-} )();
+})();
