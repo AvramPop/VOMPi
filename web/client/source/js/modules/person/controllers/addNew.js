@@ -5,7 +5,7 @@
         .module( 'app.home' )
         .controller( 'personCtrl', personCtrl );
 
-    loginCtrl.$inject = [ '$scope', '$location', '$state', '$http' ];
+        personCtrl.$inject = [ '$scope', '$location', '$state', '$http' ];
 
     / @ngInject /
     function personCtrl( $scope, $location, $state, $http ) {
