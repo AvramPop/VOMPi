@@ -1,2 +1,2 @@
-    <div ng-if="currentState.name !== 'layout.home'" ng-include="'views/common/layout/sidebar.html'"></div>
+    <div ng-if="currentState.name !== 'layout.home' || currentState.name !== 'layout.personform'  ng-include="'views/common/layout/sidebar.html'"></div>
     <div class="main" ui-view></div>
