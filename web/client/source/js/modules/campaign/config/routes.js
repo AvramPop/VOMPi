@@ -38,6 +38,7 @@
             .state( 'layout.list', {
                 url: '^/list',
                 parent: 'layout',
+                controller: 'listController',
                 templateUrl: 'views/modules/campaign/list.html'
             } );
     }
