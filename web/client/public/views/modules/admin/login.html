@@ -1,9 +1,14 @@
+<!DOCTYPE html>
 
-
-<head>
+<style>
+.center {
+  margin: auto;
+  width: 25%;
+}
+</style>
  <style>
-.default_color{background-color:#561B3C !important}.default_color_text{color:#561B3C !important}.icon-block{padding:0
-15px}#intro,#work,#team{padding-top:4rem}#index-banner{min-height:632px;max-height:864px;position:relative;background-color:#561B3C}#nav_f{box-shadow:none !important;-webkit-box-shadow:none !important}.text_h{padding:15% 0;font-size:6.0em;font-weight:100;color:white}.brand-logo{position:absolute;color:#fff;display:inline-block;font-size:2.1rem;font-style:normal;font-weight:100;padding:0;letter-spacing:7px}.text_h2{font-weight:100;margin-bottom:4%;line-height:7rem}.span_h2{font-weight:300;color:#561B3C}.text_b{color:#561B3C}.in{font-weight:400 !important;font-style:normal !important}.promo
+        .default_color{background-color:#561B3C !important}.default_color_text{color:#561B3C !important}.icon-block{padding:0
+15px}#intro,#work,#team{padding-top:4rem}#index-banner{min-height:632px;max-height:864px;position:relative;background-color:#561B3C}#nav_f{box-shadow:none !important;-webkit-box-shadow:none !important}.text_h{padding:15% 0;font-size:6.0em;font-weight:100;color:white}.brand-logo{position:absolute;color:#fff;display:inline-block;font-size:2.1rem;font-style:normal;font-weight:100;padding:0;letter-spacing:7px}.text_h2{font-weight:100;margin-bottom:4%;line-height:4.5rem}.span_h2{font-weight:300;color:#561B3C}.text_b{color:#561B3C}.in{font-weight:400 !important;font-style:normal !important}.promo
 i{color:#561B3C;font-size:7rem;display:block}.card-content
 a{color:#561B3C}.card-content a:hover{color:#561B3C}#work,#team{background:rgb(247,247,247)}.text_pink{color:#EF9A9A}nav ul
 a{font-size:1.2rem;color:#FFF;letter-spacing:2px;display:block;font-weight:300;padding:0px
@@ -16,70 +21,31 @@ img{height:150px;width:150px;border-radius:75px}.card-avatar .card-content{text-
 p{margin:15px
 0px}.card-avatar .card-content
 i{font-size:1.5rem}.card-avatar .card-content .card-title{line-height:30px !important}.parallax-container{max-height:400px}footer.page-footer{margin-top:0px !important}
-   li.vote{
-     display: inline;
-       float: left;
-        margin: 0;
-    padding: 0;
-}
-ul.vote{
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    list-style-type:none;
-}
-    </style>
-    <style>
-.center {
-  margin: auto;
-  width: 25%;
+        </style>
 
-}
-li.vote{
-     display: inline;
-       float: left;
-        margin: 0;
-    padding: 0;
-}
-ul.vote{
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    list-style-type:none;
-}
-.vote{
-    orientation: center;
-}
-</style>
-</head>
+<div ng-controller="loginCtrl">
 
+<form data-ng-submit="submit()">
+      <div class="center">
+        <h3>Welcome to <b>VOMPi</b>!</h3>
+        <h5>Your credentials, please</h5>
+  <div class="row">
 
-<div class="center">
-     <h4>Parlamentare 2016</h4>
-     <h4>Care este optiunea dvs.?</h4>
-     <div ng-init="names=['Jani','Hege','Kai']">
-        <ul >
-        <li ng-repeat="x in names">
-            <div class = "row">
-                <div class="col s90 m40">
-                     <div class="card horizontal">
-                        <div class="card-image">
-                            <img src="http://lorempixel.com/100/190/nature/10">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <span class="card-title" id="dani">{{x}}</span>
-                                <p>I am a very simple card. I am good at containing small bits of information.</p>
-                            </div>
-                        <div class="card-action">
-                            <a href="#">VOte</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-         </div>
-    </li>
-    </ul>
- </div>
-     </div>
-</body>
+      <div class="input-field col s12">
+        <input id="uid" type="text" class="validate" data-ng-model="add.email">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" data-ng-model="add.password">
+          <label for="password">Password</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-default" no-ink="true">Log In</button>
+    <h6>Want and admin account? Sign up, <a href="#/addNew">HERE</a></h6>
+    </div>
+</form>
+
+</div>

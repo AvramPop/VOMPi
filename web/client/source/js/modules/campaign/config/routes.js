@@ -20,12 +20,7 @@
                 controller: 'campaignCtrl',
                 templateUrl: 'views/modules/campaign/addNew.html'
             } )
-            .state( 'layout.sidebar', {
-                url: '^/sidebar',
-                parent: 'layout',
-                templateUrl: 'views/modules/campaign/sidebar.html'
-            } )
-             .state( 'layout.alive', {
+            .state( 'layout.alive', {
                 url: '^/alive',
                 parent: 'layout',
                 templateUrl: 'views/modules/campaign/alive.html'
