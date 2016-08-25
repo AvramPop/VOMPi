@@ -13,6 +13,7 @@ exports = module.exports = ( CampaignModel, JWT ) => {
             console.log( rec );
             if ( rec ) {
                 if ( b.name ) rec.name = b.name;
+                if ( b.question ) rec.question = b.question;
                 if ( b.startDate /*bonafide.isDate( b.startDate ) nu este asa ceva!*/ ) {
                     rec.startDate = b.startDate;
                 }

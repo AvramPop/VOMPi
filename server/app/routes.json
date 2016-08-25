@@ -3,7 +3,7 @@
     "path": "/",
     "handler": "handlers/index.js"
 }, {
-    "method": "post",
+    "method": "put",
     "path": "/admin/activate/:email",
     "handler": "handlers/admin/activate.js"
 },
