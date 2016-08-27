@@ -3,21 +3,21 @@
 
     angular
         .module( 'app.home' )
-        .controller( 'loginCtrl', loginCtrl );
+        .controller( 'pforgotpassController', pforgotpassController );
 
-    loginCtrl.$inject = [ '$scope', '$location', '$state', '$http' ];
+    pforgotpassController.$inject = [ '$scope', '$location', '$state', '$http' ];
 
     /* @ngInject */
-    function loginCtrl( $scope, $location, $state, $http ) {
+    function pforgotpassController( $scope, $location, $state, $http ) {
 
         $scope.submit = function () {
-            $http.post( '/api/v1/person/login', $scope.add, {
+            $http.post( '/api/v1/person/changepass', $scope.add, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             } ).then( function ( respSucc ) {
                 console.log( 'merge pana la request', respSucc );
-                $location.path( '/#/list' );
+                $location.path( '/#/personlogin' );
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );

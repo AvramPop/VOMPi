@@ -2,34 +2,29 @@
     'use strict';
 
     angular
-        .module( 'app.campaign' )
-        .controller( 'finishedController', finishedController );
+        .module( 'app.home' )
+        .controller( 'pchangepassController', pchangepassController );
 
-    finishedController.$inject = [ '$scope', '$location', '$http' ];
+    pchangepassController.$inject = [ '$scope', '$location', '$state', '$http' ];
 
     /* @ngInject */
-    function finishedController( $scope, $location, $http ) {
-
+    function pchangepassController( $scope, $location, $state, $http ) {
 
         $scope.submit = function () {
-            $http.get( '/api/v1/campaign/search', $scope.add, {
+            $http.put( '/api/v1/person/forgotpass', $scope.add, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             } ).then( function ( respSucc ) {
                 console.log( 'merge pana la request', respSucc );
+                $location.path( '/#/personlogin' );
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );
+
                 return respErr;
             } );
         };
-
-
-        angular.element( '.datepicker' ).pickadate( {
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15 // Creates a dropdown of 15 years to control year
-        } );
     }
 
 } )();

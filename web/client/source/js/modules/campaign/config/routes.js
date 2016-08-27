@@ -14,26 +14,28 @@
     /* @ngInject */
     function campaignConfig( $stateProvider ) {
         $stateProvider
-            .state( 'layout.campaignform', {
-                url: '^/campaignform',
+            .state( 'layout.addnewcampaign', {
+                url: '^/addnewcampaign',
                 parent: 'layout',
-                controller: 'campaignCtrl',
+                controller: 'caddNewController',
                 templateUrl: 'views/modules/campaign/addNew.html'
             } )
-            .state( 'layout.alive', {
-                url: '^/alive',
+            .state( 'layout.alivecampaigndetail', {
+                url: '^/alivecampaigndetail',
                 parent: 'layout',
+                controller: 'caliveController',
                 templateUrl: 'views/modules/campaign/alive.html'
             } )
-            .state( 'layout.finished', {
-                url: '^/finished',
+            .state( 'layout.finishedcampaigndetail', {
+                url: '^/finishedcampaigndetail',
+                controller: 'finishedController',
                 parent: 'layout',
                 templateUrl: 'views/modules/campaign/finished.html'
             } )
-            .state( 'layout.list', {
-                url: '^/list',
+            .state( 'layout.listcampaigns', {
+                url: '^/listcampaigns',
                 parent: 'layout',
-                controller: 'listController',
+                controller: 'clistController',
                 templateUrl: 'views/modules/campaign/list.html'
             } );
     }

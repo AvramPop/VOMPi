@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<div ng-controller="caddNew">
+<div ng-controller="caddNewController">
 
 <div class="campaign">
-    <h3> Add Campaign </h3>
+    <label style="font-size: 250%;"> New Campaign </label>
     <form data-ng-submit="submit()" class="col s12">
             <div class="input-field col s6">
-              <input placeholder="Name" id="name" type="text" data-ng-model="add.name" class="validate">
+            <label> Campaign Name </label>
+            <input id="name" type="text" data-ng-model="add.name" class="validate">
             </div>
             <div class="input-field col s6">
             <label> Question </label>
@@ -16,10 +17,10 @@
             <input type="date" class="datepicker" data-ng-model="add.startDate">
             </div>
             <div class="input-field col s6">
-              <label> Question </label>
-              <input placeholder="Duration" id="duration" type="text" data-ng-model="add.duration" class="validate">
+            <label> Duration (hours) </label>
+            <input id="duration" type="text" data-ng-model="add.duration" class="validate">
             </div>
-            <button type="submit" class="btn btn-default" no-ink="true">Submit</button>
+            <button type="submit" class="btn btn-default" no-ink="true">Create</button>
     </form>
 
 </div>

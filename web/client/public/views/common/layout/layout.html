@@ -1,2 +1,4 @@
-    <div ng-if="currentState.name !== 'layout.home' || currentState.name !== 'layout.personform'  ng-include="'views/common/layout/sidebar.html'"></div>
+<!--<div ng-if="currentState.name !== 'layout.home' && currentState.name !== 'layout.personforgotpass' && currentState.name !== 'layout.personlogin' && currentState.name !== 'layout.personsignup' && currentState.name !== 'layout.personchangepass'" ng-include="'views/common/layout/sidebar.html'"></div> -->
+   <div ng-if="currentState.name !== 'layout.home' && currentState.name !== 'layout.personforgotpass' && currentState.name !== 'layout.personlogin' && currentState.name !== 'layout.personsignup' && currentState.name !== 'layout.personchangepass'" ng-include="'views/common/layout/topbar.html'"></div>
+   <div ng-if="currentState.name !== 'layout.home' && currentState.name !== 'layout.personforgotpass' && currentState.name !== 'layout.personlogin' && currentState.name !== 'layout.personsignup' && currentState.name !== 'layout.personchangepass'" ng-include="'views/common/layout/footer.html'"></div>
     <div class="main" ui-view></div>

@@ -3,12 +3,12 @@
 
     angular
         .module( 'app.campaign' )
-        .controller( 'campaignCtrl', campaignCtrl );
+        .controller( 'caddNewController', caddNewController );
 
-    campaignCtrl.$inject = [ '$scope', '$http' ];
+    caddNewController.$inject = [ '$scope', '$location', '$http' ];
 
     /* @ngInject */
-    function campaignCtrl( $scope, $http ) {
+    function caddNewController( $scope, $location, $http ) {
 
 
         $scope.submit = function () {
@@ -18,16 +18,16 @@
             }
             $http.post( '/api/v1/campaign/create', $scope.add, {
                 headers: {
-                    'x-auth-token': 'dsfgthgdfhd'
+                    'Content-Type': 'application/json'
                 }
             } ).then( function ( respSucc ) {
                 console.log( 'merge pana la request', respSucc );
+                $location.path( '/#/list' );
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );
                 return respErr;
             } );
-            $
         };
 
 
