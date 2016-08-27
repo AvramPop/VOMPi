@@ -15,37 +15,30 @@
             selectYears: 15 // Creates a dropdown of 15 years to control year
         } );
 
-        $http.get( '/api/v1/livingArea/list', $scope.add, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        } ).then( function ( livingAreas ) {
-            console.log( 'merge pana la request', livingAreas );
-            return livingAreas;
-        }, function ( err ) {
-            console.log( 'merge pana la request', err );
-
-            return err;
-        } );
-
-        console.log( livingAreas );
-
-        angular.element( 'input.autocomplete' ).autocomplete( {
-            data: {
-                'Apple': null,
-                'Microsoft': null,
-                'Google': 'http://placehold.it/250x250'
-            }
-        } );
-
-
         $scope.submit = function () {
-            $http.post( '/api/v1/person/addNew', $scope.add, {
+            $http.post( '/api/v1/person/create', $scope.add, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxSWQiOiIxMjkxMzIyMjI1MjM4MTUiLCJmaXJzdE5hbWUiOiJKb2huNzciLCJsYXN0TmFtZSI6IkRvZTIyIiwiaWF0IjoxNDcyMzMwNTA4LCJleHAiOjE0NzQ5MjI1MDh9.fPXhr6eOXL4MsJ4YKRevHL-1b4COB8ZKjHH3yT9aFNg'
+
                 }
             } ).then( function ( respSucc ) {
                 console.log( 'merge pana la request', respSucc );
+                $http.post( '/api/v1/livingArea/create', $scope.add, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxSWQiOiIxMjkxMzIyMjI1MjM4MTUiLCJmaXJzdE5hbWUiOiJKb2huNzciLCJsYXN0TmFtZSI6IkRvZTIyIiwiaWF0IjoxNDcyMzMwNTA4LCJleHAiOjE0NzQ5MjI1MDh9.fPXhr6eOXL4MsJ4YKRevHL-1b4COB8ZKjHH3yT9aFNg'
+
+                    }
+                } ).then( function ( respSucc ) {
+                    console.log( 'merge pana la request', respSucc );
+                    //person.livingArea = livingArea._id; cumva facut sa mearga
+                    return respSucc;
+                }, function ( respErr ) {
+                    console.log( 'merge pana la request', respErr );
+
+                    return respErr;
+                } );
                 $location.path( '/#/list' );
                 return respSucc;
             }, function ( respErr ) {
