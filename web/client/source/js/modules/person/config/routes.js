@@ -26,6 +26,12 @@
                 controller: 'psignupController',
                 templateUrl: 'views/modules/login/signup.html'
             } )
+            .state( 'layout.personsettings', {
+                url: '^/person/settings',
+                parent: 'layout',
+                controller: 'psettings',
+                templateUrl: 'views/modules/person/settings.html'
+            } )
             .state( 'layout.personchangepass', {
                 url: '^/person/changepass',
                 controller: 'pchangepassController',

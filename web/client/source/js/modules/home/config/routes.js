@@ -18,6 +18,11 @@
                 url: '^/home',
                 parent: 'layout',
                 templateUrl: 'views/modules/main/index.html'
+            } )
+            .state( 'layout.about', {
+                url: '^/about',
+                parent: 'layout',
+                templateUrl: 'views/modules/main/about.html'
             } );
 
     }

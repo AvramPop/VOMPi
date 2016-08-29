@@ -9,10 +9,20 @@
 
     /* @ngInject */
     function caliveController( $scope, $location, $http ) {
-
+        $http.get( '/api/v1/campaign/search', $scope.add, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        } ).then( function ( respSucc ) {
+            console.log( 'merge pana la request', respSucc );
+            return respSucc;
+        }, function ( respErr ) {
+            console.log( 'merge pana la request', respErr );
+            return respErr;
+        } );
 
         $scope.submit = function () {
-            $http.get( '/api/v1/campaign/search', $scope.add, {
+            $http.get( '/api/v1/voter/vote', $scope.add, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

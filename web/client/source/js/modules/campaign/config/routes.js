@@ -26,6 +26,12 @@
                 controller: 'caliveController',
                 templateUrl: 'views/modules/campaign/alive.html'
             } )
+            .state( 'layout.assigncandidate', {
+                url: '^/campaign/assigncandidate',
+                parent: 'layout',
+                controller: 'assignCandidate',
+                templateUrl: 'views/modules/campaign/assignCandidate.html'
+            } )
             .state( 'layout.finishedcampaigndetail', {
                 url: '^/campaign/finisheddetail',
                 controller: 'finishedController',

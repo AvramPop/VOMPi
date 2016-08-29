@@ -42,6 +42,18 @@
                     console.log( 'err2', respErr );
                     return respErr;
                 } );
+
+                $http.put( '/api/v1/campaign/assignCriteria', $scope.add, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                } ).then( function ( respSucc ) {
+                    console.log( 'facut criteria', respSucc );
+                    return respSucc;
+                }, function ( respErr ) {
+                    console.log( 'err2', respErr );
+                    return respErr;
+                } );
             }
         };
 
