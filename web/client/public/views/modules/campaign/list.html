@@ -24,7 +24,7 @@ i{font-size:1.5rem}.card-avatar .card-content .card-title{line-height:30px !impo
 
 <div class="section scrollspy" id="work">
     <div class = "container">
-<div ng-init="names=['Jani','Hege','Kai']">
+<div ng-init="names=['Ponta','Iohannis','Basescu']; parties=['PSD','PNL','PMP']">
   <ul >
     <li ng-repeat="x in names">
     <!--we have to change color by the state of the campaign, add new row after every four campaigns-->
@@ -34,11 +34,10 @@ i{font-size:1.5rem}.card-avatar .card-content .card-title{line-height:30px !impo
          <div class="card">
             <div class="card-content">
               <span class="card-title" id="dani">{{x}}</span>
-              <p id="p">I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <p id="p">{{y}}</p>
             </div>
             <div class="card-action">
-              <a href="#">See Campaign</a>
+              <a href="#" data-ng-submit="see()">View Campaign</a>
             </div>
          <!-- </div>-->
        </div>

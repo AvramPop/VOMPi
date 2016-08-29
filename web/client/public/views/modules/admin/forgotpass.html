@@ -13,7 +13,7 @@
 
 
 
-<form id="myLogin">
+<form id="myLogin" data-ng-submit="submit()">
   <div class="center">
     <h3>Welcome to <b>VOMPi</b>!</h3>
     <h5>You're here because you asked for a new password. Please enter your credentials, and we will contact you soon ;)</h5>
@@ -28,7 +28,9 @@
       <button class="btn waves-effect waves-light" type="submit" name="action">Done
       <i class="material-icons right">send</i>
     </button> <!--add space between them :P-->
+    <a href="/#/admin/login">
     <button type="button" class="btn btn-default" no-ink="true">Back</button>
+  </a>
 
   </div>
   </div>

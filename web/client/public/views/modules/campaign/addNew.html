@@ -20,6 +20,14 @@
             <label> Duration (hours) </label>
             <input id="duration" type="text" data-ng-model="add.duration" class="validate">
             </div>
+            <p>
+     <input type="checkbox" id="test5" data-ng-model="add.requiresMaturity" />
+     <label for="test5">Requires Maturity</label>
+   </p>
+   <p>
+     <input type="checkbox" id="test6" data-ng-model="add.requiresLocation"/>
+     <label for="test6">Requires Location</label>
+   </p>
             <button type="submit" class="btn btn-default" no-ink="true">Create</button>
     </form>
 

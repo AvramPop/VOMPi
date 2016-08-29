@@ -15,31 +15,31 @@
     function personConfig( $stateProvider ) {
         $stateProvider
             .state( 'layout.addnewperson', {
-                url: '^/addnewperson',
+                url: '^/person/addnew',
                 parent: 'layout',
                 controller: 'addNewPersonController',
                 templateUrl: 'views/modules/person/addNew.html'
             } )
             .state( 'layout.personsignup', {
-                url: '^/personsignup',
+                url: '^/person/signup',
                 parent: 'layout',
                 controller: 'psignupController',
                 templateUrl: 'views/modules/login/signup.html'
             } )
             .state( 'layout.personchangepass', {
-                url: '^/personchangepass',
+                url: '^/person/changepass',
                 controller: 'pchangepassController',
                 parent: 'layout',
                 templateUrl: 'views/modules/login/changepass.html'
             } )
             .state( 'layout.personforgotpass', {
-                url: '^/personforgotpass',
+                url: '^/person/forgotpass',
                 controller: 'pforgotpassController',
                 parent: 'layout',
                 templateUrl: 'views/modules/login/forgotpass.html'
             } )
             .state( 'layout.personlogin', {
-                url: '^/personlogin',
+                url: '^/person/login',
                 controller: 'ploginController',
                 parent: 'layout',
                 templateUrl: 'views/modules/login/login.html'

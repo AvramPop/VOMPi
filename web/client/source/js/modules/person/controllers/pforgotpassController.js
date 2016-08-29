@@ -11,7 +11,7 @@
     function pforgotpassController( $scope, $location, $state, $http ) {
 
         $scope.submit = function () {
-            $http.post( '/api/v1/person/changepass', $scope.add, {
+            $http.post( '/api/v1/person/forgotpass', $scope.add, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

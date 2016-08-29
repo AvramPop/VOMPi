@@ -16,18 +16,33 @@
                 $scope.add.startDate = angular.element( '.datepicker' ).val();
                 console.log( 'krydsac', $scope.add );
             }
-            $http.post( '/api/v1/campaign/create', $scope.add, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            } ).then( function ( respSucc ) {
-                console.log( 'merge pana la request', respSucc );
-                $location.path( '/#/list' );
-                return respSucc;
-            }, function ( respErr ) {
-                console.log( 'merge pana la request', respErr );
-                return respErr;
-            } );
+
+            function fetch() {
+                $http.post( '/api/v1/campaign/create', $scope.add, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                } ).then( function ( respSucc ) {
+                    console.log( 'facut campanie', respSucc );
+                    //  $location.path( '/#/list' );
+                    return respSucc;
+                }, function ( respErr ) {
+                    console.log( 'err1', respErr );
+                    return respErr;
+                } );
+
+                $http.post( '/api/v1/criteria/create', $scope.add, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                } ).then( function ( respSucc ) {
+                    console.log( 'facut criteria', respSucc );
+                    return respSucc;
+                }, function ( respErr ) {
+                    console.log( 'err2', respErr );
+                    return respErr;
+                } );
+            }
         };
 
 
