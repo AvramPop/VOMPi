@@ -5,19 +5,23 @@
         .module( 'app.campaign' )
         .controller( 'caliveController', caliveController );
 
-    caliveController.$inject = [ '$scope', '$location', '$http' ];
+    caliveController.$inject = [ '$scope', '$location', '$http', '$stateParams' ];
 
     /* @ngInject */
-    function caliveController( $scope, $location, $http ) {
-        $http.get( '/api/v1/campaign/search', $scope.add, {
+    function caliveController( $scope, $location, $http, $stateParams ) {
+        $http.post( '/api/v1/campaign/search', {
+            'name': $stateParams.id
+        }, {
             headers: {
                 'Content-Type': 'application/json'
             }
         } ).then( function ( respSucc ) {
-            console.log( 'merge pana la request', respSucc );
+            console.log( 'merge pana la request 1', respSucc );
+            $scope.campaign = respSucc.data.data.campaign;
+
             return respSucc;
         }, function ( respErr ) {
-            console.log( 'merge pana la request', respErr );
+            console.log( 'merge pana la request 2', respErr );
             return respErr;
         } );
 

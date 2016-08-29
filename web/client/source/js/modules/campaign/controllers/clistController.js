@@ -16,6 +16,8 @@
             }
         } ).then( function ( respSucc ) {
             console.log( 'merge pana la request', respSucc );
+            $scope.campaigns = respSucc.data.data.campaigns;
+            console.log( $scope.campaigns );
             return respSucc;
         }, function ( respErr ) {
             console.log( 'merge pana la request', respErr );

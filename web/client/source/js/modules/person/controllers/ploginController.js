@@ -16,8 +16,9 @@
                     'Content-Type': 'application/json'
                 }
             } ).then( function ( respSucc ) {
-                console.log( 'merge pana la request', respSucc );
-                $location.url( '/#/listcampaigns' );
+                console.log( 'merge pana la request 1', respSucc );
+                $state.go( 'layout.listcampaigns' );
+                // $location.url( '/#/listcampaigns' );
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );

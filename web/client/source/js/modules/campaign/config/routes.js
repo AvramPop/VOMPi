@@ -21,7 +21,7 @@
                 templateUrl: 'views/modules/campaign/addNew.html'
             } )
             .state( 'layout.alivecampaigndetail', {
-                url: '^/campaign/alivedetail',
+                url: '^/campaign/alivedetail/:id',
                 parent: 'layout',
                 controller: 'caliveController',
                 templateUrl: 'views/modules/campaign/alive.html'

@@ -18,6 +18,8 @@
         /* jshint validthis: true */
         var vm = this;
         $scope.currentState = $state.current;
+        angular.element( '#logo-container' ).sideNav();
+        angular.element( '.button-collapse' ).sideNav();
         // vm.config = {
         //     state: $state.current.name,
         //     siteName: ENV.APP.name
