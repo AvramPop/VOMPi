@@ -27,13 +27,13 @@
                 templateUrl: 'views/modules/campaign/alive.html'
             } )
             .state( 'layout.assigncandidate', {
-                url: '^/campaign/assigncandidate',
+                url: '^/campaign/assigncandidate/:id',
                 parent: 'layout',
                 controller: 'assignCandidate',
                 templateUrl: 'views/modules/campaign/assignCandidate.html'
             } )
             .state( 'layout.finishedcampaigndetail', {
-                url: '^/campaign/finisheddetail',
+                url: '^/campaign/finisheddetail/:id',
                 controller: 'finishedController',
                 parent: 'layout',
                 templateUrl: 'views/modules/campaign/finished.html'

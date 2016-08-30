@@ -8,62 +8,63 @@
       display:inline-block;
     }
   </style>
-    <label style="font-size: 250%;"> New Person </label>
-    <form data-ng-submit="submit()" class="col s12">
+      <form data-ng-submit="submit()" class="col s12">
+    <h3> New Person </h3>
+
             <div class="input-field col s6">
             <label> First Name </label>
-            <input id="fname" type="text" data-ng-model="add.firstName" class="validate">
+            <input id="fname" type="text" data-ng-model="firstName" class="validate">
             </div>
             <div class="input-field col s6">
             <label> Last Name </label>
-            <input id="lname" type="text" data-ng-model="add.lastName" class="validate">
+            <input id="lname" type="text" data-ng-model="lastName" class="validate">
             </div>
             <div class="input-field col s6">
             <label> Unique Identifier </label>
-            <input id="uid" type="text" data-ng-model="add.uniqueIdentifier" class="validate">
+            <input id="uid" type="text" data-ng-model="uniqueIdentifier" class="validate">
             </div>
 
             <div class="input-field col s6">
             <label> Date of Birth </label>
-            <input type="date" class="datepicker" data-ng-model="add.dateOfBirth">
-            </div>
-            <form action="#" data-ng-model="add.gender">
+            <input type="date" class="datepicker" >
+          </div>
+          <!-- <form data-ng-model="add.gender">
                   <label>Gender:</label>
     <p>
-      <input name="group1" type="radio" id="test1" />
-      <label for="test1">Male</label>
+      <input name="gender" type="radio" id="male" />
+      <label for="male">Male</label>
     </p>
     <p>
-      <input name="group1" type="radio" id="test2" />
-      <label for="test2">Female</label>
+      <input name="gender" type="radio" id="female" />
+      <label for="male">Female</label>
     </p>
-  </form>
+  </form>-->
 
   <div class="input-field col s6">
   <label> Country </label>
-  <input id="country" type="text" data-ng-model="add.country" class="validate">
+  <input id="country" type="text" data-ng-model="adda.country" class="validate">
   </div>
   <div class="input-field col s6">
   <label> Region </label>
-  <input id="region" type="text" data-ng-model="add.region" class="validate">
+  <input id="region" type="text" data-ng-model="adda.region" class="validate">
   </div>
   <div class="input-field col s6">
   <label> Town </label>
-  <input id="town" type="text" data-ng-model="add.town" class="validate">
+  <input id="town" type="text" data-ng-model="adda.town" class="validate">
   </div>
   <div class="input-field col s6">
   <label> Street </label>
-  <input id="street" type="text" data-ng-model="add.street" class="validate">
+  <input id="street" type="text" data-ng-model="adda.street" class="validate">
   </div>
 
 
     <div class="input-field col s6">
     <label> Email </label>
-    <input id="email" type="email" data-ng-model="add.email" class="validate">
+    <input id="email" type="email" data-ng-model="email" class="validate">
     </div>
     <div class="input-field col s6">
     <label> Telephone </label>
-    <input id="tel" type="text" data-ng-model="add.telephone" class="validate">
+    <input id="tel" type="text" data-ng-model="telephone" class="validate">
     </div>
 
           <button type="submit" class="btn btn-default" no-ink="true">Create</button>

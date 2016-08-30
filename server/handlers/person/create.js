@@ -17,7 +17,7 @@ exports = module.exports = ( PersonModel, JWT ) => {
                     email: b.email,
                     uniqueIdentifier: b.uniqueIdentifier,
                     gender: b.gender,
-                    dateOfBirth: b.dateOfBirth,
+                    dateOfBirth: new Date( b.dateOfBirth ),
                     livingArea: b.livingArea,
                     isActivated: false,
                     telephone: b.telephone

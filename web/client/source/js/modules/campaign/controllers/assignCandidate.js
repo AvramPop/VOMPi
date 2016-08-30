@@ -5,16 +5,24 @@
         .module( 'app.campaign' )
         .controller( 'assignCandidate', assignCandidate );
 
-    assignCandidate.$inject = [ '$scope', '$location', '$http' ];
+    assignCandidate.$inject = [ '$scope', '$location', '$http', '$stateParams' ];
 
     /* @ngInject */
-    function assignCandidate( $scope, $location, $http ) {
-        angular.element( 'input.autocomplete' ).autocomplete( {
-            data: {
-                'Apple': null,
-                'Microsoft': null,
-                'Google': 'http://placehold.it/250x250'
+    function assignCandidate( $scope, $location, $http, $stateParams ) {
+
+        $http.post( '/api/v1/campaign/search', {
+            'name': $stateParams.id
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
             }
+        } ).then( function ( respSucc ) {
+            console.log( 'merge pana la request 1', respSucc );
+            $scope.campaign = respSucc.data.data.campaign;
+            return respSucc;
+        }, function ( respErr ) {
+            console.log( 'merge pana la request 2', respErr );
+            return respErr;
         } );
 
         $http.get( '/api/v1/person/list', $scope.add, {
@@ -22,11 +30,16 @@
                 'Content-Type': 'application/json'
             }
         } ).then( function ( respSucc ) {
-            console.log( 'merge pana la request', respSucc );
+            console.log( 'merge pana la request3', respSucc );
+            $scope.persons = respSucc.data.data.persons;
             return respSucc;
         }, function ( respErr ) {
-            console.log( 'merge pana la request', respErr );
+            console.log( 'merge pana la request4', respErr );
             return respErr;
+        } );
+
+        angular.element( 'input.autocomplete' ).autocomplete( {
+            data: $scope.persons.firstName
         } );
 
         $scope.assign = function () {
@@ -35,10 +48,10 @@
                     'Content-Type': 'application/json'
                 }
             } ).then( function ( respSucc ) {
-                console.log( 'merge pana la request', respSucc );
+                console.log( 'merge pana la request5', respSucc );
                 return respSucc;
             }, function ( respErr ) {
-                console.log( 'merge pana la request', respErr );
+                console.log( 'merge pana la request6', respErr );
                 return respErr;
             } );
 
@@ -47,10 +60,10 @@
                     'Content-Type': 'application/json'
                 }
             } ).then( function ( respSucc ) {
-                console.log( 'merge pana la request', respSucc );
+                console.log( 'merge pana la request7', respSucc );
                 return respSucc;
             }, function ( respErr ) {
-                console.log( 'merge pana la request', respErr );
+                console.log( 'merge pana la request8', respErr );
                 return respErr;
             } );
         };

@@ -11,17 +11,17 @@
     function asignupController( $scope, $location, $state, $http ) {
 
         $scope.submit = function () {
-            $http.put( '/api/v1/admin/signup', $scope.add, {
+            $http.post( '/api/v1/admin/create', $scope.add, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             } ).then( function ( respSucc ) {
-                console.log( 'merge pana la request', respSucc );
-                $location.path( '/#/adminlogin' );
+                console.log( 'mere', respSucc );
+                $state.go( 'layout.adminlogin' );
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );
-
+                $state.go( 'layout.adminlogin' );
                 return respErr;
             } );
         };

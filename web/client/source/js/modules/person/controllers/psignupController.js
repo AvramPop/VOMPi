@@ -17,7 +17,7 @@
                 }
             } ).then( function ( respSucc ) {
                 console.log( 'merge pana la request', respSucc );
-                $location.path( '/#/personlogin' );
+                $state.go( 'layout.personsignup' );
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );

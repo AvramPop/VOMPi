@@ -2,7 +2,7 @@
 <div ng-controller="caddNewController">
 
 <div class="campaign">
-    <label style="font-size: 250%;"> New Campaign </label>
+    <h3> New Campaign </h3>
     <form data-ng-submit="submit()" class="col s12">
             <div class="input-field col s6">
             <label> Campaign Name </label>
@@ -21,11 +21,11 @@
             <input id="duration" type="text" data-ng-model="add.duration" class="validate">
             </div>
             <p>
-     <input type="checkbox" id="test5" data-ng-model="add.requiresMaturity" />
+     <input type="checkbox" id="test5" data-ng-model="adde.requiresMaturity" />
      <label for="test5">Require Maturity</label>
    </p>
    <p>
-     <input type="checkbox" id="test6" data-ng-model="add.requiresLocation"/>
+     <input type="checkbox" id="test6" data-ng-model="adde.requiresLocation"/>
      <label for="test6">Require Location</label>
    </p>
             <button type="submit" class="btn btn-default" no-ink="true">Create</button>

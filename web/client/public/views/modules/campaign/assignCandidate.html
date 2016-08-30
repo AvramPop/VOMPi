@@ -1,5 +1,5 @@
 <form>
-<h4>Parlamentare 2016</h4>
+<h4>{{campaign.name}}</h4>
 <h5>These are all the persons in your database. Choose the ones you'd like to have as candidates for this campaign!</h5>
 
 <div class="row">
@@ -15,9 +15,6 @@
 
 <ul class="collection with-header">
         <li class="collection-header"><h4>All Persons</h4></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">add</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">add</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">add</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">add</i></a></div></li>
+        <li ng-repeat="x in persons" class="collection-item"><div>x.firstName<a href="#!" class="secondary-content"><i class="material-icons">add</i></a></div></li>
       </ul>
     </form>
