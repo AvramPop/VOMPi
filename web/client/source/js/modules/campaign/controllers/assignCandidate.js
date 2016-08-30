@@ -17,8 +17,8 @@
                 'Content-Type': 'application/json'
             }
         } ).then( function ( respSucc ) {
-            console.log( 'merge pana la request 1', respSucc );
-            $scope.campaign = respSucc.data.data.campaign;
+            //  console.log( 'merge pana la request 1', respSucc );
+            $scope.campaign1 = respSucc.data.data.campaign;
             return respSucc;
         }, function ( respErr ) {
             console.log( 'merge pana la request 2', respErr );
@@ -29,44 +29,50 @@
             headers: {
                 'Content-Type': 'application/json'
             }
-        } ).then( function ( respSucc ) {
-            console.log( 'merge pana la request3', respSucc );
-            $scope.persons = respSucc.data.data.persons;
-            return respSucc;
+        } ).then( function ( respSucc2 ) {
+            console.log( 'merge pana la request3', respSucc2 );
+            $scope.p = respSucc2.data.data.persons;
+            console.log( $scope.persons );
+            return respSucc2;
         }, function ( respErr ) {
             console.log( 'merge pana la request4', respErr );
             return respErr;
         } );
 
-        angular.element( 'input.autocomplete' ).autocomplete( {
-            data: $scope.persons.firstName
-        } );
-
-        $scope.assign = function () {
-            $http.post( '/api/v1/candidate/create', $scope.add, {
+        $scope.submit = function () {
+            $http.post( '/api/v1/candidate/create', {
+                'personId': '000',
+                'type': 'INDEPENDENT'
+            }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            } ).then( function ( respSucc ) {
-                console.log( 'merge pana la request5', respSucc );
-                return respSucc;
+            } ).then( function ( respSucc3 ) {
+                console.log( 'merge pana la request5', respSucc3 );
+                $scope.cand = respSucc3.data.data.candidate._id;
+                return respSucc3;
             }, function ( respErr ) {
                 console.log( 'merge pana la request6', respErr );
                 return respErr;
             } );
 
-            $http.put( '/api/v1/campaign/assignCandidate', $scope.add, {
+            $http.put( '/api/v1/campaign/assignCandidate', {
+                'campaignId': $scope.campaign1._id,
+                'candidateId': $scope.cand
+            }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            } ).then( function ( respSucc ) {
-                console.log( 'merge pana la request7', respSucc );
-                return respSucc;
+            } ).then( function ( respSucc4 ) {
+                console.log( 'merge pana la request7', respSucc4 );
+                return respSucc4;
             }, function ( respErr ) {
                 console.log( 'merge pana la request8', respErr );
                 return respErr;
             } );
+
         };
+
     }
 
 } )();

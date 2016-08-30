@@ -5,10 +5,10 @@
         .module( 'app.home' )
         .controller( 'aloginController', aloginController );
 
-    aloginController.$inject = [ '$scope', '$location', '$state', '$http', '$sce' ];
+    aloginController.$inject = [ '$scope', '$location', '$state', '$http', '$sce', '$cookies' ];
 
     /* @ngInject */
-    function aloginController( $scope, $location, $state, $http, $sce ) {
+    function aloginController( $scope, $location, $state, $http, $sce, $cookies ) {
 
         function htmlString( str ) {
             return '<h1>' + str + '</h1>';
@@ -20,6 +20,7 @@
                 }
             } ).then( function ( respSucc ) {
                 console.log( 'merge pana la request', respSucc );
+                //$cookies.put( 'numeUtilizator', respSucc.data.data.admin.username );
                 $state.go( 'layout.listcampaigns' );
                 return respSucc;
             }, function ( respErr ) {

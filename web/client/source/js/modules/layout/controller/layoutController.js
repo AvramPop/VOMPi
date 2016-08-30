@@ -9,15 +9,16 @@
         .module( 'app.layout' )
         .controller( 'layoutCtrl', layoutCtrl );
 
-    layoutCtrl.$inject = [ '$scope', '$state' ];
+    layoutCtrl.$inject = [ '$scope', '$state', '$cookies' ];
 
     /* @ngInject */
-    function layoutCtrl( $scope, $state ) {
+    function layoutCtrl( $scope, $state, $cookies ) {
         console.log( 'Loading Layout Controller...' );
 
         /* jshint validthis: true */
         var vm = this;
         $scope.currentState = $state.current;
+        $state.uname = $cookies.get( 'numeUtilizator' );
         angular.element( '#logo-container' ).sideNav();
         angular.element( '.button-collapse' ).sideNav();
         // vm.config = {
