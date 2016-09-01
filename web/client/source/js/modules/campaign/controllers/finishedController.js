@@ -5,11 +5,11 @@
         .module( 'app.campaign' )
         .controller( 'finishedController', finishedController );
 
-    finishedController.$inject = [ '$scope', '$location', '$http', '$state', '$stateParams' ];
+    finishedController.$inject = [ '$scope', '$location', '$http', '$state', '$stateParams', '$rootScope' ];
 
     /* @ngInject */
-    function finishedController( $scope, $location, $http, $state, $stateParams ) {
-        $scope.currentState = $state.current;
+    function finishedController( $scope, $location, $http, $state, $stateParams, $rootScope ) {
+        $rootScope.currentState = $state.current;
 
         $http.put( '/api/v1/campaign/generateresults', {
             'name': $stateParams.id

@@ -5,11 +5,33 @@
         .module( 'app.campaign' )
         .controller( 'assignCandidate', assignCandidate );
 
-    assignCandidate.$inject = [ '$scope', '$location', '$http', '$stateParams', '$state' ];
+    assignCandidate.$inject = [ '$scope', '$location', '$http', '$stateParams', '$state', '$modal' ];
 
     /* @ngInject */
-    function assignCandidate( $scope, $location, $http, $stateParams, $state ) {
+    function assignCandidate( $scope, $location, $http, $stateParams, $state, $modal ) {
         $scope.currentState = $state.current;
+        var items = [ 1, 2, 3 ];
+        $scope.openModal = function ( $event, person ) {
+            var modalInstance = $modal.open( {
+                templateUrl: 'views/modules/campaign/typeModal.html',
+                anchorElement: $event ? angular.element( $event.target ) : undefined,
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    person: function () {
+                        return person;
+                    },
+                    campaign: function () {
+                        return $scope.campaign1;
+                    }
+                }
+            } );
+            modalInstance.result.then( function ( selectedItem ) {
+                $scope.modalResult = 'You selected ' + selectedItem;
+                $state.reload();
+            }, function () {
+                $scope.modalResult = 'You dismissed the modal';
+            } );
+        };
         $scope.cont = function ( uid ) {
             for ( var i = 0; i < $scope.candidates.length; i++ ) {
                 if ( $scope.candidates[ i ].personId.uniqueIdentifier === uid ) return false;
@@ -23,10 +45,8 @@
                 'Content-Type': 'application/json'
             }
         } ).then( function ( respSucc ) {
-            //  console.log( 'merge pana la request 1', respSucc );
             $scope.campaign1 = respSucc.data.data.campaign;
             $scope.candidates = respSucc.data.data.campaign.candidates;
-            // console.log( $scope.candidates );
             return respSucc;
         }, function ( respErr ) {
             console.log( 'merge pana la request 2', respErr );
@@ -46,53 +66,6 @@
             console.log( 'merge pana la request4', respErr );
             return respErr;
         } );
-
-        $scope.assign = function ( id ) {
-            angular.element( '#modal1' ).openModal();
-            $http.post( '/api/v1/candidate/create', {
-                'personId': id,
-                'type': $scope.addy.party
-            }, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            } ).then( function ( respSucc3 ) {
-                console.log( 'm11', respSucc3 );
-                $scope.cand = respSucc3.data.data.candidate._id;
-                $http.put( '/api/v1/campaign/assigncandidate', {
-                    'campaignId': $scope.campaign1._id,
-                    'candidateId': $scope.cand
-                }, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                } ).then( function ( respSucc4 ) {
-                    console.log( '22', respSucc4 );
-                    var candId = respSucc4.data.data.campaign.candidates;
-                    $http.get( '/api/v1/candidate/list', {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    } ).then( function ( succ ) {
-                        $scope.candidates = succ.data.data.candidates.filter( function ( cand ) {
-                            console.log( !!candId.indexOf( cand._id ) );
-                            return !!candId.indexOf( cand._id );
-                        } );
-                        $state.reload();
-                    } );
-                    return respSucc4;
-                }, function ( respErr ) {
-                    console.log( 'merge pana la request8', respErr );
-                    return respErr;
-                } );
-            }, function ( respErr ) {
-                console.log( 'merge pana la request6', respErr );
-                return respErr;
-            } );
-
-
-
-        };
 
     }
 
