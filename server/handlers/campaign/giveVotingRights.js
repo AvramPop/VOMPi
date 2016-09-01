@@ -13,7 +13,7 @@ exports = module.exports = ( CampaignModel, CriteriaModel, PersonModel, VoterMod
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            auth = 1/*JWT.verify( h[ 'x-auth-token' ] )*/;
+            auth = 1 /*JWT.verify( h[ 'x-auth-token' ] )*/ ;
         if ( auth ) {
             var campaignRec = yield CampaignModel.findOne( b.campaignId ).exec(),
                 personRec = yield PersonModel.find().exec(),
@@ -34,7 +34,7 @@ exports = module.exports = ( CampaignModel, CriteriaModel, PersonModel, VoterMod
                                 !criteria.requiresLocation ) {
                                 c = true;
                             }
-                            if ( a && c ) {
+                            if ( 1 /*a && c*/ ) {
                                 let voter = yield VoterModel.findOne( {
                                     personId: personRec[ i ]._id
                                 } ).exec();

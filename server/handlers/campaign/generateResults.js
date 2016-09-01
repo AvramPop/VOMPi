@@ -26,10 +26,11 @@ exports = module.exports = ( CampaignModel, CandidateModel, JWT ) => {
                     return b.numberOfVotes - a.numberOfVotes;
                 } );
                 /*daca is 2 cu acelasi numar de voturi ar trebui sa se intample ceva :) */
-                console.log( arr.toString() );
+                rec.candidates = arr;
+                console.log( rec.candidates );
                 yield rec.save();
                 this.success( {
-                    campaigns: rec
+                    campaign: rec
                 } );
             } else {
                 throw ( {

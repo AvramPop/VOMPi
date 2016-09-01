@@ -8,15 +8,15 @@
                 <div class="card horizontal">
                    <div class="card-stacked">
                        <div class="card-content">
-                           <span class="card-title" id="dani">{{campaign.candidates[0].personId.firstName}}</span>
+                           <span class="card-title" id="dani">{{campaign.candidates[0].personId.firstName}} {{campaign.candidates[0].personId.lastName}}</span>
                                                       <p>{{campaign.candidates[0].type}}</p>
-                           <p>Number of votes: {{campaign.candidates[0].numberOfVotes}}</p>
+                           <p ng-if="campaign.candidates[0]">Number of votes: {{campaign.candidates[0].numberOfVotes}}</p>
 
                        </div>
                </div>
            </div>
        </div>
-    </div>
+  </div>
      <div class="container">
 <h5>Runner-ups</h5>
         <ul>
@@ -27,7 +27,7 @@
                      <div class="card horizontal">
                         <div class="card-stacked">
                             <div class="card-content">
-                                <span class="card-title" id="kjh">{{x.personId.firstName}}</span>
+                                <span class="card-title" id="kjh">{{x.personId.firstName}} {{x.personId.lastName}}</span>
                                                                 <p>{{x.type}}</p>
                                 <p>Number of votes: {{x.numberOfVotes}}</p>
 

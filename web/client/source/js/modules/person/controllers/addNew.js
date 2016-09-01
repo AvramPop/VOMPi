@@ -26,41 +26,24 @@
                     'Content-Type': 'application/json'
 
                 }
-            } ).then( function ( respSucc1 ) {
-                console.log( 'face living area', respSucc1 );
-                $state.aid = respSucc1.data.data.livingArea._id;
-                return respSucc1;
-            }, function ( respErr ) {
-                console.log( 'merge pana la request1', respErr );
-                return respErr;
-            } );
-            //      console.log( $scope.add.gender );
-            $http.post( '/api/v1/person/create', {
-                'firstName': $scope.firstName,
-                'lastName': $scope.lastName,
-                'uniqueIdentifier': $scope.uniqueIdentifier,
-                'email': $scope.email,
-                'telephone': $scope.telephone,
-                'livingArea': $state.aid,
-                'dateOfBirth': '1958-04-23T18:25:43.511Z',
-                'gender': 'male'
-            }, {
-                headers: {
-                    'Content-Type': 'application/json'
-
-                }
-            } ).then( function ( respSucc ) {
-                console.log( 'face om', respSucc );
-                $state.go( 'layout.listcampaigns' );
-                return respSucc;
-            }, function ( respErr ) {
-                console.log( 'merge pana la request2', respErr );
-
-                return respErr;
-            } );
-
-
-
+            } ).then( function ( respSucc2 ) {
+                $http.post( '/api/v1/person/create', {
+                    'firstName': $scope.firstName,
+                    'lastName': $scope.lastName,
+                    'uniqueIdentifier': $scope.uniqueIdentifier,
+                    'email': $scope.email,
+                    'telephone': $scope.telephone,
+                    'livingArea': respSucc2.data.data.livingArea._id,
+                    'dateOfBirth': '1958-04-23T18:25:43.511Z',
+                    'gender': 'male'
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                } ).then( function ( respSucc1 ) {
+                    $state.go( 'layout.listcampaigns' );
+                }, function ( respErr1 ) {} );
+            }, function ( respErr2 ) {} );
         };
     }
 } )();
