@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function addNewPersonController( $scope, $location, $state, $http ) {
-
+        $scope.currentState = $state.current;
         angular.element( '.datepicker' ).pickadate( {
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15 // Creates a dropdown of 15 years to control year
@@ -42,7 +42,7 @@
                 'email': $scope.email,
                 'telephone': $scope.telephone,
                 'livingArea': $state.aid,
-                'dateOfBirth': '2012-04-23T18:25:43.511Z',
+                'dateOfBirth': '1958-04-23T18:25:43.511Z',
                 'gender': 'male'
             }, {
                 headers: {

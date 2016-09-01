@@ -25,11 +25,10 @@
           <label for="password">Password</label>
         </div>
     </div>
-<div ng-bind-html="htmlString"></div>
     <button type="submit" class="btn btn-default" no-ink="true">Log In</button>
+      <h5 ng-if="showError">Bad credentials :(</h5>
     <h6><a href="/#/admin/forgotpass">Having troubles logging in?</a></h6>
     <h6>Want an admin account? Sign up, <a href="/#/admin/signup">HERE</a></h6>
-    </div>
 </form>
 
 </div>

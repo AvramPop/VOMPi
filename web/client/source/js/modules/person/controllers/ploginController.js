@@ -9,7 +9,8 @@
 
     /* @ngInject */
     function ploginController( $scope, $location, $state, $http ) {
-
+        $scope.showError = false;
+        $scope.currentState = $state.current;
         $scope.submit = function () {
             $http.post( '/api/v1/person/login', $scope.add, {
                 headers: {
@@ -21,8 +22,7 @@
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );
-
-                return respErr;
+                $scope.showError = true;
             } );
         };
     }

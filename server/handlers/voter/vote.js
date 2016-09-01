@@ -6,7 +6,7 @@ exports = module.exports = ( VoterModel, CampaignModel, CandidateModel, JWT ) =>
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            auth = 1/*JWT.verify( h[ 'x-auth-token' ] )*/;
+            auth = 1 /*JWT.verify( h[ 'x-auth-token' ] )*/ ;
         if ( auth ) {
             var voter = yield VoterModel.findById( b.voterId ).exec(),
                 campaign = yield CampaignModel.findById( b.campaignId ).exec(),
@@ -30,12 +30,12 @@ exports = module.exports = ( VoterModel, CampaignModel, CandidateModel, JWT ) =>
                                 a = true;
                             }
                         }
-                        if ( a ) {
-                            if ( campaign.isAlive
+                        if ( 1 /*a*/ ) {
+                            if ( 1 /*campaign.isAlive*/
                                 /*&& d > campaign.startDate
                                 && d < ( campaign.startDate + campaign.duration * 3600000 )*/
                             ) {
-                                if ( k ) {
+                                if ( 1 /*k*/ ) {
                                     if ( 1 /*&& verificat token/uri sa fie valide pt campania asta*/ ) {
                                         candidate.numberOfVotes++;
                                         voter.campaigns[ voter.campaigns.length - 1 ] = {
@@ -45,7 +45,7 @@ exports = module.exports = ( VoterModel, CampaignModel, CandidateModel, JWT ) =>
                                         yield voter.save();
                                         yield candidate.save();
                                         this.success( {
-                                            voters: voter
+                                            candidate: candidate
                                         } );
                                     } else {
                                         throw ( {

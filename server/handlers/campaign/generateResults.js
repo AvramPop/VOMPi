@@ -4,9 +4,11 @@ exports = module.exports = ( CampaignModel, CandidateModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            auth = 1/*JWT.verify( h[ 'x-auth-token' ] )*/;
+            auth = 1 /*JWT.verify( h[ 'x-auth-token' ] )*/ ;
         if ( auth ) {
-            var rec = yield CampaignModel.findById( b.campaignId ).exec();
+            var rec = yield CampaignModel.findOne( {
+                name: b.name
+            } ).exec();
             if ( rec ) {
                 var arr = [];
                 for ( var i = 0; i < rec.candidates.length; i++ ) {

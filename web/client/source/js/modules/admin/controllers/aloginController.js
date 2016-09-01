@@ -9,10 +9,8 @@
 
     /* @ngInject */
     function aloginController( $scope, $location, $state, $http, $sce, $cookies ) {
-
-        function htmlString( str ) {
-            return '<h1>' + str + '</h1>';
-        }
+        $scope.showError = false;
+        $scope.currentState = $state.current;
         $scope.submit = function () {
             $http.post( '/api/v1/admin/login', $scope.add, {
                 headers: {
@@ -25,9 +23,7 @@
                 return respSucc;
             }, function ( respErr ) {
                 console.log( 'merge pana la request', respErr );
-                $scope.htmlString = htmlString( 'Bad credentials!' );
-                $scope.myContent = $sce.trustAsHtml( htmlString( 'Bad credentials' ) );
-                return respErr;
+                $scope.showError = true;
             } );
         };
     }

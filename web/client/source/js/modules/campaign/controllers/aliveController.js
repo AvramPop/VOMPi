@@ -5,10 +5,11 @@
         .module( 'app.campaign' )
         .controller( 'caliveController', caliveController );
 
-    caliveController.$inject = [ '$scope', '$location', '$http', '$stateParams' ];
+    caliveController.$inject = [ '$scope', '$location', '$http', '$stateParams', '$state' ];
 
     /* @ngInject */
-    function caliveController( $scope, $location, $http, $stateParams ) {
+    function caliveController( $scope, $location, $http, $stateParams, $state ) {
+        $scope.currentState = $state.current;
         $http.post( '/api/v1/campaign/search', {
             'name': $stateParams.id
         }, {
@@ -25,24 +26,37 @@
             return respErr;
         } );
 
-        /*  $scope.submit = function () {
-              $http.get( '/api/v1/voter/vote', {
-                  'voterId': 'asta trebuie sa se stie din sesiune',
-                  'campaignId': $scope.campaign._id,
-                  'candidateId': luat din click
-              }, {
-                  headers: {
-                      'Content-Type': 'application/json'
-                  }
-              } ).then( function ( respSucc ) {
-                  console.log( 'merge pana la request', respSucc );
-                  return respSucc;
-              }, function ( respErr ) {
-                  console.log( 'merge pana la request', respErr );
-                  return respErr;
-              } );
-          };
-          */
+        $scope.submit = function ( uid ) {
+            $http.post( '/api/v1/candidate/search', {
+                'uniqueIdentifier': uid
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            } ).then( function ( respSucc1 ) {
+                $http.post( '/api/v1/voter/search', {
+                    'uniqueIdentifier': uid
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                } ).then( function ( respSucc2 ) {
+                    $http.put( '/api/v1/voter/vote', {
+                        'voterId': respSucc2.data.data.voter._id,
+                        'campaignId': $scope.campaign._id,
+                        'candidateId': respSucc1.data.data.candidate._id
+                    }, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    } ).then( function ( respSucc3 ) {
+                        console.log( 'so votat', respSucc3 );
+                    }, function ( respErr3 ) {} );
+                }, function ( respErr2 ) {} );
+            }, function ( respErr1 ) {} );
+
+
+        };
     }
 
 } )();

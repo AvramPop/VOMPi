@@ -4,9 +4,11 @@ exports = module.exports = ( CandidateModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            auth = 1/*JWT.verify( h[ 'x-auth-token' ] )*/;
+            auth = 1 /*JWT.verify( h[ 'x-auth-token' ] )*/ ;
         if ( auth ) {
-            var rec = yield CandidateModel.find( {} ).exec();
+            var rec = yield CandidateModel.find( {} ).populate( {
+                path: 'personId'
+            } ).exec();
             if ( rec ) {
                 this.success( {
                     candidates: rec

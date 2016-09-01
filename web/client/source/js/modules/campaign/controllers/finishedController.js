@@ -9,7 +9,20 @@
 
     /* @ngInject */
     function finishedController( $scope, $location, $http, $state, $stateParams ) {
-
+        $scope.currentState = $state.current;
+        $http.put( '/api/v1/campaign/generateresults', {
+            'name': $stateParams.id
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        } ).then( function ( respSucc1 ) {
+            console.log( 'merge pana la request 3', respSucc1 );
+            return respSucc1;
+        }, function ( respErr ) {
+            console.log( 'merge pana la request 4', respErr );
+            return respErr;
+        } );
 
         $http.post( '/api/v1/campaign/search', {
             'name': $stateParams.id
@@ -26,6 +39,7 @@
             console.log( 'merge pana la request 2', respErr );
             return respErr;
         } );
+
 
 
         angular.element( '.datepicker' ).pickadate( {

@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function psignupController( $scope, $location, $state, $http ) {
-
+        $scope.currentState = $state.current;
         $scope.submit = function () {
             $http.post( '/api/v1/person/signup', $scope.add, {
                 headers: {

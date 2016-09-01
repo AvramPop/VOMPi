@@ -4,7 +4,7 @@ exports = module.exports = ( VoterModel, PersonModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            auth = 1/*JWT.verify( h[ 'x-auth-token' ] )*/;
+            auth = 1 /*JWT.verify( h[ 'x-auth-token' ] )*/ ;
         if ( auth ) {
             var rec = yield PersonModel.findOne( {
                     uniqueIdentifier: b.uniqueIdentifier
@@ -15,7 +15,7 @@ exports = module.exports = ( VoterModel, PersonModel, JWT ) => {
             if ( rec ) {
                 if ( rec2 ) {
                     this.success( {
-                        voters: rec2
+                        voter: rec2
                     } );
                 } else {
                     throw ( {

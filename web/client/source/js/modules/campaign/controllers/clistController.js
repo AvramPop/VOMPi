@@ -5,10 +5,42 @@
         .module( 'app.campaign' )
         .controller( 'clistController', clistController );
 
-    clistController.$inject = [ '$scope', '$location', '$http' ];
+    clistController.$inject = [ '$scope', '$location', '$http', '$stateParams', '$state' ];
 
     /* @ngInject */
-    function clistController( $scope, $location, $http ) {
+    function clistController( $scope, $location, $http, $stateParams, $state ) {
+        $scope.currentState = $state.current;
+        $scope.startalive = function ( name ) {
+            $http.put( '/api/v1/campaign/start', {
+                'name': name
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            } ).then( function ( respSucc ) {
+                console.log( 'start', respSucc );
+                return respSucc;
+            }, function ( respErr ) {
+                console.log( 'err', respErr );
+                return respErr;
+            } );
+        };
+
+        $scope.finishcamp = function ( name ) {
+            $http.put( '/api/v1/campaign/end', {
+                'name': name
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            } ).then( function ( respSucc ) {
+                console.log( 'end', respSucc );
+                return respSucc;
+            }, function ( respErr ) {
+                console.log( 'err', respErr );
+                return respErr;
+            } );
+        };
 
         $http.get( '/api/v1/campaign/list', $scope.add, {
             headers: {

@@ -14,6 +14,7 @@
     /* @ngInject */
     function homeCtrl( $scope, $state, moment, ENV ) {
         console.log( 'home' );
+        $scope.currentState = $state.current;
         /* jshint validthis: true */
         var homeVM = this;
 

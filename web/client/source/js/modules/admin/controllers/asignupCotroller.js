@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function asignupController( $scope, $location, $state, $http ) {
-
+        $scope.currentState = $state.current;
         $scope.submit = function () {
             $http.post( '/api/v1/admin/create', $scope.add, {
                 headers: {

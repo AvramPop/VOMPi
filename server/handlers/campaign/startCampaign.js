@@ -4,16 +4,18 @@ exports = module.exports = ( CampaignModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            auth = 1/*JWT.verify( h[ 'x-auth-token' ] )*/;
+            auth = 1 /*JWT.verify( h[ 'x-auth-token' ] )*/ ;
         if ( auth ) {
-            var rec = yield CampaignModel.findById( b.id ).exec();
+            var rec = yield CampaignModel.findOne( {
+                name: b.name
+            } ).exec();
             if ( rec ) {
                 rec.isCreating = false;
                 rec.isAlive = true;
                 //aici se fac joburile si/sau se pune timer pt durata in ORE!!!
                 rec.save();
                 this.success( {
-                    activated: true
+                    activated: rec
                 } );
             } else {
                 throw ( {

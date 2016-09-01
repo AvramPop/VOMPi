@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function aforgotpassController( $scope, $location, $state, $http ) {
-
+        $scope.currentState = $state.current;
         $scope.submit = function () {
             $http.post( '/api/v1/admin/forgotpass', $scope.add, {
                 headers: {

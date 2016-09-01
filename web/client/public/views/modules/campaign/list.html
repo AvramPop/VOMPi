@@ -26,9 +26,11 @@
               <p id="p">{{x.question}}</p>
             </div>
             <div class="card-action">
-              <a ng-if="x.isAlive == true" data-ui-sref ="layout.alivecampaigndetail({id:x.name})">View Campaign</a>
-              <a ng-if="x.isAlive == false" data-ui-sref ="layout.finishedcampaigndetail({id:x.name})">View Campaign</a>
-              <a data-ui-sref ="layout.assigncandidate({id:x.name})">Edit</a>
+            <a ng-if="x.isCreating == true" data-ng-click="startalive(x.name)" data-ui-sref ="layout.alivecampaigndetail({id:x.name})">Start now!</a>
+              <a ng-if="x.isAlive == true && x.isCreating == false" data-ui-sref ="layout.alivecampaigndetail({id:x.name})">View Campaign</a>
+              <a ng-if="x.isAlive == false && x.isCreating == false" data-ui-sref ="layout.finishedcampaigndetail({id:x.name})">View Campaign</a>
+              <a ng-if="x.isAlive == true" data-ng-click="finishcamp(x.name)" data-ui-sref ="layout.finishedcampaigndetail({id:x.name})">Finish!</a>
+              <a ng-if="x.isCreating == true" data-ui-sref ="layout.assigncandidate({id:x.name})">Edit</a>
             </div>
          </div>
        </div>

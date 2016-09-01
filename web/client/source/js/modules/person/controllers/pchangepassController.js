@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function pchangepassController( $scope, $location, $state, $http ) {
-
+        $scope.currentState = $state.current;
         $scope.submit = function () {
             $http.put( '/api/v1/person/changepass', $scope.add, {
                 headers: {

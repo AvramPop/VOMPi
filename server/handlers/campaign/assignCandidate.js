@@ -4,7 +4,7 @@ exports = module.exports = ( CampaignModel, CandidateModel, JWT ) => {
     return function* () {
         let h = this.request.header,
             b = this.request.body,
-            auth = 1/*JWT.verify( h[ 'x-auth-token' ] )*/;
+            auth = 1 /*JWT.verify( h[ 'x-auth-token' ] )*/ ;
         if ( auth ) {
             var campaignRec = yield CampaignModel.findById( b.campaignId ).exec(),
                 candidateRec = yield CandidateModel.findById( b.candidateId ).exec();
@@ -19,7 +19,7 @@ exports = module.exports = ( CampaignModel, CandidateModel, JWT ) => {
                     if ( campaignRec.isCreating ) {
                         if ( !k ) {
                             campaignRec.candidates.push( candidateRec._id );
-                            console.log( campaignRec.candidates );
+                            console.log( campaignRec );
                             yield campaignRec.save();
                             this.success( {
                                 campaign: campaignRec
