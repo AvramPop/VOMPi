@@ -2,7 +2,7 @@
   "name": "voting-app",
   "version": "1.0.0",
   "description": "A voting application for Romania",
-  "main": "server/server.js",
+  "main": "./server/server.js",
   "scripts": {
     "start": "gulp start",
     "apidoc": "./node_modules/apidoc/bin/apidoc -i ./server/handlers",
