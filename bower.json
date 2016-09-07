@@ -1,8 +1,8 @@
 {
-  "name": "romania360-trip-planner-app",
+  "name": "votting app",
   "homepage": "https://github.com/kovacssupki/Voting-Platform.git",
   "authors": [
-    "Alexandru-Robert Kovacs<alexandruk@fortech.ro>"
+    ""
   ],
   "description": "A voting application for Romania",
   "main": "server.js",
