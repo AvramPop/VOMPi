@@ -32,12 +32,12 @@
     "moment": "~2.13.0",
     "ng-materialize": "^0.1.2",
     "restangular": "^1.5.2",
-    "Waves": "waves#^0.7.5",
+    "waves": "^0.7.5",
     "materialize": "^0.97.7"
   },
   "resolutions": {
-    "angular": "~1.5",
-    "jquery": "2.2.3",
-    "angular-animate": "~1.5.5"
+    "angular": "1.5.8",
+    "angular-animate": "~1.4.0",
+    "waves": "0.7.2"
   }
 }
