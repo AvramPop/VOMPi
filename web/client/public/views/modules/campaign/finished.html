@@ -2,45 +2,42 @@
 <div class="center">
      <h4>{{campaign.name}}</h4>
      <h4>{{campaign.question}}</h4>
-       <h5>Winner</h5>
-       <div class = "row">
+       <div class = "row" style="margin: auto; width: 18%;">
            <div class="col s90 m40">
                 <div class="card horizontal">
                    <div class="card-stacked">
                        <div class="card-content">
-                           <span class="card-title" id="dani">{{campaign.candidates[0].personId.firstName}} {{campaign.candidates[0].personId.lastName}}</span>
-                                                      <p>{{campaign.candidates[0].type}}</p>
-                           <p ng-if="campaign.candidates[0]">Number of votes: {{campaign.candidates[0].numberOfVotes}}</p>
+                           <span class="card-title" id="dani" align="center"><b>{{campaign.candidates[0].personId.firstName}} {{campaign.candidates[0].personId.lastName}}</span>
+                                                      <p align="center">{{campaign.candidates[0].type}}</b></p>
+                           <p ng-if="campaign.candidates[0]" align="center">Number of votes: <b>{{campaign.candidates[0].numberOfVotes}}</b></p>
 
                        </div>
                </div>
            </div>
        </div>
   </div>
-     <div class="container">
 <h5>Runner-ups</h5>
         <ul>
               <div class="row">
         <li ng-repeat="x in candidates" ng-if="$index > 0">
             <div class = "row">
+              <div class = "col s4">
                 <div class="col s90 m40">
                      <div class="card horizontal">
                         <div class="card-stacked">
                             <div class="card-content">
-                                <span class="card-title" id="kjh">{{x.personId.firstName}} {{x.personId.lastName}}</span>
-                                                                <p>{{x.type}}</p>
-                                <p>Number of votes: {{x.numberOfVotes}}</p>
+                                <span class="card-title" id="kjh" align="center">{{x.personId.firstName}} {{x.personId.lastName}}</span>
+                                                                <p align="center">{{x.type}}</p>
+                                <p align="center">Number of votes: {{x.numberOfVotes}}</p>
 
                             </div>
                     </div>
                 </div>
             </div>
+          </div>
          </div>
     </li>
       </div>
     </ul>
 
   </div>
-     </div>
-</body>
-</div>

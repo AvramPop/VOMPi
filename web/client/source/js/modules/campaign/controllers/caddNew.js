@@ -43,6 +43,7 @@
                         }
                     } ).then( function ( respSucc3 ) {
                         console.log( 'facut totu perfect', respSucc3 );
+                        $state.go( 'layout.listcampaigns' );
                     }, function ( respErr3 ) {} );
                 }, function ( respErr2 ) {} );
             }, function ( respErr1 ) {} );

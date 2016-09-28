@@ -5,7 +5,6 @@
 <div class="section scrollspy" id="work">
     <div class = "container">
       <h3>My Campaigns</h3>
-<div ng-init="names=['Ponta','Iohannis','Basescu']; parties=['PSD','PNL','PMP']">
   <ul >
     <li ng-repeat="x in campaigns">
     <!--we have to change color by the state of the campaign, add new row after every four campaigns-->
@@ -14,15 +13,7 @@
          <!-- <div ng-if="{{x}} == 'Jani''">-->
          <div class="card">
             <div class="card-content">
-              <div ng-if="x.isAlive == true && x.isCreating == false">
-              <span class="card-title" id="dani">{{x.name}}<div align="right"><b>ALIVE NOW</b></div></span>
-            </div>
-            <div ng-if="x.isAlive == false && x.isCreating == false">
-            <span class="card-title" id="dani1">{{x.name}}<div align="right"><b>FINISHED</b></div></span>
-          </div>
-          <div ng-if="x.isCreating == true && x.isAlive == false">
-          <span class="card-title" id="dani1">{{x.name}}<div align="right"><b>CREATING</b></div></span>
-        </div>
+<span class="card-title" id="dani1">{{x.name}}</span>
               <p id="p">{{x.question}}</p>
             </div>
             <div class="card-action">
@@ -31,6 +22,17 @@
               <a ng-if="x.isAlive == false && x.isCreating == false" data-ui-sref ="layout.finishedcampaigndetail({id:x.name})">View Campaign</a>
               <a ng-if="x.isAlive == true" data-ng-click="finishcamp(x.name)" data-ui-sref ="layout.finishedcampaigndetail({id:x.name})">Finish!</a>
               <a ng-if="x.isCreating == true" data-ui-sref ="layout.assigncandidate({id:x.name})">Edit</a>
+              <div align = "right">
+              <div ng-if="x.isAlive == true && x.isCreating == false">
+              <p style = "color: green;">ALIVE NOW</p>
+            </div>
+            <div ng-if="x.isAlive == false && x.isCreating == false">
+            <p style = "color: #c62828 ;">FINISHED</p>
+          </div>
+          <div ng-if="x.isCreating == true && x.isAlive == false">
+          <p style = "color: #fbc02d;">CREATING</p></div>
+        </div>
+      </div>
             </div>
          </div>
        </div>
